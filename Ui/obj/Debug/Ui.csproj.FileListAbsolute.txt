@@ -1,0 +1,14 @@
+C:\Users\Uth\Desktop\WoddenLegs\Ui\bin\Debug\Ui.exe.config
+C:\Users\Uth\Desktop\WoddenLegs\Ui\bin\Debug\Ui.exe
+C:\Users\Uth\Desktop\WoddenLegs\Ui\bin\Debug\Ui.pdb
+C:\Users\Uth\Desktop\WoddenLegs\Ui\obj\Debug\Ui.csprojAssemblyReference.cache
+C:\Users\Uth\Desktop\WoddenLegs\Ui\obj\Debug\MainWindow.g.cs
+C:\Users\Uth\Desktop\WoddenLegs\Ui\obj\Debug\App.g.cs
+C:\Users\Uth\Desktop\WoddenLegs\Ui\obj\Debug\Ui_MarkupCompile.cache
+C:\Users\Uth\Desktop\WoddenLegs\Ui\obj\Debug\Ui_MarkupCompile.lref
+C:\Users\Uth\Desktop\WoddenLegs\Ui\obj\Debug\MainWindow.baml
+C:\Users\Uth\Desktop\WoddenLegs\Ui\obj\Debug\Ui.g.resources
+C:\Users\Uth\Desktop\WoddenLegs\Ui\obj\Debug\Ui.Properties.Resources.resources
+C:\Users\Uth\Desktop\WoddenLegs\Ui\obj\Debug\Ui.csproj.GenerateResource.cache
+C:\Users\Uth\Desktop\WoddenLegs\Ui\obj\Debug\Ui.exe
+C:\Users\Uth\Desktop\WoddenLegs\Ui\obj\Debug\Ui.pdb
