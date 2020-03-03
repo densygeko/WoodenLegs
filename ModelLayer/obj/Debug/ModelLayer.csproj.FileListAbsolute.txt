@@ -1,0 +1,7 @@
+C:\Users\Uth\Desktop\WoddenLegs\ModelLayer\bin\Debug\ModelLayer.dll
+C:\Users\Uth\Desktop\WoddenLegs\ModelLayer\bin\Debug\ModelLayer.pdb
+C:\Users\Uth\Desktop\WoddenLegs\ModelLayer\bin\Debug\Microsoft.Azure.Amqp.dll
+C:\Users\Uth\Desktop\WoddenLegs\ModelLayer\obj\Debug\ModelLayer.csprojAssemblyReference.cache
+C:\Users\Uth\Desktop\WoddenLegs\ModelLayer\obj\Debug\ModelLayer.csproj.CopyComplete
+C:\Users\Uth\Desktop\WoddenLegs\ModelLayer\obj\Debug\ModelLayer.dll
+C:\Users\Uth\Desktop\WoddenLegs\ModelLayer\obj\Debug\ModelLayer.pdb

@@ -1,0 +1,8 @@
+C:\Users\Uth\Desktop\WoddenLegs\ControllerLayer\bin\Debug\ControllerLayer.dll
+C:\Users\Uth\Desktop\WoddenLegs\ControllerLayer\bin\Debug\ControllerLayer.pdb
+C:\Users\Uth\Desktop\WoddenLegs\ControllerLayer\bin\Debug\ModelLayer.dll
+C:\Users\Uth\Desktop\WoddenLegs\ControllerLayer\bin\Debug\ModelLayer.pdb
+C:\Users\Uth\Desktop\WoddenLegs\ControllerLayer\obj\Debug\ControllerLayer.csprojAssemblyReference.cache
+C:\Users\Uth\Desktop\WoddenLegs\ControllerLayer\obj\Debug\ControllerLayer.csproj.CopyComplete
+C:\Users\Uth\Desktop\WoddenLegs\ControllerLayer\obj\Debug\ControllerLayer.dll
+C:\Users\Uth\Desktop\WoddenLegs\ControllerLayer\obj\Debug\ControllerLayer.pdb

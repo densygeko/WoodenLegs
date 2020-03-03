@@ -4,61 +4,72 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ModelLayer;
 
 namespace ControllerLayer
 {
     public class FileController
     {
-
-        private List<string> pdfs = new List<string>();
-        private List<string> pcaps = new List<string>();
-        private List<string> billedeFiler = new List<string>();
-        private List<string> xmls = new List<string>();
-        private List<List<string>> fileTypes = new List<List<string>>();
+        private FilesContainer files;
+        private List<directory> directories; 
         public FileController()
         {
-            
-            fileTypes.Add(pdfs);
-            fileTypes.Add(pcaps);
-            fileTypes.Add(billedeFiler);
-            fileTypes.Add(xmls);
+            files = FilesContainer.getInstance();
+            directories = new List<directory>();
         }
 
-        public List<List<string>> Getfiles(string path)
+        public void Getfiles(string path)
         {
-            string[] dirs = Directory.GetDirectories(path);
-            string[] fils = Directory.GetFiles(path);
-            if (fils.Length > 0)
+            directory maindir = new directory(path);
+            directories.Add(maindir);
+            int trueres = 0;
+            while(directories.Count != trueres)
             {
-                Sortfiles(fils);
-                
+                for (int i = 0; i < directories.Count; i++)
+                {
+                    if (directories[i].read == false)
+                    {
+                        string[] dir = Directory.GetDirectories(directories[i].path);
+                        foreach (var item1 in dir)
+                        {
+                            directory newdir = new directory(item1);
+                            directories.Add(newdir);
+                        }
+                        directories[i].read = true;
+                        trueres++;
+                    }
+                }
             }
-            foreach (var item in dirs)
+            foreach (var item in directories)
             {
-                string[] files = Directory.GetFiles(item);
-                Sortfiles(files);
+                Sortfiles(Directory.GetFiles(item.path));
             }
-            return fileTypes;
         }
-        public void Sortfiles(string[] files)
+        public void Sortfiles(string[] incfiles)
         {
-            foreach (var item in files)
+            foreach (var item in incfiles)
             {
                 string supstring = item.Substring(item.LastIndexOf(".") + 1);
-                supstring.ToUpper();
+                supstring = supstring.ToUpper();
                 switch (supstring)
                 {
-                    case ".PDF":
-                        pdfs.Add(item);
+                    case "PDF":
+                        files.Getpdfs().Add(item);
                         break;
-                    case ".PCAP":
-                        pcaps.Add(item);
+                    case "PCAP":
+                        files.getpcaps().Add(item);
                         break;
-                    case ".PNG":
-                        billedeFiler.Add(item);
+                    case "PNG":
+                        files.GetPictures().Add(item);
                         break;
-                    case ".XML":
-                        xmls.Add(item);
+                    case "XML":
+                        files.GetPictures().Add(item);
+                        break;
+                    case "JPEG":
+                        files.GetPictures().Add(item);
+                        break;
+                    case "JPG":
+                        files.GetPictures().Add(item);
                         break;
                     default:
                         break;
@@ -67,7 +78,26 @@ namespace ControllerLayer
         }
         public List<List<string>> GetAllfiletypes()
         {
-            return fileTypes;
+            return files.Getfiletypes();
+        }
+
+        public List<string> getpdf()
+        {
+            return files.Getpdfs();
+        }
+        public List<string> getxmls()
+        {
+            return files.getxmls();
+        }
+        public List<string> getpcaps()
+        {
+            return files.GetPictures();
+
+        }
+       
+        public List<string> getpictures()
+        {
+        return files.GetPictures();
         }
     }
 }
