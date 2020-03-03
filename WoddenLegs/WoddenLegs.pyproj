@@ -21,7 +21,13 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="DbLayer\DbConnection.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="ModelLayer\RawData.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="PythonTest\DbConnectionTest.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="WoddenLegs.py" />
@@ -30,6 +36,8 @@
     <Folder Include="ModelLayer\" />
     <Folder Include="ControlLayer\" />
     <Folder Include="DatabaseLayer\" />
+    <Folder Include="DbLayer\" />
+    <Folder Include="PythonTest\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in
