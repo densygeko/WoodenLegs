@@ -65,6 +65,10 @@
       <Project>{9a4d451d-a979-418a-954c-0fec4d26c797}</Project>
       <Name>ControllerLayer</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ModelLayer\ModelLayer.csproj">
+      <Project>{e7762d27-37be-4971-b470-1aa9b5393c1c}</Project>
+      <Name>ModelLayer</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="test\mappe1\test.txt" />

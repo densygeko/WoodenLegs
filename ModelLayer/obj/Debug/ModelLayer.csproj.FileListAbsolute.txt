@@ -5,3 +5,10 @@ C:\Users\Uth\Desktop\WoddenLegs\ModelLayer\obj\Debug\ModelLayer.csprojAssemblyRe
 C:\Users\Uth\Desktop\WoddenLegs\ModelLayer\obj\Debug\ModelLayer.csproj.CopyComplete
 C:\Users\Uth\Desktop\WoddenLegs\ModelLayer\obj\Debug\ModelLayer.dll
 C:\Users\Uth\Desktop\WoddenLegs\ModelLayer\obj\Debug\ModelLayer.pdb
+C:\Users\Bruger\Desktop\Wodden-legs\WoddenLegs\ModelLayer\bin\Debug\ModelLayer.dll
+C:\Users\Bruger\Desktop\Wodden-legs\WoddenLegs\ModelLayer\bin\Debug\ModelLayer.pdb
+C:\Users\Bruger\Desktop\Wodden-legs\WoddenLegs\ModelLayer\bin\Debug\Microsoft.Azure.Amqp.dll
+C:\Users\Bruger\Desktop\Wodden-legs\WoddenLegs\ModelLayer\obj\Debug\ModelLayer.csprojAssemblyReference.cache
+C:\Users\Bruger\Desktop\Wodden-legs\WoddenLegs\ModelLayer\obj\Debug\ModelLayer.csproj.CopyComplete
+C:\Users\Bruger\Desktop\Wodden-legs\WoddenLegs\ModelLayer\obj\Debug\ModelLayer.dll
+C:\Users\Bruger\Desktop\Wodden-legs\WoddenLegs\ModelLayer\obj\Debug\ModelLayer.pdb
