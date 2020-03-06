@@ -4,7 +4,8 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>f3e2347f-7cc2-4d5a-90c9-20e3b82dd8e9</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>WoddenLegs.py</StartupFile>
+    <StartupFile>
+    </StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -21,13 +22,10 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="DbLayer\DbConnection.py">
+    <Compile Include="DatabaseLayer\DB_Connection.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="ModelLayer\RawData.py">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="PythonTest\DbConnectionTest.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="WoddenLegs.py" />
@@ -36,7 +34,6 @@
     <Folder Include="ModelLayer\" />
     <Folder Include="ControlLayer\" />
     <Folder Include="DatabaseLayer\" />
-    <Folder Include="DbLayer\" />
     <Folder Include="PythonTest\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
