@@ -6,8 +6,7 @@
     <ProjectHome>.</ProjectHome>
     <StartupFile>
     </StartupFile>
-    <SearchPath>
-    </SearchPath>
+    <SearchPath>DatabaseLayer</SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
     <Name>WoddenLegs</Name>
@@ -22,6 +21,9 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="DatabaseLayer\DB_PreparedStatements_RawData.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="DatabaseLayer\DB_Connection.py">
       <SubType>Code</SubType>
     </Compile>
