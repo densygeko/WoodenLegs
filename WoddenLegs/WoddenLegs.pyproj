@@ -21,7 +21,7 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="DatabaseLayer\DB_PreparedStatements_RawData.py">
+    <Compile Include="DatabaseLayer\DB_RawData.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="DatabaseLayer\DB_Connection.py">
@@ -30,7 +30,9 @@
     <Compile Include="ModelLayer\RawData.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="WoddenLegs.py" />
+    <Compile Include="PythonTest\DB_Test.py">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ModelLayer\" />
