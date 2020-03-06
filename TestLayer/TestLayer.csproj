@@ -54,11 +54,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <None Include="test\mappe1\Forslag_fjernaflasning_til_generalforsamling.pdf" />
-    <None Include="test\mappe1\mappe3\sample.pdf" />
-    <None Include="test\mappe1\mappe4\1-5122026-1.pdf" />
-    <None Include="test\mappe2\1.-Senesterprojekt %281%29.pdf" />
-    <None Include="test\mappe2\180244_tekst_opg1.pdf" />
+    <None Include="bin\Debug\test\mappe1\Forslag_fjernaflasning_til_generalforsamling.pdf" />
+    <None Include="bin\Debug\test\mappe1\mappe3\sample.pdf" />
+    <None Include="bin\Debug\test\mappe1\mappe4\1-5122026-1.pdf" />
+    <None Include="bin\Debug\test\mappe2\1.-Senesterprojekt %281%29.pdf" />
+    <None Include="bin\Debug\test\mappe2\180244_tekst_opg1.pdf" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ControllerLayer\ControllerLayer.csproj">
@@ -71,7 +71,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="test\mappe1\test.txt" />
+    <Content Include="bin\Debug\test\mappe1\test.txt" />
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

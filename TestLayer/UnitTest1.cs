@@ -2,6 +2,7 @@
 using ModelLayer;
 using ControllerLayer;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.IO;
 
 namespace TestLayer
 {
@@ -16,8 +17,9 @@ namespace TestLayer
             FilesContainer Fcon = FilesContainer.getInstance();
             FileController Fctr = new FileController();
             //act
-            //using the testfolder the in the TestLayer \\ folder needs to updata on every pull from github\\ need a fix for this
-            Fctr.Getfiles(@"C:\Users\Bruger\Desktop\Wodden-legs\WoddenLegs\TestLayer\test\");
+            //using the testfolder the in the TestLayer + bin + debug+test \\ 
+            string folderoath = Directory.GetCurrentDirectory();
+            Fctr.Getfiles(folderoath + @"\test\");
             //Asert
             //checks that the amount of pdfs are 5 would mean that method have found all the pdfs in the testing folder
             Assert.AreEqual<int>(5, Fcon.pdfs.Count);
