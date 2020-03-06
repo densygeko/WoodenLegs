@@ -45,7 +45,6 @@ class DB_Connection(object):
     "keyWord"    TEXT NOT NULL,
     "id_BlackListType"    INTEGER NOT NULL
 );""")
-
+      
         DB_Connection.conn.commit()
-
-        DB_Connection.conn.close ()
+        DB_Connection.conn.close()
