@@ -39,6 +39,7 @@ class DB_Connection(object):
     "email"    INTEGER NOT NULL DEFAULT 0 CHECK(email IN (0,1)),
     "ip"    INTEGER NOT NULL DEFAULT 0 CHECK(ip IN (0,1))
 ); """)
+       
 
         c.execute ("""CREATE TABLE IF NOT EXISTS "BlacklistKeyWord" (
     "id"    INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE,
