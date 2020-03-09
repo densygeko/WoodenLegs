@@ -11,11 +11,7 @@
     <OutputPath>.</OutputPath>
     <Name>WoddenLegs</Name>
     <RootNamespace>WoddenLegs</RootNamespace>
-<<<<<<< HEAD
-    <TestFramework>Pytest</TestFramework>
-=======
     <TestFramework>unittest</TestFramework>
->>>>>>> 261494b0cc0c1410973c5f2a26c1c355a90a5261
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -26,9 +22,6 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="DatabaseLayer\DB_BlacklistType.py">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="DatabaseLayer\DB_RawData.py">
       <SubType>Code</SubType>
     </Compile>
