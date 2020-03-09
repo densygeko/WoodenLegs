@@ -15,7 +15,7 @@ class PdfReader:
         for i in range(fileReader.getNumPages()): #Run this code once for each page in PDF file
             page = fileReader.getPage(i) #Specify page to read
             xObject = page['/Resources']['/XObject'].getObject() #Gets list of elements in page
-            text = ""
+            text = "" #This will contain the text on the current page
             
             for obj in xObject:
                 if xObject[obj]['/Subtype'] == '/Image': #If element is an image, resize and set color mode
@@ -35,20 +35,20 @@ class PdfReader:
                     elif xObject[obj]['/Filter'] == '/DCTDecode':
                         img = open(obj[1:] + ".jpg", "wb")
                         img.write(data) #Save image in project directory
-                        img = Image.open(obj[1:] + ".jpg").convert('RGB') #Open and convert image (this is hardcoded, needs to be fixed)
+                        img = Image.open(obj[1:] + ".jpg").convert('RGB') #Open and convert image
                         open_cv_image = np.array(img)
                         open_cv_image = open_cv_image[:, :, ::-1].copy() #Change image type to opencv from PIL
-                        text += pytesseract.image_to_string(img) + " " #Read any text in image
+                        text += pytesseract.image_to_string(img) + " " #Read any text in image and add to text str
                         img.close()
 
-                    elif xObject[obj]['/Filter'] == '/JPXDecode':
+                    elif xObject[obj]['/Filter'] == '/JPXDecode': #Haven't found anything to test this with, so it might not work
                         img = open(obj[1:] + ".jp2", "wb")
                         img.write(data)
                         #Change image type to opencv
-                        img = Image.open('Im7.jpg').convert('RGB')
+                        img = Image.open(obj[1:] + ".jp2").convert('RGB')
                         open_cv_image = np.array(img)
-                        open_cv_image = open_cv_image[:, :, ::-1].copy()
-                        text += pytesseract.image_to_string(img) + " " #Read any text in image
+                        open_cv_image = open_cv_image[:, :, ::-1].copy() #Change image type to opencv
+                        text += pytesseract.image_to_string(img) + " " #Read any text in image and add to text str
                         img.close()
 
             text += page.extractText()
