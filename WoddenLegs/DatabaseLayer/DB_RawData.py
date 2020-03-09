@@ -18,7 +18,28 @@ class DB_RawData(object):
         conn = sqlite3.connect('dbwoddenlegs.db')
         c = conn.cursor()
         c.execute(
-            """DELETE FROM RawData WHERE id=?; """(id)
+            "DELETE FROM RawData WHERE id= ?;", (id,)
             )
-        DB_RawData.conn.commit()
-        DB_RawData.conn.close()
+        conn.commit()
+        conn.close()
+
+    def Find_by_ID(id):
+        conn= sqlite3.connect('dbwoddenlegs.db')
+        c = conn.cursor()
+        c.execute(
+            "SELECT * FROM RawData Where id= ?",(id,)
+            )
+        rows = c.fetchall()
+        
+        conn.close()
+        return rows     
+    
+    def Find_all():
+        conn = sqlite3.connect('dbwoddenlegs.db')
+        c = conn.cursor()
+        c.execute(
+            "Select * From RawData"
+            )
+        rows = c.fetchall()
+        conn.close()
+        return rows
