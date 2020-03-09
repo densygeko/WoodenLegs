@@ -1,19 +1,15 @@
 import sqlite3
 class DB_Connection(object):
-
-
-    conn = sqlite3.connect('dbwoddenlegs.db')
-
-    c = conn.cursor()
     def db_check():
-        conn = sqlite3.connect('dbwoddenlegs.db')
 
+        conn = sqlite3.connect('dbwoddenlegs.db')
         c = conn.cursor()
         c.execute("""CREATE TABLE IF NOT EXISTS "RawData" (
     "id"    INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE,
     "text"    TEXT NOT NULL,
     "path"    TEXT NOT NULL,
-    "fileType"    TEXT NOT NULL
+    "fileType"    TEXT NOT NULL,
+    "pageNumber"    INTEGER NOT NULL
 );""" )
 
         c.execute("""CREATE TABLE IF NOT EXISTS "Number" (
