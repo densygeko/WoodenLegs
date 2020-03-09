@@ -1,9 +1,7 @@
 import sqlite3
 class DB_Connection(object):
-
-
-
     def db_check():
+
         conn = sqlite3.connect('dbwoddenlegs.db')
         c = conn.cursor()
         c.execute("""CREATE TABLE IF NOT EXISTS "RawData" (
@@ -37,9 +35,9 @@ class DB_Connection(object):
 
         c.execute("""CREATE TABLE IF NOT EXISTS "BlacklistType" (
     "id"    INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE,
-    "number"    NUMERIC CHECK(-1<number>=1),
-    "email"    NUMERIC CHECK(-1<email>=1),
-    "ip"    NUMERIC CHECK(-1<ip>=1)
+    "number"    INTEGER NOT NULL DEFAULT 0 CHECK(number IN (0,1)),
+    "email"    INTEGER NOT NULL DEFAULT 0 CHECK(email IN (0,1)),
+    "ip"    INTEGER NOT NULL DEFAULT 0 CHECK(ip IN (0,1))
 ); """)
 
         c.execute ("""CREATE TABLE IF NOT EXISTS "BlacklistKeyWord" (
