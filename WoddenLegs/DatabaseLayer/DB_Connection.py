@@ -18,8 +18,9 @@ class DB_Connection(object):
     "id"    INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE,
     "path"    TEXT NOT NULL,
     "identifier"    TEXT NOT NULL,
-    "id_raw"    INTEGER NOT NULL
-);""")
+    id_raw INTEGER NOT NULL
+
+); """)
 
         c.execute("""CREATE TABLE IF NOT EXISTS "Ip" (
     "id"    INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE,

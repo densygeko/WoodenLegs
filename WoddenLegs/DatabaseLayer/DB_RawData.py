@@ -14,7 +14,7 @@ class DB_RawData(object):
         conn.close()
 
 
-    def Delete_by_ID(id):
+    def delete_by_ID(id):
         conn = sqlite3.connect('dbwoddenlegs.db')
         c = conn.cursor()
         c.execute(
@@ -23,7 +23,7 @@ class DB_RawData(object):
         conn.commit()
         conn.close()
 
-    def Find_by_ID(id):
+    def find_by_ID(id):
         conn= sqlite3.connect('dbwoddenlegs.db')
         c = conn.cursor()
         c.execute(
@@ -34,7 +34,7 @@ class DB_RawData(object):
         conn.close()
         return rows     
     
-    def Find_all():
+    def find_all():
         conn = sqlite3.connect('dbwoddenlegs.db')
         c = conn.cursor()
         c.execute(
