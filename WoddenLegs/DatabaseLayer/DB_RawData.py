@@ -13,18 +13,6 @@ class DB_RawData(object):
         conn.commit()
         conn.close()
 
-
-    def insert_querry_all(text,path,fileType):
-        conn = sqlite3.connect('dbwoddenlegs.db')
-        c = conn.cursor()
-        c.execute(
-          """ INSERT INTO RawData (text,path,fileType) VALUES (?,?,?);
-            """, (text,path,fileType))
-        conn.commit()
-        conn.close()
-        
-
-
     def Delete_by_ID(id):
         conn = sqlite3.connect('dbwoddenlegs.db')
         c = conn.cursor()

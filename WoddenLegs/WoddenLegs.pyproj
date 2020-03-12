@@ -22,6 +22,9 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="DatabaseLayer\DB_BlacklistKeyword.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="DatabaseLayer\DB_BlacklistType.py">
       <SubType>Code</SubType>
     </Compile>
@@ -35,6 +38,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="PythonTest\DB_Test.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="PythonTest\test_1.py">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
