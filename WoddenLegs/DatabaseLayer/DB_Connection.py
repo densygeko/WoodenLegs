@@ -42,6 +42,7 @@ class DB_Connection(object):
     "email"    NUMERIC CHECK(-1<email>=1),
     "ip"    NUMERIC CHECK(-1<ip>=1)
 ); """)
+       
 
         c.execute ("""CREATE TABLE IF NOT EXISTS "BlacklistKeyWord" (
     "id"    INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE,
