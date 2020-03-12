@@ -11,11 +11,8 @@
     <OutputPath>.</OutputPath>
     <Name>WoddenLegs</Name>
     <RootNamespace>WoddenLegs</RootNamespace>
-
     <TestFramework>unittest</TestFramework>
-
     <TestFramework>Pytest</TestFramework>
-
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -26,6 +23,15 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="DatabaseLayer\DB_Email.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DatabaseLayer\DB_Ip.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DatabaseLayer\DB_Number.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="DatabaseLayer\DB_RawData.py">
       <SubType>Code</SubType>
     </Compile>
@@ -35,13 +41,49 @@
     <Compile Include="ModelLayer\RawData.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="PythonTest\Delete_By_Id_Test.py">
+    <Compile Include="PythonTest\Email_Update_on_id.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="PythonTest\FindAll.py">
+    <Compile Include="PythonTest\Ip_FindAll.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="PythonTest\FindByID.py">
+    <Compile Include="PythonTest\Ip_find_by_Id.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="PythonTest\Ip_InsertAll_Test.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="PythonTest\Ip_Update_on_id.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="PythonTest\Number_FindAll.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="PythonTest\Number_find_by_id.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="PythonTest\Number_InsertAll_Test.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="PythonTest\Number_Update_on_id.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="PythonTest\RawData_Delete_By_Id_Test.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="PythonTest\Email_FindAll.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="PythonTest\Email_find_by_ID.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="PythonTest\Email_InsertAll_Test.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="PythonTest\RawData_FindAll.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="PythonTest\RawData_FindByID.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="PythonTest\RawData_Insert_All_Test.py">
