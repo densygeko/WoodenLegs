@@ -17,3 +17,7 @@ C:\Users\Uth\Desktop\WoddenLegs\Ui\bin\Debug\ModelLayer.dll
 C:\Users\Uth\Desktop\WoddenLegs\Ui\bin\Debug\ControllerLayer.pdb
 C:\Users\Uth\Desktop\WoddenLegs\Ui\bin\Debug\ModelLayer.pdb
 C:\Users\Uth\Desktop\WoddenLegs\Ui\obj\Debug\Ui.csproj.CopyComplete
+C:\Users\Uth\Desktop\WoddenLegs\Ui\obj\Debug\DisplayIdentifier.g.cs
+C:\Users\Uth\Desktop\WoddenLegs\Ui\obj\Debug\DisplayIdentifier.baml
+C:\Users\Uth\Desktop\WoddenLegs\Ui\obj\Debug\LibBrowser.g.cs
+C:\Users\Uth\Desktop\WoddenLegs\Ui\obj\Debug\LibBrowser.baml

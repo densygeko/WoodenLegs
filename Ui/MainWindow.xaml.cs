@@ -25,29 +25,10 @@ namespace Ui
         public MainWindow()
         {
             InitializeComponent();
+            LibBrowser libBrowser = new LibBrowser();
+            myFrame.NavigationService.Navigate(libBrowser);
         }
 
-        //when you click on the browser bottom
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            using (FolderBrowserDialog FBD = new FolderBrowserDialog())
-            {
-                string folderPath;
-                FBD.ShowDialog();
-                if(FBD.SelectedPath != null)
-                {
-                    folderPath = FBD.SelectedPath;
-                    Textbox.Text = folderPath;
-                }
-            }
-        }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            string path;
-            path = Textbox.Text;
-            FileController Fctr = new FileController();
-            
-        }
+        
     }
 }

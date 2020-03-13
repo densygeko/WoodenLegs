@@ -1,0 +1,16 @@
+﻿<Page x:Class="Ui.LibBrowser"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Ui"
+      mc:Ignorable="d" 
+      d:DesignHeight="900" d:DesignWidth="1600"
+      Title="LibBrowser">
+
+    <Grid>
+        <Button Content="Bekraft" HorizontalAlignment="Left" Margin="927,405,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>
+        <Button Content="Browse" HorizontalAlignment="Left" Margin="927,360,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+        <TextBox HorizontalAlignment="Left" Height="20" Margin="587,360,0,0" Name="Textbox" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="256"/>
+    </Grid>
+</Page>
