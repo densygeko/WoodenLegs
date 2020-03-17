@@ -38,6 +38,15 @@
     <Compile Include="DatabaseLayer\DB_Connection.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="ModelLayer\EmailML.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ModelLayer\IpML.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ModelLayer\Number.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="ModelLayer\RawData.py">
       <SubType>Code</SubType>
     </Compile>

@@ -2,7 +2,9 @@ import unittest
 import DB_Ip
 class Test_FindAll(unittest.TestCase):
     def test_FindAll(self):
-       print(DB_Ip.DB_Ip.find_all())
+       testIp = DB_Ip.DB_Ip.find_all()
+       for x in testIp:
+           print(x.identifier)
 
 if __name__ == '__main__':
     unittest.main()

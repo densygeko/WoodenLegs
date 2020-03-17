@@ -1,4 +1,4 @@
-
+import EmailML
 import DB_Connection
 import sqlite3
 class DB_Email(object):
@@ -21,8 +21,13 @@ class DB_Email(object):
             "Select * From Email"
             )
         rows = c.fetchall()
+        EM_list = []
+        for x in rows:
+            EM = EmailML.Email(x[0],x[1],x[2],x[3])
+            EM_list.append(EM)
+
         conn.close()
-        return rows
+        return EM_list
 
     def find_by_ID(id):
         conn = sqlite3.connect('dbwoddenlegs.db')
@@ -31,9 +36,9 @@ class DB_Email(object):
             "SELECT * FROM Email Where id= ?",(id,)
             )
         rows = c.fetchall()
-        
+        EM = EmailML.Email(rows[0][0], rows[0][1], rows[0][2], rows[0][3])
         conn.close()
-        return rows     
+        return EM     
 
     def update_on_id(id, path, identifier, id_rawData):
         conn = sqlite3.connect('dbwoddenlegs.db')

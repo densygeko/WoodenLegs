@@ -31,7 +31,7 @@ class DB_RawData(object):
             "SELECT * FROM RawData Where id= ?",(id,)
             )
         rows = c.fetchall()
-        RD = RawData(rows[0][0], rows[0][1], rows[0][2],rows[0][3], rows[0][4], rows[0][5])
+        RD = RawData.RawData(rows[0][0], rows[0][1], rows[0][2], rows[0][3], rows[0][4])
         conn.close()
         return RD     
         
