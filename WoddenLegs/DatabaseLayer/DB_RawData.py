@@ -1,5 +1,6 @@
 import DB_Connection
 import sqlite3
+import RawData 
 class DB_RawData(object):
 
     DB_Connection.DB_Connection.db_check()
@@ -30,10 +31,10 @@ class DB_RawData(object):
             "SELECT * FROM RawData Where id= ?",(id,)
             )
         rows = c.fetchall()
-        
+        RD = RawData(rows[0][0], rows[0][1], rows[0][2],rows[0][3], rows[0][4], rows[0][5])
         conn.close()
-        return rows     
-    
+        return RD     
+        
     def find_all():
         conn = sqlite3.connect('dbwoddenlegs.db')
         c = conn.cursor()
@@ -41,5 +42,9 @@ class DB_RawData(object):
             "Select * From RawData"
             )
         rows = c.fetchall()
+        RD_list = []
+        for x in rows:
+            RD = RawData.RawData(x[0],x[1],x[2],x[3],x[4])
+            RD_list.append(RD)
         conn.close()
-        return rows
+        return RD_list
