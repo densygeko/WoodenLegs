@@ -1,5 +1,6 @@
 import sqlite3
 import DB_Connection
+import BlacklistKeyword
 
 class DB_BlacklistKeyword(object):
     """description of class"""
@@ -18,8 +19,12 @@ class DB_BlacklistKeyword(object):
         c = conn.cursor()
         c.execute(""" Select * From BlacklistKeyWord""")
         row = c.fetchall()
+        BL_word = [] 
+        for x in row:
+            BLKW = BlacklistKeyword.BlacklistKeyword(x[0],x[1],x[2])
+            BL_word.append(BLKW)
         conn.close()
-        return row
+        return BL_word
 
     def update_on_id(id, keyword, ID_blacklistType):
         conn = sqlite3.connect('dbwoddenlegs.db')
@@ -33,8 +38,9 @@ class DB_BlacklistKeyword(object):
         c = conn.cursor()
         c.execute(""" select * from BlacklistKeyWord where id = ? """,(id,))
         row = c.fetchall()
+        BLKW = BlacklistKeyword.BlacklistKeyword(row[0][0],row[0][1],row[0][2])
         conn.close()
-        return row
+        return BLKW
 
     def delete_from_BlacklistKeyword(id):
         conn = sqlite3.connect('dbwoddenlegs.db')

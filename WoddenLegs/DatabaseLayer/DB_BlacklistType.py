@@ -1,6 +1,7 @@
 import DB_Connection
 import sqlite3
-class BlacklistType(object):
+import BlacklistType
+class DB_BlacklistType(object):
     """description of class"""
     
     DB_Connection.DB_Connection.db_check()
@@ -57,5 +58,6 @@ class BlacklistType(object):
         c = conn.cursor()
         c.execute("Select * From BlacklistType")
         row = c.fetchall()
+        blt = BlacklistType.BlacklistType(row[0][0],row[0][1],row[0][2],row[0][3])
         conn.close()
-        return row
+        return blt
