@@ -5,8 +5,7 @@
     <ProjectGuid>f3e2347f-7cc2-4d5a-90c9-20e3b82dd8e9</ProjectGuid>
     <ProjectHome>.</ProjectHome>
     <StartupFile>WoddenLegs.py</StartupFile>
-    <SearchPath>
-    </SearchPath>
+    <SearchPath>DatabaseLayer;ModelLayer</SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
     <Name>WoddenLegs</Name>
@@ -21,15 +20,46 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="ModelLayer\RawData.py">
+    <Compile Include="DatabaseLayer\DB_BlacklistKeyword.py" />
+    <Compile Include="DatabaseLayer\DB_BlacklistType.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="DatabaseLayer\DB_Connection.py" />
+    <Compile Include="DatabaseLayer\DB_Email.py" />
+    <Compile Include="DatabaseLayer\DB_Ip.py" />
+    <Compile Include="DatabaseLayer\DB_Number.py" />
+    <Compile Include="DatabaseLayer\DB_RawData.py" />
+    <Compile Include="ModelLayer\BlacklistKeyword.py" />
+    <Compile Include="ModelLayer\BlacklistType.py" />
+    <Compile Include="ModelLayer\EmailML.py" />
+    <Compile Include="ModelLayer\IpML.py" />
+    <Compile Include="ModelLayer\Number.py" />
+    <Compile Include="ModelLayer\RawData.py" />
+    <Compile Include="Python_Test\DB_Test.py" />
+    <Compile Include="Python_Test\Email_FindAll.py" />
+    <Compile Include="Python_Test\Email_find_by_ID.py" />
+    <Compile Include="Python_Test\Email_InsertAll_Test.py" />
+    <Compile Include="Python_Test\Email_Update_on_id.py" />
+    <Compile Include="Python_Test\Ip_FindAll.py" />
+    <Compile Include="Python_Test\Ip_find_by_Id.py" />
+    <Compile Include="Python_Test\Ip_InsertAll_Test.py" />
+    <Compile Include="Python_Test\Ip_Update_on_id.py" />
+    <Compile Include="Python_Test\Number_FindAll.py" />
+    <Compile Include="Python_Test\Number_find_by_id.py" />
+    <Compile Include="Python_Test\Number_InsertAll_Test.py" />
+    <Compile Include="Python_Test\Number_Update_on_id.py" />
+    <Compile Include="Python_Test\RawData_Delete_By_Id_Test.py" />
+    <Compile Include="Python_Test\RawData_FindAll.py" />
+    <Compile Include="Python_Test\RawData_FindByID.py" />
+    <Compile Include="Python_Test\RawData_Insert_All_Test.py" />
+    <Compile Include="Python_Test\test_1.py" />
     <Compile Include="WoddenLegs.py" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ModelLayer\" />
     <Folder Include="ControlLayer\" />
     <Folder Include="DatabaseLayer\" />
+    <Folder Include="Python_Test\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in
