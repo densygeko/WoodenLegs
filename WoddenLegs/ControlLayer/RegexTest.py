@@ -1,13 +1,11 @@
 import unittest
-from ControlLayer.MailChecker import *
-from ControlLayer.IPChecker import *
+from ControlLayer.RegexChecker import *
 
 class Test_RegexTest(unittest.TestCase):
     
     def test_A(self):
-        
         input = "This is an email ole.wedel@gmail.com k abc123@hotmail.co.uk"
-        self.assertEqual(MailChecker.checkMail(input), ['ole.wedel@gmail.com', 'abc123@hotmail.co.uk'])
+        self.assertEqual(RegexChecker.checkMail(input), ['ole.wedel@gmail.com', 'abc123@hotmail.co.uk'])
 
     def test_B(self):
         tests = """1::
@@ -76,7 +74,19 @@ class Test_RegexTest(unittest.TestCase):
         '2001:db8:3:4::192.0.2.33',
         '64:ff9b::192.0.2.33',
 ]
-        self.assertEqual(IPChecker.findIP(tests), expectedOutput)
+        self.assertEqual(RegexChecker.findIP(tests), expectedOutput)
+
+    def test_C(self):
+        input = " this is a hpone number +45 25 31 47 89 here is one more +4523456789 here is another 4553853848 the fourth one is this 91 55 98 89 and tis be the last one 23456789"
+        expectedOutput = [
+            '+45 25 31 47 89',
+            '+4523456789',
+            '4553853848',
+            '91 55 98 85',
+            '23456789',
+]
+        self.assertEqual(RegexChecker.checkPhone(input), expectedOutput)
+    
 
 if __name__ == '__main__':
     unittest.main()
