@@ -3,6 +3,9 @@ import DB_RawData
 import DB_BlacklistKeyword
 
 class Test_test_1(unittest.TestCase):
+
+    #test for manual testing of the database
+
     def test_A(self):
         DB_BlacklistKeyword.DB_BlacklistKeyword.insert_into_blacklist("2","1")
 
