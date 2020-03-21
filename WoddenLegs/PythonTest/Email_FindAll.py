@@ -1,6 +1,6 @@
 import unittest
 import DB_Email
-class Test_FindAll(unittest.TestCase):
+class Test_FindAll(unittest.TestCase):#for manual testing only
     def test_FindAll(self):
         testEmail = DB_Email.DB_Email.find_all()
         for x in testEmail:

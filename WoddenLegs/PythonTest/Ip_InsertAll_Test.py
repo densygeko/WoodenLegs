@@ -1,7 +1,7 @@
 import unittest
 import DB_Ip
 
-class Ip_Insert_All_Test(unittest.TestCase):
+class Ip_Insert_All_Test(unittest.TestCase): #for manual testing only
     def test_Insert_All_DB_Ip(self):
         DB_Ip.DB_Ip.insert_querry_all("12","33333","77")
 

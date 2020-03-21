@@ -1,7 +1,7 @@
 import unittest
 import DB_RawData
 
-class Test_Delete_By_Id_Test(unittest.TestCase):
+class Test_Delete_By_Id_Test(unittest.TestCase):#for manual testing only
     def test_Delete_ById(self):
         DB_RawData.DB_RawData.delete_by_ID(1)
         
