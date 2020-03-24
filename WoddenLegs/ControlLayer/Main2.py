@@ -2,13 +2,14 @@ from ControlLayer.PDFReader import *
 class Main2(object):
     """description of class"""
 
-    def main(paths):
+    def main():
         print("Running main method")
-        
+        paths = ['ControlLayer\\TempPDFHolder\\OCRTestPDF.pdf', 'ControlLayer\\TempPDFHolder\\TestPDF2.pdf']
+
         for path in paths:
-            textDict = PDFReader.readImages(path)
+            textDict = PdfReader.readImages(path)
             for page in textDict:
-                print(page)
+                print(textDict[page])
 
     if __name__ == '__main__':
         main()

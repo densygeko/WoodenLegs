@@ -56,8 +56,3 @@ class PdfReader:
 
         return pageTextDict
 
-
-#Testing purposes only. Remove before release.
-pdfRead = PdfReader
-aDict = pdfRead.readImages('ControlLayer\\TempPDFHolder\\TestPDF2.pdf')
-print(aDict)
