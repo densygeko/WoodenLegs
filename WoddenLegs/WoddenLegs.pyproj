@@ -47,6 +47,7 @@
     <Compile Include="ModelLayer\EmailML.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="ModelLayer\Identifier.py" />
     <Compile Include="ModelLayer\IpML.py">
       <SubType>Code</SubType>
     </Compile>
@@ -107,10 +108,16 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="ControlLayer\TempPDFHolder\" />
     <Folder Include="ModelLayer\" />
     <Folder Include="ControlLayer\" />
     <Folder Include="DatabaseLayer\" />
     <Folder Include="PythonTest\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ControlLayer\TempPDFHolder\facere.pdf" />
+    <Content Include="ControlLayer\TempPDFHolder\quisquam.pdf" />
+    <Content Include="ControlLayer\TempPDFHolder\TestPDF.pdf" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in
