@@ -51,6 +51,9 @@
     <Compile Include="ModelLayer\IpML.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="ModelLayer\MatchedIdentifier.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="ModelLayer\Number.py">
       <SubType>Code</SubType>
     </Compile>
