@@ -118,9 +118,14 @@
     <Folder Include="PythonTest\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ControlLayer\TempPDFHolder\1.pdf" />
+    <Content Include="ControlLayer\TempPDFHolder\2.pdf" />
+    <Content Include="ControlLayer\TempPDFHolder\3.pdf" />
     <Content Include="ControlLayer\TempPDFHolder\facere.pdf" />
     <Content Include="ControlLayer\TempPDFHolder\quisquam.pdf" />
     <Content Include="ControlLayer\TempPDFHolder\TestPDF.pdf" />
+    <Content Include="ControlLayer\TempPDFHolder\TestPDF3.pdf" />
+    <Content Include="ControlLayer\TempPDFHolder\TestPDF4.pdf" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in

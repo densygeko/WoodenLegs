@@ -9,6 +9,7 @@ from xml.dom import minidom
 class Main2():
 
     def MatchIdentifiers(self, identifiers):
+        print("Beginning identifier matching")
         matchedIdentifiers = []
         for i in identifiers: #Loop through each identifier.
             if i.isMatched == False: #Don't check the identifier if it has already been matched.
@@ -30,6 +31,8 @@ class Main2():
             return matchedIdentifiers
     
     def CreateXMLDoc(self, identifiers):
+        print("Creating XML DOC")
+        print("Number of matched identifiers: " + str(len(identifiers)))
         root = minidom.Document() #Create XML Document
         xml = root.createElement('root')
         root.appendChild(xml)
@@ -43,12 +46,16 @@ class Main2():
             childOfIdentifier.appendChild(root.createTextNode(identifier.name)) #Set content to identifier attribute
             identifierChild.appendChild(childOfIdentifier) #Attach element 'name' to 'Identifier'
 
-            childOfIdentifier = root.createElement('path')
-            childOfIdentifier.appendChild(root.createTextNode(identifier.path))
+            childOfIdentifier = root.createElement('paths')
             identifierChild.appendChild(childOfIdentifier)
 
-            childOfIdentifier = root.createElement('page')
-            childOfIdentifier.appendChild(root.createTextNode(str(identifier.page)))
+            for path in identifier.paths:
+                childOfPath = root.createElement('path')
+                childOfPath.appendChild(root.createTextNode(path))
+                childOfIdentifier.appendChild(childOfPath)
+
+            childOfIdentifier = root.createElement('occurences')
+            childOfIdentifier.appendChild(root.createTextNode(str(identifier.occurences)))
             identifierChild.appendChild(childOfIdentifier)
 
             childOfIdentifier = root.createElement('type')
@@ -62,15 +69,18 @@ class Main2():
             f.write(xml_str)
 
     def main(self): #Needs to be updated to take a list of lists of paths
-        paths = ['ControlLayer\\TempPDFHolder\\TestPDF.pdf', 'ControlLayer\\TempPDFHolder\\TestPDF2.pdf']
+
+        paths = ['C:\\Users\\PhilipBraarup\\Desktop\\4thSemProject\\WoddenLegs\WoddenLegs\\ControlLayer\\TempPDFHolder\\TestPDF3.pdf', 
+                 'C:\\Users\\PhilipBraarup\\Desktop\\4thSemProject\\WoddenLegs\\WoddenLegs\\ControlLayer\\TempPDFHolder\\TestPDF4.pdf']
 
         for arg in sys.argv[1:]: #Needs to be finished so that it can take system args
             print(arg)
 
         id = 0 #Id gets incremented when searching for identifiers and attached to them
         identifiers = []
+        pdfReader = PdfReader()
         for path in paths:
-            textDict = PdfReader.readImages(path) #Gets all normal text and text on images from PDF
+            textDict = pdfReader.readImages(path) #Gets all normal text and text on images from PDF
             for page in textDict:
                 
                 emails = RegexChecker.checkMail(textDict[page]) #Add email identifiers to list
@@ -91,8 +101,8 @@ class Main2():
                     identifiers.append(ident)
                     id +=1
 
-        self.MatchIdentifiers(identifiers) #Sort identifiers and get the ones with multiple occurences.
-        self.CreateXMLDoc(identifiers) 
+        matchedIdentifiers = self.MatchIdentifiers(identifiers) #Sort identifiers and get the ones with multiple occurences.
+        self.CreateXMLDoc(matchedIdentifiers) 
 
 if __name__ == '__main__':
     mainClass = Main2()
