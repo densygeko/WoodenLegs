@@ -8,7 +8,10 @@ class Test_RegexTest(unittest.TestCase):
         self.assertEqual(RegexChecker.checkMail(input), ['ole.wedel@gmail.com', 'abc123@hotmail.co.uk'])
 
     def test_B(self):
-        tests = """1::
+        tests = """
+        207.142.131.235
+        192.168.1.1
+        1::
         1:2:3:4:5:6:7::
         1::8
         1:2:3:4:5:6::8
@@ -42,6 +45,8 @@ class Test_RegexTest(unittest.TestCase):
         hej"""
 
         expectedOutput = [
+        '207.142.131.235',
+        '192.168.1.1',
         '1::',
         '1:2:3:4:5:6:7::',
         '1::8',
@@ -86,6 +91,7 @@ class Test_RegexTest(unittest.TestCase):
             '23456789',
 ]
         self.assertEqual(RegexChecker.checkPhone(input), expectedOutput)
+
     
 
 if __name__ == '__main__':
