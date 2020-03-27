@@ -24,5 +24,27 @@ namespace TestLayer
             //checks that the amount of pdfs are 5 would mean that method have found all the pdfs in the testing folder
             Assert.AreEqual<int>(5, Fcon.pdfs.Count);
         }
+
+        [TestMethod]
+        public void testredpdf()
+        {
+            //
+            XmlController xml = new XmlController();
+            xml.InsertblackList();
+        }
+
+        [TestMethod]
+        public void testupdatexml()
+        {
+            XmlController xml = new XmlController();
+            xml.UpdataBlaclistType(true, true, true);
+        }
+
+        [TestMethod]
+        public void testinsertkeyword()
+        {
+            XmlController xml = new XmlController();
+            xml.DeleteformXML("tabber");
+        }
     }
 }

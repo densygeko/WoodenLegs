@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <identifier id="1">
+    <name>xyz@india.com</name>
+    <paths>
+      <path> d:/asd</path>
+      <path> d:/ads</path>
+      <path> d:/sdsa</path>
+    </paths>
+    <type> email</type>
+    <Occurences> 2 </Occurences>
+  </identifier>
+  <blacklistType>
+    <email>True</email>
+    <number>True</number>
+    <ip>True</ip>
+  </blacklistType>
+  <blacklistKeyword>
+  </blacklistKeyword>
+</root>

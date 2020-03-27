@@ -94,6 +94,7 @@
     <Compile Include="Directory.cs" />
     <Compile Include="Email.cs" />
     <Compile Include="files.cs" />
+    <Compile Include="Identifier.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

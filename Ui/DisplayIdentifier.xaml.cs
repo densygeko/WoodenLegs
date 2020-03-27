@@ -58,13 +58,13 @@ namespace Ui
             {
                 displaypath displaypath = new displaypath();
                 displaypath.path = selection.path;
-                displaypath.identifier = selection.identifier;
+                displaypath.identifier = selection.Identifier;
                 List<displaypath> dps = new List<displaypath>();
                 dps.Add(displaypath);
-                for (int i = 0; i < selection.gane_fundet; i++)
+                for (int i = 0; i < selection.Gane_fundet; i++)
                 {
                     displaypath dp = new displaypath();
-                    dp.identifier = selection.identifier;
+                    dp.identifier = selection.Identifier;
                     dp.path = selection.path + i.ToString();
                     dps.Add(dp);
                     DataDisplayPath.ItemsSource = dps;
