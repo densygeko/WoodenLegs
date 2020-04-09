@@ -12,3 +12,10 @@ C:\Users\Bruger\Desktop\Wodden-legs\WoddenLegs\ModelLayer\obj\Debug\ModelLayer.c
 C:\Users\Bruger\Desktop\Wodden-legs\WoddenLegs\ModelLayer\obj\Debug\ModelLayer.csproj.CopyComplete
 C:\Users\Bruger\Desktop\Wodden-legs\WoddenLegs\ModelLayer\obj\Debug\ModelLayer.dll
 C:\Users\Bruger\Desktop\Wodden-legs\WoddenLegs\ModelLayer\obj\Debug\ModelLayer.pdb
+C:\Users\Scyras\Documents\GitHub\WoddenLegs\ModelLayer\bin\Debug\ModelLayer.dll
+C:\Users\Scyras\Documents\GitHub\WoddenLegs\ModelLayer\bin\Debug\ModelLayer.pdb
+C:\Users\Scyras\Documents\GitHub\WoddenLegs\ModelLayer\bin\Debug\Microsoft.Azure.Amqp.dll
+C:\Users\Scyras\Documents\GitHub\WoddenLegs\ModelLayer\obj\Debug\ModelLayer.csprojAssemblyReference.cache
+C:\Users\Scyras\Documents\GitHub\WoddenLegs\ModelLayer\obj\Debug\ModelLayer.csproj.CopyComplete
+C:\Users\Scyras\Documents\GitHub\WoddenLegs\ModelLayer\obj\Debug\ModelLayer.dll
+C:\Users\Scyras\Documents\GitHub\WoddenLegs\ModelLayer\obj\Debug\ModelLayer.pdb

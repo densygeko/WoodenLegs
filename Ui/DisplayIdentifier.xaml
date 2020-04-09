@@ -9,18 +9,19 @@
       Title="DisplayIdentifier">
 
     <Grid>
-        <DataGrid HorizontalAlignment="Left" Name="DataIdentifier" Height="440" Margin="10,62,0,0" VerticalAlignment="Top" Width="878" RenderTransformOrigin="0.201,1.391" SelectionChanged="DataIdentifier_SelectionChanged"/>
-        <Rectangle Fill="#000000" HorizontalAlignment="Left" Height="54" Stroke="Black" VerticalAlignment="Top" Width="1600" RenderTransformOrigin="0.92,5.8" Margin="0,514,0,0"/>
-        <DataGrid HorizontalAlignment="Left" Name="DataBlacklist"  Height="301" Margin="0,589,0,0" VerticalAlignment="Top" Width="888"/>
-        <CheckBox Content="Email" HorizontalAlignment="Left" Margin="1010,630,0,0" VerticalAlignment="Top" Checked="CheckBox_Checked" Height="22" Width="92"/>
-        <CheckBox Content="Ip" HorizontalAlignment="Left" Margin="1010,652,0,0" VerticalAlignment="Top"/>
-        <CheckBox Content="Telefon nummer" HorizontalAlignment="Left" Margin="1010,672,0,0" VerticalAlignment="Top"/>
-        <Label Content="BlackList" HorizontalAlignment="Left" Margin="10,568,0,0" VerticalAlignment="Top"/>
-        <Label Content="tilføj type til black list" HorizontalAlignment="Left" Margin="1010,604,0,0" VerticalAlignment="Top"/>
-        <Button Content="fjern fra blacklist" HorizontalAlignment="Left" Margin="908,860,0,0" VerticalAlignment="Top" Width="107" Height="30"/>
-        <Button Content="mere info " HorizontalAlignment="Left" Margin="899,482,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>
-        <DataGrid HorizontalAlignment="Left" Name="DataDisplayPath" Height="383" Margin="1085,98,0,0" VerticalAlignment="Top" Width="490"/>
-        <Label Content="filer some identifieren er i" HorizontalAlignment="Left" Margin="1085,62,0,0" VerticalAlignment="Top"/>
-        <Button Content="BlackList" HorizontalAlignment="Left" Margin="899,451,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_2"/>
+        <DataGrid HorizontalAlignment="Left" Name="DataIdentifier" Height="828" Margin="10,62,0,0" VerticalAlignment="Top" Width="878" RenderTransformOrigin="0.201,1.391" SelectionChanged="DataIdentifier_SelectionChanged"/>
+        <Rectangle Name ="BlackRec" Fill="#000000" HorizontalAlignment="Left" Height="16" Stroke="Black" VerticalAlignment="Top" Width="1600" RenderTransformOrigin="0.92,5.8" Margin="0,530,0,0" Visibility="Hidden"/>
+        <DataGrid HorizontalAlignment="Left" Name="DataBlacklist"  Height="301" Margin="0,589,0,0" VerticalAlignment="Top" Width="888" Visibility="Hidden"/>
+        <CheckBox Name ="EmailBox" Content="Email" HorizontalAlignment="Left" Margin="1010,630,0,0" VerticalAlignment="Top"  Height="22" Width="92" Visibility="Hidden"/>
+        <CheckBox Name="IpBox" Content="Ip" HorizontalAlignment="Left" Margin="1010,652,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
+        <CheckBox Name ="TelephoneBox" Content="Telefon nummer" HorizontalAlignment="Left" Margin="1010,672,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
+        <Label Name ="BlacklistLabel" Content="BlackList" HorizontalAlignment="Left" Margin="10,568,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
+        <Label Name="AddTypeBtn" Content="tilføj type til black list" HorizontalAlignment="Left" Margin="1010,604,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
+        <Button Name ="FjernFraBlackListbtn" Content="fjern fra blacklist" HorizontalAlignment="Left" Margin="908,860,0,0" VerticalAlignment="Top" Width="107" Height="30" Visibility="Hidden"/>
+        <Button Content="mere info " HorizontalAlignment="Left" Margin="908,647,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1" Visibility="Hidden"/>
+        <DataGrid HorizontalAlignment="Left" Name="DataDisplayPath" Height="738" Margin="1085,62,0,0" VerticalAlignment="Top" Width="505"/>
+        <Label Content="Filer som indeholder identifieren" HorizontalAlignment="Left" Margin="1085,62,0,0" VerticalAlignment="Top"/>
+        <Button Content="BlackList" HorizontalAlignment="Left" Margin="908,615,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_2" Visibility="Hidden"/>
+        <Button Name="BlacklistOptsBtn" Content="Blacklist options" HorizontalAlignment="Left" Margin="1362,820,0,0" VerticalAlignment="Top" Width="228" Click="Button_Click_3" RenderTransformOrigin="-0.9,-11.725" Height="70"/>
     </Grid>
 </Page>

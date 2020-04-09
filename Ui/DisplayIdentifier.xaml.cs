@@ -42,11 +42,6 @@ namespace Ui
             DataBlacklist.ItemsSource = blackEmails;
         }
 
-        private void CheckBox_Checked(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             
@@ -85,6 +80,44 @@ namespace Ui
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
            
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        { 
+            
+            if (this.DataBlacklist.Visibility == System.Windows.Visibility.Hidden)
+            {
+                
+                this.DataBlacklist.Visibility = System.Windows.Visibility.Visible;
+                this.FjernFraBlackListbtn.Visibility = System.Windows.Visibility.Visible;
+                this.AddTypeBtn.Visibility = System.Windows.Visibility.Visible;
+                this.EmailBox.Visibility = System.Windows.Visibility.Visible;
+                this.IpBox.Visibility = System.Windows.Visibility.Visible;
+                this.TelephoneBox.Visibility = System.Windows.Visibility.Visible;
+                this.BlacklistLabel.Visibility = System.Windows.Visibility.Visible;
+                this.BlacklistOptsBtn.Content = "Hide blacklist options";
+                this.BlackRec.Visibility = System.Windows.Visibility.Visible;
+                this.DataIdentifier.Height = 440;
+                this.DataDisplayPath.Height = 440;
+
+
+            }
+            else if (this.DataBlacklist.Visibility == System.Windows.Visibility.Visible)
+            {
+                this.DataBlacklist.Visibility = System.Windows.Visibility.Hidden;
+                this.FjernFraBlackListbtn.Visibility = System.Windows.Visibility.Hidden;
+                this.AddTypeBtn.Visibility = System.Windows.Visibility.Hidden;
+                this.EmailBox.Visibility = System.Windows.Visibility.Hidden;
+                this.IpBox.Visibility = System.Windows.Visibility.Hidden;
+                this.TelephoneBox.Visibility = System.Windows.Visibility.Hidden;
+                this.BlacklistLabel.Visibility = System.Windows.Visibility.Hidden;
+                this.BlacklistOptsBtn.Content = "Blacklist options";
+                this.BlackRec.Visibility = System.Windows.Visibility.Hidden;
+                this.DataIdentifier.Height = 828;
+                this.DataDisplayPath.Height = 738;
+            }
+
+
         }
     }
 

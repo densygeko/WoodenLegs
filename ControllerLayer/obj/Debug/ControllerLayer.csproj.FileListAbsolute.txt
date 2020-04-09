@@ -14,3 +14,11 @@ C:\Users\Bruger\Desktop\Wodden-legs\WoddenLegs\ControllerLayer\obj\Debug\Control
 C:\Users\Bruger\Desktop\Wodden-legs\WoddenLegs\ControllerLayer\obj\Debug\ControllerLayer.csproj.CopyComplete
 C:\Users\Bruger\Desktop\Wodden-legs\WoddenLegs\ControllerLayer\obj\Debug\ControllerLayer.dll
 C:\Users\Bruger\Desktop\Wodden-legs\WoddenLegs\ControllerLayer\obj\Debug\ControllerLayer.pdb
+C:\Users\Scyras\Documents\GitHub\WoddenLegs\ControllerLayer\bin\Debug\ControllerLayer.dll
+C:\Users\Scyras\Documents\GitHub\WoddenLegs\ControllerLayer\bin\Debug\ControllerLayer.pdb
+C:\Users\Scyras\Documents\GitHub\WoddenLegs\ControllerLayer\bin\Debug\ModelLayer.dll
+C:\Users\Scyras\Documents\GitHub\WoddenLegs\ControllerLayer\bin\Debug\ModelLayer.pdb
+C:\Users\Scyras\Documents\GitHub\WoddenLegs\ControllerLayer\obj\Debug\ControllerLayer.csprojAssemblyReference.cache
+C:\Users\Scyras\Documents\GitHub\WoddenLegs\ControllerLayer\obj\Debug\ControllerLayer.csproj.CopyComplete
+C:\Users\Scyras\Documents\GitHub\WoddenLegs\ControllerLayer\obj\Debug\ControllerLayer.dll
+C:\Users\Scyras\Documents\GitHub\WoddenLegs\ControllerLayer\obj\Debug\ControllerLayer.pdb
