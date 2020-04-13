@@ -1,5 +1,5 @@
 import unittest
-from ControlLayer.RegexChecker import *
+from RegexChecker import *
 
 class Test_RegexTest(unittest.TestCase):
     

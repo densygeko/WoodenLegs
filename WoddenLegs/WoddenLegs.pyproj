@@ -44,6 +44,9 @@
     <Compile Include="DatabaseLayer\DB_Connection.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="PythonTest\ExeTest.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="ModelLayer\EmailML.py">
       <SubType>Code</SubType>
     </Compile>

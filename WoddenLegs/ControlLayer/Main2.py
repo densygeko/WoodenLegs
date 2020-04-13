@@ -2,9 +2,12 @@ from ControlLayer.PDFReader import *
 from ControlLayer.RegexChecker import *
 from ModelLayer.Identifier import *
 from ModelLayer.MatchedIdentifier import *
+from xml.dom import minidom
 import sys
 import os
-from xml.dom import minidom
+import ast
+import subprocess
+
 
 class Main2():
 
@@ -12,7 +15,7 @@ class Main2():
         print("Beginning identifier matching")
         matchedIdentifiers = []
         for i in identifiers: #Loop through each identifier.
-            if i.isMatched == False: #Don't check the identifier if it has already been matched.
+            if i.isMatched == False: #Don't match the identifier if it has already been matched.
                 match = None
                 paths = [i.path] #List of paths the identifier is found in
                 for j in identifiers: #Compare the identifier to every other identifier
@@ -70,11 +73,9 @@ class Main2():
 
     def main(self): #Needs to be updated to take a list of lists of paths
 
-        paths = ['C:\\Users\\PhilipBraarup\\Desktop\\4thSemProject\\WoddenLegs\WoddenLegs\\ControlLayer\\TempPDFHolder\\TestPDF3.pdf', 
-                 'C:\\Users\\PhilipBraarup\\Desktop\\4thSemProject\\WoddenLegs\\WoddenLegs\\ControlLayer\\TempPDFHolder\\TestPDF4.pdf']
+        paths = ['C:\\Users\\PhilipBraarup\\Desktop\\4thSemProject\\WoddenLegs\WoddenLegs\\ControlLayer\\TempPDFHolder\\TestPDF3.pdf', 'C:\\Users\\PhilipBraarup\\Desktop\\4thSemProject\\WoddenLegs\\WoddenLegs\\ControlLayer\\TempPDFHolder\\TestPDF4.pdf']
 
-        for arg in sys.argv[1:]: #Needs to be finished so that it can take system args
-            print(arg)
+        #paths = sys.argv[1]
 
         id = 0 #Id gets incremented when searching for identifiers and attached to them
         identifiers = []
