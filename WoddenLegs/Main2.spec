@@ -3,7 +3,7 @@
 block_cipher = None
 
 
-a = Analysis(['C:\\Users\\PhilipBraarup\\Desktop\\4thSemProject\\WoddenLegs\\WoddenLegs\\ControlLayer\\Main2.py'],
+a = Analysis(['ControlLayer\\Main2.py'],
              pathex=['C:\\Users\\PhilipBraarup\\Desktop\\4thSemProject\\WoddenLegs\\WoddenLegs'],
              binaries=[],
              datas=[],

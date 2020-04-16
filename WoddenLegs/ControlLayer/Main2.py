@@ -6,7 +6,7 @@ from xml.dom import minidom
 import sys
 import os
 import ast
-import subprocess
+#import subprocess
 
 
 class Main2():
@@ -14,8 +14,9 @@ class Main2():
     def MatchIdentifiers(self, identifiers):
         print("Beginning identifier matching")
         matchedIdentifiers = []
+        print("Identifiers found: " + str(len(identifiers)))
         for i in identifiers: #Loop through each identifier.
-            if i.isMatched == False: #Don't match the identifier if it has already been matched.
+            if i.isMatched == False: #Don't match the identifier if it has already been matched. This is to avoid creating duplicate matches
                 match = None
                 paths = [i.path] #List of paths the identifier is found in
                 for j in identifiers: #Compare the identifier to every other identifier
@@ -73,10 +74,21 @@ class Main2():
 
     def main(self): #Needs to be updated to take a list of lists of paths
 
-        paths = ['C:\\Users\\PhilipBraarup\\Desktop\\4thSemProject\\WoddenLegs\WoddenLegs\\ControlLayer\\TempPDFHolder\\TestPDF3.pdf', 'C:\\Users\\PhilipBraarup\\Desktop\\4thSemProject\\WoddenLegs\\WoddenLegs\\ControlLayer\\TempPDFHolder\\TestPDF4.pdf']
+        if len(sys.argv) <= 1: #Must have at least one argument when executing this class in command line
+            print("Please enter the path to the filepaths.xml document")
+            return
 
-        #paths = sys.argv[1]
+        XMLDoc = minidom.parse(str(sys.argv[1])) #'C:\\Users\\PhilipBraarup\\Desktop\\PlasticLegsData\\filepaths.xml'
 
+        paths = XMLDoc.getElementsByTagName("pdfpath")
+        PDFPaths = []
+        for path in paths:
+            PDFPaths.append(path.firstChild.data)
+        
+        self.ParsePDF(PDFPaths)
+
+
+    def ParsePDF(self, paths):
         id = 0 #Id gets incremented when searching for identifiers and attached to them
         identifiers = []
         pdfReader = PdfReader()
@@ -84,22 +96,22 @@ class Main2():
             textDict = pdfReader.readImages(path) #Gets all normal text and text on images from PDF
             for page in textDict:
                 
-                emails = RegexChecker.checkMail(textDict[page]) #Add email identifiers to list
+                emails = RegexChecker.checkMail(textDict[page]) #Find all emails using RegEx
                 for email in emails:
                     ident = Identifier(email, "Email", path, page, id)
-                    identifiers.append(ident)
+                    identifiers.append(ident) #Add email identifiers to list
                     id +=1
                 
-                phoneNumbers = RegexChecker.checkPhone(textDict[page]) #Add phone number identifiers to list
+                phoneNumbers = RegexChecker.checkPhone(textDict[page])  #Find all danish phone numbers using RegEx
                 for number in phoneNumbers:
                     ident = Identifier(number, "PhoneNumber", path, page, id)
-                    identifiers.append(ident)
+                    identifiers.append(ident) #Add phone number identifiers to list
                     id +=1
 
-                ips = RegexChecker.findIP(textDict[page]) #Add IP address identifiers to list
+                ips = RegexChecker.findIP(textDict[page]) #Find all IPv4 and IPv6 addresses using RegEx
                 for ip in ips:
                     ident = Identifier(number, "IP", path, page, id)
-                    identifiers.append(ident)
+                    identifiers.append(ident) #Add IP address identifiers to list
                     id +=1
 
         matchedIdentifiers = self.MatchIdentifiers(identifiers) #Sort identifiers and get the ones with multiple occurences.
