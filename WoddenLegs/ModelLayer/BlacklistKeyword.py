@@ -5,3 +5,4 @@ class BlacklistKeyword(object):
         self.keyWord = keyWord
         self.id_blacklistType = id_blacklistType
 
+
