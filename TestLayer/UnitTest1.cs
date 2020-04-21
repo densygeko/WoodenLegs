@@ -24,5 +24,24 @@ namespace TestLayer
             //checks that the amount of pdfs are 5 would mean that method have found all the pdfs in the testing folder
             Assert.AreEqual<int>(5, Fcon.pdfs.Count);
         }
+
+        [TestMethod]
+        public void testxml()
+        {
+            FileController Fctr = new FileController();
+            string folderoath = Directory.GetCurrentDirectory();
+            Fctr.Getfiles(folderoath + @"\test\");
+
+            XmlController xml = new XmlController();
+            xml.makeXmlfile();
+            xml.insertpathtoxmldoc();
+        }
+
+        [TestMethod]
+        public void testblacklist()
+        {
+            XmlController xml = new XmlController();
+            xml.makeXmlfile();
+        }
     }
 }

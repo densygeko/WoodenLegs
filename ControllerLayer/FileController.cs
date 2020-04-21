@@ -13,7 +13,9 @@ namespace ControllerLayer
         // makes a instance of the fileContainer, this is used to sort the files
         private FilesContainer files;
         // need make a List of directories, to make sure we gotton all the files from all the folders
-        private List<directory> directories; 
+        private List<directory> directories;
+
+        private XmlController xmlController = new XmlController();
         public FileController()
         {
             files = FilesContainer.getInstance();
@@ -63,6 +65,7 @@ namespace ControllerLayer
                 //we are sorting all the files in all the directories
                 Sortfiles(Directory.GetFiles(item.path));
             }
+            xmlController.makeXmlfile();
         }
         //this is a method for sortingfiles the input are a array of string(file paaths)
         public void Sortfiles(string[] incfiles)

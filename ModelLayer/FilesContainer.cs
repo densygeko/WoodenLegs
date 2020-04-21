@@ -32,7 +32,7 @@ namespace ModelLayer
         //The keyword "protects" the class from having its' constructor called by external classes.
         //However unlike the private keyword, protected will allow derived classes to access the class member. 
         //Classes that use it will employ other means to create instances of the class
-        protected FilesContainer()
+        public FilesContainer()
         {
             pdfs = new List<string>();
             pcaps = new List<string>();
