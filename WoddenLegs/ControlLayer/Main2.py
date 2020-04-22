@@ -1,5 +1,6 @@
 from ControlLayer.PDFReader import *
 from ControlLayer.RegexChecker import *
+from ControlLayer.PCAPReader import *
 from ModelLayer.Identifier import *
 from ModelLayer.MatchedIdentifier import *
 from xml.dom import minidom
@@ -32,7 +33,7 @@ class Main2():
                 if match != None: #Only add match object to list if it has been instantiated
                     matchedIdentifiers.append(match)
 
-            return matchedIdentifiers
+        return matchedIdentifiers
     
     def CreateXMLDoc(self, identifiers):
         print("Creating XML DOC")
@@ -78,14 +79,33 @@ class Main2():
             print("Please enter the path to the filepaths.xml document")
             return
 
-        XMLDoc = minidom.parse(str(sys.argv[1])) #'C:\\Users\\PhilipBraarup\\Desktop\\PlasticLegsData\\filepaths.xml'
+        XMLDoc = minidom.parse(str(sys.argv[1])) #Get XML doc from system argument provided from UI
 
-        paths = XMLDoc.getElementsByTagName("pdfpath")
-        PDFPaths = []
-        for path in paths:
-            PDFPaths.append(path.firstChild.data)
+        try: 
+            PDFPaths = XMLDoc.getElementsByTagName("pdfpath") #Get pdfpath element from XML file
+            PDFFiles = []
+            for path in PDFPaths:
+                PDFFiles.append(path.firstChild.data) #Extract data from pdfpath element
         
-        self.ParsePDF(PDFPaths)
+            self.ParsePDF(PDFFiles)
+        
+        except:
+            print("No .pdf files in directory or error related to .pdf")
+
+        try:
+            PCAPPaths = XMLDoc.getElementByTagName("pcappath")
+            PCAPFiles = []
+            for path in PCAPPaths:
+                PCAPFiles.append(path.firstChild.data)
+
+            #TODO: add PCAPFiles to identifier list
+
+        except:
+            print("No .pcap files in directory or error related to .pcap")
+
+        
+        
+            
 
 
     def ParsePDF(self, paths):
@@ -113,6 +133,9 @@ class Main2():
                     ident = Identifier(number, "IP", path, page, id)
                     identifiers.append(ident) #Add IP address identifiers to list
                     id +=1
+
+        for identi in identifiers:
+            print(identi.name)
 
         matchedIdentifiers = self.MatchIdentifiers(identifiers) #Sort identifiers and get the ones with multiple occurences.
         self.CreateXMLDoc(matchedIdentifiers) 
