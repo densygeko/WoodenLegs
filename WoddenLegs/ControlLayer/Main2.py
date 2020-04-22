@@ -69,7 +69,8 @@ class Main2():
 
         xml_str = root.toprettyxml(indent="\t") #Format XML
 
-        save_path_file = "text.xml" #Set document title
+        currentDir = os.getcwd()
+        save_path_file = currentDir + '\MatchedIdentifiers.xml' #Set document title + path
         with open(save_path_file, "w") as f: #Save XML doc
             f.write(xml_str)
 

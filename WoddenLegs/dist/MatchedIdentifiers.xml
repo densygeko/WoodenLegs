@@ -1,0 +1,41 @@
+<?xml version="1.0" ?>
+<root>
+	<Identifier id="0">
+		<name>michael.anker@gmail.com</name>
+		<paths>
+			<path>C:\Users\PhilipBraarup\Desktop\PlasticLegsData\PDF1.pdf</path>
+			<path>C:\Users\PhilipBraarup\Desktop\PlasticLegsData\PDF2.pdf</path>
+		</paths>
+		<occurences>2</occurences>
+		<type>Email</type>
+	</Identifier>
+	<Identifier id="1">
+		<name>pelle@hotmail.com</name>
+		<paths>
+			<path>C:\Users\PhilipBraarup\Desktop\PlasticLegsData\PDF1.pdf</path>
+			<path>C:\Users\PhilipBraarup\Desktop\PlasticLegsData\PDF2.pdf</path>
+		</paths>
+		<occurences>2</occurences>
+		<type>Email</type>
+	</Identifier>
+	<Identifier id="2">
+		<name>
+8494 4748</name>
+		<paths>
+			<path>C:\Users\PhilipBraarup\Desktop\PlasticLegsData\PDF1.pdf</path>
+			<path>C:\Users\PhilipBraarup\Desktop\PlasticLegsData\PDF2.pdf</path>
+		</paths>
+		<occurences>2</occurences>
+		<type>PhoneNumber</type>
+	</Identifier>
+	<Identifier id="3">
+		<name>
+88 99 33 88</name>
+		<paths>
+			<path>C:\Users\PhilipBraarup\Desktop\PlasticLegsData\PDF1.pdf</path>
+			<path>C:\Users\PhilipBraarup\Desktop\PlasticLegsData\PDF2.pdf</path>
+		</paths>
+		<occurences>2</occurences>
+		<type>PhoneNumber</type>
+	</Identifier>
+</root>
