@@ -66,9 +66,9 @@ class Main2():
             childOfIdentifier.appendChild(root.createTextNode(identifier.type))
             identifierChild.appendChild(childOfIdentifier)
 
-        xml_str = root.toprettyxml(indent="\t") #Format XML
+        xml_str = root.toprettyxml(indent="\t") #Format XML 
 
-        save_path_file = "text.xml" #Set document title
+        save_path_file = r'C:\Users\Uth\Desktop\WoddenLegs\text.xml' #Set document title
         with open(save_path_file, "w") as f: #Save XML doc
             f.write(xml_str)
 

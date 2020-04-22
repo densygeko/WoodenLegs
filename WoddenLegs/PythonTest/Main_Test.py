@@ -5,9 +5,6 @@ from ModelLayer.MatchedIdentifier import *
 
 class Test_Main_Test(unittest.TestCase):
     def test_A(self):
-        listMain = ['C:\\Users\\PhilipBraarup\\Desktop\\4thSemProject\\WoddenLegs\WoddenLegs\\ControlLayer\\TempPDFHolder\\1.pdf', 
-                    'C:\\Users\\PhilipBraarup\\Desktop\\4thSemProject\\WoddenLegs\\WoddenLegs\\ControlLayer\\TempPDFHolder\\2.pdf',
-                    'C:\\Users\\PhilipBraarup\\Desktop\\4thSemProject\\WoddenLegs\\WoddenLegs\\ControlLayer\\TempPDFHolder\\3.pdf']
         mainClass = Main2()
         mainClass.main()
         self.assertEqual(1,1)
