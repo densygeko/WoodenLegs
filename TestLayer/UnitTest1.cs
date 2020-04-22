@@ -16,6 +16,7 @@ namespace TestLayer
             //need to make an instance of the classe in testing
             FilesContainer Fcon = FilesContainer.getInstance();
             FileController Fctr = new FileController();
+           
             //act
             //using the testfolder the in the TestLayer + bin + debug+test \\ 
             string folderoath = Directory.GetCurrentDirectory();
@@ -29,12 +30,8 @@ namespace TestLayer
         public void testxml()
         {
             FileController Fctr = new FileController();
-            string folderoath = Directory.GetCurrentDirectory();
-            Fctr.Getfiles(folderoath + @"\test\");
-
             XmlController xml = new XmlController();
-            xml.makeXmlfile();
-            xml.insertpathtoxmldoc();
+            Fctr.Getfiles(xml.GetXMLpath() + @"WoddenLegs\ControlLayer\TempPDFHolder");
         }
 
         [TestMethod]
@@ -42,6 +39,13 @@ namespace TestLayer
         {
             XmlController xml = new XmlController();
             xml.makeXmlfile();
+        }
+
+        [TestMethod]
+        public void testrun()
+        {
+            cmdluncherController cmdluncher = new cmdluncherController();
+            cmdluncher.start();
         }
     }
 }

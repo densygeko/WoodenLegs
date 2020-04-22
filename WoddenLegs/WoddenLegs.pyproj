@@ -58,7 +58,6 @@
     <Compile Include="Python_Test\RawData_FindByID.py" />
     <Compile Include="Python_Test\RawData_Insert_All_Test.py" />
     <Compile Include="Python_Test\test_1.py" />
-    <Compile Include="WoddenLegs.py" />
     <Compile Include="ControlLayer\Main2.py" />
     <Compile Include="ControlLayer\PDFReader.py" />
     <Compile Include="ControlLayer\RegexChecker.py" />

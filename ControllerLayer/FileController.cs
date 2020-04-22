@@ -16,6 +16,7 @@ namespace ControllerLayer
         private List<directory> directories;
 
         private XmlController xmlController = new XmlController();
+        private cmdluncherController cmd = new cmdluncherController();
         public FileController()
         {
             files = FilesContainer.getInstance();
@@ -65,7 +66,9 @@ namespace ControllerLayer
                 //we are sorting all the files in all the directories
                 Sortfiles(Directory.GetFiles(item.path));
             }
-            xmlController.makeXmlfile();
+           xmlController.makeXmlfile();
+            xmlController.insertpathtoxmldoc();
+            cmd.start();
         }
         //this is a method for sortingfiles the input are a array of string(file paaths)
         public void Sortfiles(string[] incfiles)
