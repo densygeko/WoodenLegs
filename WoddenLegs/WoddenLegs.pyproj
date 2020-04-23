@@ -28,6 +28,9 @@
     <Compile Include="ControlLayer\PDFReader.py" />
     <Compile Include="ControlLayer\RegexChecker.py" />
     <Compile Include="ControlLayer\RegexTest.py" />
+    <Compile Include="ControlLayer\TxtReader.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="DatabaseLayer\DB_BlacklistKeyword.py" />
     <Compile Include="DatabaseLayer\DB_BlacklistType.py" />
     <Compile Include="DatabaseLayer\DB_Email.py">

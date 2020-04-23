@@ -2,16 +2,16 @@ import re
 
 class RegexChecker:
     
-    def checkMail(text):
+    def checkMail(self, text):
         emails = re.findall('\S+@\S+\.[a-zA-Z]{2,4}', text)
         return emails
 
-    def checkPhone(text):
+    def checkPhone(self, text):
 
         phoneNumbers = re.findall('(?:\+?(?:45){1})?(?:[-.\s]?\d{1}){8}', text)
         return phoneNumbers
 
-    def findIP(text):
+    def findIP(self, text):
         IPV4SEG  = r'(?:25[0-5]|(?:2[0-4]|1{0,1}[0-9]){0,1}[0-9])'
         IPV4ADDR = r'(?:(?:' + IPV4SEG + r'\.){3,3}' + IPV4SEG + r')'
         IPV6SEG  = r'(?:(?:[0-9a-fA-F]){1,4})'

@@ -1,6 +1,7 @@
 from ControlLayer.PDFReader import *
 from ControlLayer.RegexChecker import *
 from ControlLayer.PCAPReader import *
+from ControlLayer.TxtReader import *
 from ModelLayer.Identifier import *
 from ModelLayer.MatchedIdentifier import *
 from xml.dom import minidom
@@ -99,24 +100,59 @@ class Main2():
         #.pcap files
         try:
             pcapPaths = XMLDoc.getElementsByTagName("pcappath")
-            print("extracted pcappath from xml")
             pcapFiles = []
             for path in pcapPaths:
                 pcapFiles.append(path.firstChild.data)
 
             identifiers.extend(self.ParsePcap(pcapFiles))
-
         except:
             print("No .pcap files in directory or error related to .pcap")
+
+        #.txt files
+        #try:
+        txtPaths = XMLDoc.getElementsByTagName("txtpath")
+        txtFiles = []
+        for path in txtPaths:
+            txtFiles.append(path.firstChild.data)
+
+        identifiers.extend(self.ParseTxt(txtFiles))
+        #except:
+        #    print("No .txt files in directory or error related to .txt")
 
         matchedIdentifiers = self.MatchIdentifiers(identifiers)
         self.CreateXMLDoc(matchedIdentifiers)
 
+    def ParseTxt(self, paths):
+        id = 0
+        identifiers = []
+        txtReader = TxtReader()
+        regex = RegexChecker()
+        for path in paths:
+            data = txtReader.ReadFile(path)
+            emails = regex.checkMail(data)
+            for email in emails:
+                ident = Identifier(email, "Email", path, 0, id)
+                identifiers.append(ident)
+                id+=1
+
+            phoneNumbers = regex.checkPhone(data)
+            for number in phoneNumbers:
+                ident = Identifier(number, "Telefon Nr.", path, 0, id)
+                identifiers.append(ident)
+                id+=1
+
+            ips = regex.findIP(data)
+            for ip in ips:
+                ident = Identifier(ip, "IP-adresse", path, 0, id)
+                identifiers.append(ident)
+                id+=1
+
+        return identifiers
+        
     def ParsePcap(self, paths):
         id = 0
         identifiers = []
         pcapReader = PCAPReader()
-        
         for path in paths:
             ips = pcapReader.ReadFile(path)
             for ip in ips:
@@ -130,23 +166,24 @@ class Main2():
         id = 0 #Id gets incremented when searching for identifiers and attached to them
         identifiers = []
         pdfReader = PdfReader()
+        regex = RegexChecker()
         for path in paths:
             textDict = pdfReader.readImages(path) #Gets all normal text and text on images from PDF
             for page in textDict:
                 
-                emails = RegexChecker.checkMail(textDict[page]) #Find all emails using RegEx
+                emails = regex.checkMail(textDict[page]) #Find all emails using RegEx
                 for email in emails:
                     ident = Identifier(email, "Email", path, page, id)
                     identifiers.append(ident) #Add email identifiers to list
                     id +=1
                 
-                phoneNumbers = RegexChecker.checkPhone(textDict[page])  #Find all danish phone numbers using RegEx
+                phoneNumbers = regex.checkPhone(textDict[page])  #Find all danish phone numbers using RegEx
                 for number in phoneNumbers:
                     ident = Identifier(number, "PhoneNumber", path, page, id)
                     identifiers.append(ident) #Add phone number identifiers to list
                     id +=1
 
-                ips = RegexChecker.findIP(textDict[page]) #Find all IPv4 and IPv6 addresses using RegEx
+                ips = regex.findIP(textDict[page]) #Find all IPv4 and IPv6 addresses using RegEx
                 for ip in ips:
                     ident = Identifier(number, "IP", path, page, id)
                     identifiers.append(ident) #Add IP address identifiers to list
