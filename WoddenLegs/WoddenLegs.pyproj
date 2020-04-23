@@ -24,6 +24,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="ControlLayer\Main2.py" />
+    <Compile Include="ControlLayer\PCAPReader.py" />
     <Compile Include="ControlLayer\PDFReader.py" />
     <Compile Include="ControlLayer\RegexChecker.py" />
     <Compile Include="ControlLayer\RegexTest.py" />

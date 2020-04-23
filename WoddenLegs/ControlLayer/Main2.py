@@ -7,6 +7,7 @@ from xml.dom import minidom
 import sys
 import os
 import ast
+import threading
 #import subprocess
 
 
@@ -80,34 +81,50 @@ class Main2():
             print("Please enter the path to the filepaths.xml document")
             return
 
+        identifiers = []
         XMLDoc = minidom.parse(str(sys.argv[1])) #Get XML doc from system argument provided from UI
 
+        #.pdf files
         try: 
-            PDFPaths = XMLDoc.getElementsByTagName("pdfpath") #Get pdfpath element from XML file
-            PDFFiles = []
-            for path in PDFPaths:
-                PDFFiles.append(path.firstChild.data) #Extract data from pdfpath element
+            pdfPaths = XMLDoc.getElementsByTagName("pdfpath") #Get pdfpath element from XML file
+            pdfFiles = []
+            for path in pdfPaths:
+                pdfFiles.append(path.firstChild.data) #Extract data from pdfpath element
         
-            self.ParsePDF(PDFFiles)
+            identifiers.extend(self.ParsePDF(pdfFiles))
         
         except:
             print("No .pdf files in directory or error related to .pdf")
 
+        #.pcap files
         try:
-            PCAPPaths = XMLDoc.getElementByTagName("pcappath")
-            PCAPFiles = []
-            for path in PCAPPaths:
-                PCAPFiles.append(path.firstChild.data)
+            pcapPaths = XMLDoc.getElementsByTagName("pcappath")
+            print("extracted pcappath from xml")
+            pcapFiles = []
+            for path in pcapPaths:
+                pcapFiles.append(path.firstChild.data)
 
-            #TODO: add PCAPFiles to identifier list
+            identifiers.extend(self.ParsePcap(pcapFiles))
 
         except:
             print("No .pcap files in directory or error related to .pcap")
 
-        
-        
-            
+        matchedIdentifiers = self.MatchIdentifiers(identifiers)
+        self.CreateXMLDoc(matchedIdentifiers)
 
+    def ParsePcap(self, paths):
+        id = 0
+        identifiers = []
+        pcapReader = PCAPReader()
+        
+        for path in paths:
+            ips = pcapReader.ReadFile(path)
+            for ip in ips:
+                ident = Identifier(ip, "IP", path, 0, id)
+                identifiers.append(ident)
+                id+=1
+        
+        return identifiers
 
     def ParsePDF(self, paths):
         id = 0 #Id gets incremented when searching for identifiers and attached to them
@@ -135,11 +152,7 @@ class Main2():
                     identifiers.append(ident) #Add IP address identifiers to list
                     id +=1
 
-        for identi in identifiers:
-            print(identi.name)
-
-        matchedIdentifiers = self.MatchIdentifiers(identifiers) #Sort identifiers and get the ones with multiple occurences.
-        self.CreateXMLDoc(matchedIdentifiers) 
+        return identifiers
 
 if __name__ == '__main__':
     mainClass = Main2()
