@@ -23,18 +23,18 @@ namespace ControllerLayer
         {
 
             XmlDocument xdoc = new XmlDocument();
-            FileStream fileStream = new FileStream(@"C:\Users\Uth\Desktop\WoddenLegs\ControllerLayer\XMLFile1.xml", FileMode.Open);
+            FileStream fileStream = new FileStream(GetXMLpath() + "text.xml", FileMode.Open);
             xdoc.Load(fileStream);
             XmlNodeList list = xdoc.GetElementsByTagName("Identifier");
             List<Identifier> Lidentifier = new List<Identifier>();
             for (int i = 0; i < list.Count; i++)
             {
-
                 XmlElement cl = (XmlElement)xdoc.GetElementsByTagName("Identifier")[i];
+
                 XmlElement IDF = (XmlElement)xdoc.GetElementsByTagName("name")[i];
                 XmlNodeList paths = (XmlNodeList)xdoc.GetElementsByTagName("path");
                 XmlElement type = (XmlElement)xdoc.GetElementsByTagName("type")[i];
-                XmlElement occurences = (XmlElement)xdoc.GetElementsByTagName("Occurences")[i];
+                XmlElement occurences = (XmlElement)xdoc.GetElementsByTagName("occurences")[i];
 
                 if ((cl.GetAttribute("id")) != null)
                 {
@@ -212,7 +212,7 @@ namespace ControllerLayer
                 foreach (var item in files.PictureFiles)
                 {
                     XmlElement picturepaths = xd.CreateElement("piturePath");
-                    XmlElement picturepath = xd.CreateElement(item);
+                    XmlText picturepath = xd.CreateTextNode(item);
                     picturepaths.AppendChild(picturepath);
                 }
                 xd.DocumentElement.AppendChild(piturefiles);
@@ -223,7 +223,7 @@ namespace ControllerLayer
                 foreach (var item in files.xmls)
                 {
                     XmlElement xmlpath = xd.CreateElement("xmlPaths");
-                    XmlElement xmltext = xd.CreateElement(item);
+                    XmlText xmltext = xd.CreateTextNode(item);
                     xmlpath.AppendChild(xmltext);
                     xmlfiles.AppendChild(xmlpath);
                 }

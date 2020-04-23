@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +15,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ControllerLayer;
+using ModelLayer;
 
 namespace GUI
 {
@@ -20,9 +25,13 @@ namespace GUI
     /// </summary>
     public partial class MainWindow : Window
     {
+        private Identifier _selectedIdentifier;
+        private XmlController XmlController = new XmlController();
         public MainWindow()
         {
             InitializeComponent();
+            this.DisplayIdentifierDataGrid.ItemsSource = XmlController.ReadIdentifierFromXml();
+            
         }
 
         // Asks the user if they are sure that they want to close the application
@@ -44,8 +53,8 @@ namespace GUI
         {
             InsertFiles insertFilesWindow = new InsertFiles();
             insertFilesWindow.Topmost = true;
-            insertFilesWindow.ShowDialog();
-            
+            insertFilesWindow.Show();
+
         }
 
         private void ButtonCloseMenu_Click(object sender, RoutedEventArgs e)
@@ -62,7 +71,7 @@ namespace GUI
 
         private void blacklist_Click(object sender, RoutedEventArgs e)
         {
-            if(BlackListData.Visibility == Visibility.Hidden)
+            if (BlackListData.Visibility == Visibility.Hidden)
             {
                 BlackListData.Visibility = Visibility.Visible;
                 BlackListTextBox.Text = "Skjul blacklist";
@@ -73,9 +82,28 @@ namespace GUI
                 BlackListData.Visibility = Visibility.Hidden;
                 BlackListTextBox.Text = "Vis blacklist";
                 BlackListIcon.Foreground = Brushes.White;
-                
+
+            }
+        }
+
+        
+
+        private void DisplayIdentifierDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Identifier identifier = (Identifier)this.DisplayIdentifierDataGrid.CurrentItem;
+            if (_selectedIdentifier != identifier)
+            {
+                _selectedIdentifier = identifier;
+                nofiChanged(_selectedIdentifier);
+
             }
             
+            
+        }
+
+        public void nofiChanged(Identifier identifier1)
+        {
+           
         }
     }
 }

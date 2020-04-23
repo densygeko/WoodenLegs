@@ -1,16 +1,9 @@
 <paths>
   <pdfPaths>
-    <pdfpath>C:\Users\Uth\Desktop\WoddenLegs\WoddenLegs\ControlLayer\TempPDFHolder\1.pdf</pdfpath>
-    <pdfpath>C:\Users\Uth\Desktop\WoddenLegs\WoddenLegs\ControlLayer\TempPDFHolder\2.pdf</pdfpath>
-    <pdfpath>C:\Users\Uth\Desktop\WoddenLegs\WoddenLegs\ControlLayer\TempPDFHolder\3.pdf</pdfpath>
-    <pdfpath>C:\Users\Uth\Desktop\WoddenLegs\WoddenLegs\ControlLayer\TempPDFHolder\8300-1015 Oplysninger om din bolig.pdf</pdfpath>
-    <pdfpath>C:\Users\Uth\Desktop\WoddenLegs\WoddenLegs\ControlLayer\TempPDFHolder\facere.pdf</pdfpath>
-    <pdfpath>C:\Users\Uth\Desktop\WoddenLegs\WoddenLegs\ControlLayer\TempPDFHolder\OCRTestPDF.pdf</pdfpath>
-    <pdfpath>C:\Users\Uth\Desktop\WoddenLegs\WoddenLegs\ControlLayer\TempPDFHolder\quisquam.pdf</pdfpath>
-    <pdfpath>C:\Users\Uth\Desktop\WoddenLegs\WoddenLegs\ControlLayer\TempPDFHolder\report.pdf</pdfpath>
-    <pdfpath>C:\Users\Uth\Desktop\WoddenLegs\WoddenLegs\ControlLayer\TempPDFHolder\TestPDF.pdf</pdfpath>
-    <pdfpath>C:\Users\Uth\Desktop\WoddenLegs\WoddenLegs\ControlLayer\TempPDFHolder\TestPDF2.pdf</pdfpath>
-    <pdfpath>C:\Users\Uth\Desktop\WoddenLegs\WoddenLegs\ControlLayer\TempPDFHolder\TestPDF3.pdf</pdfpath>
-    <pdfpath>C:\Users\Uth\Desktop\WoddenLegs\WoddenLegs\ControlLayer\TempPDFHolder\TestPDF4.pdf</pdfpath>
+    <pdfpath>C:\Users\Uth\Desktop\PlasticLegsData\PDF1.pdf</pdfpath>
+    <pdfpath>C:\Users\Uth\Desktop\PlasticLegsData\PDF2.pdf</pdfpath>
   </pdfPaths>
+  <xmlPaths>
+    <xmlPaths>C:\Users\Uth\Desktop\PlasticLegsData\filepaths.xml</xmlPaths>
+  </xmlPaths>
 </paths>

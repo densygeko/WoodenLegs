@@ -7,6 +7,15 @@
 			<path>C:\Users\Uth\Desktop\PlasticLegsData\PDF2.pdf</path>
 		</paths>
 		<occurences>2</occurences>
-		<type>Email</type>
+		<type>Telefonnummer</type>
+	</Identifier>
+	<Identifier id="1">
+		<name>michael2.anker@gmail.com</name>
+		<paths>
+			<path>C:\Users\Uth\Desktop\PlasticLegsData\PDF1.pdf</path>
+			<path>C:\Users\Uth\Desktop\PlasticLegsData\PDF2.pdf</path>
+		</paths>
+		<occurences>4</occurences>
+		<type>Telefonnummer</type>
 	</Identifier>
 </root>

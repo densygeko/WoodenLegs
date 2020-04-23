@@ -7,8 +7,8 @@
         mc:Ignorable="d"
         Title="InsertFiles" Height="450" Width="800">
     <Grid>
-        <Button Content="Bekræft" HorizontalAlignment="Left" Margin="446,207,0,0" VerticalAlignment="Top" Width="91"/>
-        <Button Content="Browse" HorizontalAlignment="Left" Margin="446,162,0,0" VerticalAlignment="Top" Width="91"/>
+        <Button Content="Bekræft" HorizontalAlignment="Left" Margin="446,207,0,0" VerticalAlignment="Top" Width="91" Click="Confirm_Click"/>
+        <Button Content="Browse" HorizontalAlignment="Left" Margin="446,162,0,0" VerticalAlignment="Top" Width="91" Click="Browse_Click"/>
         <TextBox HorizontalAlignment="Left" Height="20" Margin="175,174,0,0" Name="Textbox" TextWrapping="Wrap" VerticalAlignment="Top" Width="256"/>
     </Grid>
 </Window>
