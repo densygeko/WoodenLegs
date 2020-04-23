@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControllerLayer", "Controll
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestLayer", "TestLayer\TestLayer.csproj", "{6717D845-2CFD-4007-883F-29447D0899CE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GUI", "..\WoddenLegsGUI\GUI\GUI.csproj", "{2BCDFDBE-07C2-4C63-BD6A-0AC35C3D3741}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GUI", "..\..\..\source\repos\WoddenLegsGUI\GUI\GUI.csproj", "{2BCDFDBE-07C2-4C63-BD6A-0AC35C3D3741}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
