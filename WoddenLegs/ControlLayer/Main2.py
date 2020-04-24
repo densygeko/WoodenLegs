@@ -109,15 +109,15 @@ class Main2():
             print("No .pcap files in directory or error related to .pcap")
 
         #.txt files
-        #try:
-        txtPaths = XMLDoc.getElementsByTagName("txtpath")
-        txtFiles = []
-        for path in txtPaths:
-            txtFiles.append(path.firstChild.data)
+        try:
+            txtPaths = XMLDoc.getElementsByTagName("txtpath")
+            txtFiles = []
+            for path in txtPaths:
+                txtFiles.append(path.firstChild.data)
 
-        identifiers.extend(self.ParseTxt(txtFiles))
-        #except:
-        #    print("No .txt files in directory or error related to .txt")
+            identifiers.extend(self.ParseTxt(txtFiles))
+        except:
+            print("No .txt files in directory or error related to .txt")
 
         matchedIdentifiers = self.MatchIdentifiers(identifiers)
         self.CreateXMLDoc(matchedIdentifiers)
