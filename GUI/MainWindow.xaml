@@ -105,7 +105,7 @@
             </Grid>
                 
             <Grid x:Name="DataDisplayPathGrid" HorizontalAlignment="Left" Height="530" Margin="935,10,0,0" VerticalAlignment="Top" Width="492" RenderTransformOrigin="0.52,0.485">
-                <DataGrid HorizontalAlignment="Left" Height="530" Margin="10,0,0,0" VerticalAlignment="Top" Width="472" Name="DataGridDisplayPaths" ItemsSource="{Binding}" AutoGenerateColumns="True" IsReadOnly="True" CanUserResizeColumns="False">
+                <DataGrid HorizontalAlignment="Left" Height="530" Margin="10,0,0,0" VerticalAlignment="Top" Width="472" Name="DataGridDisplayPaths" ItemsSource="{Binding}" AutoGenerateColumns="False" IsReadOnly="True" CanUserResizeColumns="False">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Paths" Binding="{Binding}"/>
                     </DataGrid.Columns>

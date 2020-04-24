@@ -103,7 +103,7 @@ namespace GUI
 
         public void nofiChanged(Identifier identifier1)
         {
-           
+            this.DataGridDisplayPaths.ItemsSource = _selectedIdentifier.Paths;
         }
     }
 }
