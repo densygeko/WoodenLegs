@@ -1,12 +1,14 @@
 from ControlLayer.PDFReader import *
 from ControlLayer.RegexChecker import *
 from ControlLayer.PCAPReader import *
+from ControlLayer.TxtReader import *
 from ModelLayer.Identifier import *
 from ModelLayer.MatchedIdentifier import *
 from xml.dom import minidom
 import sys
 import os
 import ast
+import threading
 #import subprocess
 
 
@@ -80,66 +82,114 @@ class Main2():
             print("Please enter the path to the filepaths.xml document")
             return
 
+        identifiers = []
         XMLDoc = minidom.parse(str(sys.argv[1])) #Get XML doc from system argument provided from UI
 
+        #.pdf files
         try: 
-            PDFPaths = XMLDoc.getElementsByTagName("pdfpath") #Get pdfpath element from XML file
-            PDFFiles = []
-            for path in PDFPaths:
-                PDFFiles.append(path.firstChild.data) #Extract data from pdfpath element
+            pdfPaths = XMLDoc.getElementsByTagName("pdfpath") #Get pdfpath element from XML file
+            pdfFiles = []
+            for path in pdfPaths:
+                pdfFiles.append(path.firstChild.data) #Extract data from pdfpath element
         
-            self.ParsePDF(PDFFiles)
+            identifiers.extend(self.ParsePDF(pdfFiles))
         
         except:
             print("No .pdf files in directory or error related to .pdf")
 
+        #.pcap files
         try:
-            PCAPPaths = XMLDoc.getElementByTagName("pcappath")
-            PCAPFiles = []
-            for path in PCAPPaths:
-                PCAPFiles.append(path.firstChild.data)
+            pcapPaths = XMLDoc.getElementsByTagName("pcappath")
+            pcapFiles = []
+            for path in pcapPaths:
+                pcapFiles.append(path.firstChild.data)
 
-            #TODO: add PCAPFiles to identifier list
-
+            identifiers.extend(self.ParsePcap(pcapFiles))
         except:
             print("No .pcap files in directory or error related to .pcap")
 
-        
-        
-            
+        #.txt files
+        try:
+            txtPaths = XMLDoc.getElementsByTagName("txtpath")
+            txtFiles = []
+            for path in txtPaths:
+                txtFiles.append(path.firstChild.data)
 
+            identifiers.extend(self.ParseTxt(txtFiles))
+        except:
+            print("No .txt files in directory or error related to .txt")
+
+        matchedIdentifiers = self.MatchIdentifiers(identifiers)
+        self.CreateXMLDoc(matchedIdentifiers)
+
+    def ParseTxt(self, paths):
+        id = 0
+        identifiers = []
+        txtReader = TxtReader()
+        regex = RegexChecker()
+        for path in paths:
+            data = txtReader.ReadFile(path)
+            emails = regex.checkMail(data)
+            for email in emails:
+                ident = Identifier(email, "Email", path, 0, id)
+                identifiers.append(ident)
+                id+=1
+
+            phoneNumbers = regex.checkPhone(data)
+            for number in phoneNumbers:
+                ident = Identifier(number, "Telefon Nr.", path, 0, id)
+                identifiers.append(ident)
+                id+=1
+
+            ips = regex.findIP(data)
+            for ip in ips:
+                ident = Identifier(ip, "IP-adresse", path, 0, id)
+                identifiers.append(ident)
+                id+=1
+
+        return identifiers
+        
+    def ParsePcap(self, paths):
+        id = 0
+        identifiers = []
+        pcapReader = PCAPReader()
+        for path in paths:
+            ips = pcapReader.ReadFile(path)
+            for ip in ips:
+                ident = Identifier(ip, "IP", path, 0, id)
+                identifiers.append(ident)
+                id+=1
+        
+        return identifiers
 
     def ParsePDF(self, paths):
         id = 0 #Id gets incremented when searching for identifiers and attached to them
         identifiers = []
         pdfReader = PdfReader()
+        regex = RegexChecker()
         for path in paths:
             textDict = pdfReader.readImages(path) #Gets all normal text and text on images from PDF
             for page in textDict:
                 
-                emails = RegexChecker.checkMail(textDict[page]) #Find all emails using RegEx
+                emails = regex.checkMail(textDict[page]) #Find all emails using RegEx
                 for email in emails:
                     ident = Identifier(email, "Email", path, page, id)
                     identifiers.append(ident) #Add email identifiers to list
                     id +=1
                 
-                phoneNumbers = RegexChecker.checkPhone(textDict[page])  #Find all danish phone numbers using RegEx
+                phoneNumbers = regex.checkPhone(textDict[page])  #Find all danish phone numbers using RegEx
                 for number in phoneNumbers:
                     ident = Identifier(number, "PhoneNumber", path, page, id)
                     identifiers.append(ident) #Add phone number identifiers to list
                     id +=1
 
-                ips = RegexChecker.findIP(textDict[page]) #Find all IPv4 and IPv6 addresses using RegEx
+                ips = regex.findIP(textDict[page]) #Find all IPv4 and IPv6 addresses using RegEx
                 for ip in ips:
                     ident = Identifier(number, "IP", path, page, id)
                     identifiers.append(ident) #Add IP address identifiers to list
                     id +=1
 
-        for identi in identifiers:
-            print(identi.name)
-
-        matchedIdentifiers = self.MatchIdentifiers(identifiers) #Sort identifiers and get the ones with multiple occurences.
-        self.CreateXMLDoc(matchedIdentifiers) 
+        return identifiers
 
 if __name__ == '__main__':
     mainClass = Main2()
