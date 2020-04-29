@@ -26,6 +26,7 @@ namespace GUI
             InitializeComponent();
         }
 
+
         //Browser button
         private void Browse_Click(object sender, RoutedEventArgs e)
         {
@@ -47,6 +48,9 @@ namespace GUI
             FileController Fctr = new FileController();
             Fctr.Getfiles(path);
             //close window
+            MainWindow mian = new MainWindow();
+            mian.Show();
+            Close();
         }
     }
 }

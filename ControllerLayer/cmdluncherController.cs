@@ -16,16 +16,16 @@ namespace ControllerLayer
         public static void LaunchCommandLineApp()
         {
             XmlController xml = new XmlController();
-            string exestirng = @"C:\Users\Uth\Desktop\WoddenLegs\WoddenLegs\dist\Main2.exe";
+            string exestirng = xml.GetXMLpath() + @"Main2\dist\Main2.exe";
             string xmlstring = xml.GetXMLpath() + "filepaths.xml";
 
 
             ProcessStartInfo startInfo = new ProcessStartInfo();
-            startInfo.CreateNoWindow = false;
+            startInfo.CreateNoWindow = true;
             startInfo.FileName = exestirng;
-            startInfo.WindowStyle = ProcessWindowStyle.Maximized;
+            startInfo.WindowStyle = ProcessWindowStyle.Hidden;
             startInfo.Arguments = xmlstring;
-
+            startInfo.WorkingDirectory = xml.GetXMLpath()+ @"Main2\dist";
             try
             {
                 // Start the process with the info we specified.

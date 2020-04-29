@@ -1,9 +1,39 @@
 <paths>
   <pdfPaths>
-    <pdfpath>C:\Users\Uth\Desktop\PlasticLegsData\PDF1.pdf</pdfpath>
-    <pdfpath>C:\Users\Uth\Desktop\PlasticLegsData\PDF2.pdf</pdfpath>
+    <pdfpath>C:\Users\Uth\Desktop\1.prprocjekt\WoddenLegs\ControlLayer\TempPDFHolder\1.pdf</pdfpath>
+    <pdfpath>C:\Users\Uth\Desktop\1.prprocjekt\WoddenLegs\ControlLayer\TempPDFHolder\2.pdf</pdfpath>
+    <pdfpath>C:\Users\Uth\Desktop\1.prprocjekt\WoddenLegs\ControlLayer\TempPDFHolder\3.pdf</pdfpath>
+    <pdfpath>C:\Users\Uth\Desktop\1.prprocjekt\WoddenLegs\ControlLayer\TempPDFHolder\8300-1015 Oplysninger om din bolig.pdf</pdfpath>
+    <pdfpath>C:\Users\Uth\Desktop\1.prprocjekt\WoddenLegs\ControlLayer\TempPDFHolder\facere.pdf</pdfpath>
+    <pdfpath>C:\Users\Uth\Desktop\1.prprocjekt\WoddenLegs\ControlLayer\TempPDFHolder\OCRTestPDF.pdf</pdfpath>
+    <pdfpath>C:\Users\Uth\Desktop\1.prprocjekt\WoddenLegs\ControlLayer\TempPDFHolder\quisquam.pdf</pdfpath>
+    <pdfpath>C:\Users\Uth\Desktop\1.prprocjekt\WoddenLegs\ControlLayer\TempPDFHolder\report.pdf</pdfpath>
+    <pdfpath>C:\Users\Uth\Desktop\1.prprocjekt\WoddenLegs\ControlLayer\TempPDFHolder\TestPDF.pdf</pdfpath>
+    <pdfpath>C:\Users\Uth\Desktop\1.prprocjekt\WoddenLegs\ControlLayer\TempPDFHolder\TestPDF2.pdf</pdfpath>
+    <pdfpath>C:\Users\Uth\Desktop\1.prprocjekt\WoddenLegs\ControlLayer\TempPDFHolder\TestPDF3.pdf</pdfpath>
+    <pdfpath>C:\Users\Uth\Desktop\1.prprocjekt\WoddenLegs\ControlLayer\TempPDFHolder\TestPDF4.pdf</pdfpath>
   </pdfPaths>
+  <piturePaths />
   <xmlPaths>
-    <xmlPaths>C:\Users\Uth\Desktop\PlasticLegsData\filepaths.xml</xmlPaths>
+    <xmlPaths>C:\Users\Uth\Desktop\1.prprocjekt\.metadata\.plugins\org.eclipse.debug.ui\dialog_settings.xml</xmlPaths>
+    <xmlPaths>C:\Users\Uth\Desktop\1.prprocjekt\.metadata\.plugins\org.eclipse.debug.ui\launchConfigurationHistory.xml</xmlPaths>
+    <xmlPaths>C:\Users\Uth\Desktop\1.prprocjekt\.metadata\.plugins\org.eclipse.epp.mpc.ui\dialog_settings.xml</xmlPaths>
+    <xmlPaths>C:\Users\Uth\Desktop\1.prprocjekt\.metadata\.plugins\org.eclipse.equinox.p2.ui\dialog_settings.xml</xmlPaths>
+    <xmlPaths>C:\Users\Uth\Desktop\1.prprocjekt\.metadata\.plugins\org.eclipse.help.ui\dialog_settings.xml</xmlPaths>
+    <xmlPaths>C:\Users\Uth\Desktop\1.prprocjekt\.metadata\.plugins\org.eclipse.jdt.debug.ui\dialog_settings.xml</xmlPaths>
+    <xmlPaths>C:\Users\Uth\Desktop\1.prprocjekt\.metadata\.plugins\org.eclipse.jdt.launching\.install.xml</xmlPaths>
+    <xmlPaths>C:\Users\Uth\Desktop\1.prprocjekt\.metadata\.plugins\org.eclipse.jdt.launching\libraryInfos.xml</xmlPaths>
+    <xmlPaths>C:\Users\Uth\Desktop\1.prprocjekt\.metadata\.plugins\org.eclipse.jdt.ui\dialog_settings.xml</xmlPaths>
+    <xmlPaths>C:\Users\Uth\Desktop\1.prprocjekt\.metadata\.plugins\org.eclipse.jdt.ui\OpenTypeHistory.xml</xmlPaths>
+    <xmlPaths>C:\Users\Uth\Desktop\1.prprocjekt\.metadata\.plugins\org.eclipse.jdt.ui\QualifiedTypeNameHistory.xml</xmlPaths>
+    <xmlPaths>C:\Users\Uth\Desktop\1.prprocjekt\.metadata\.plugins\org.eclipse.ltk.ui.refactoring\dialog_settings.xml</xmlPaths>
+    <xmlPaths>C:\Users\Uth\Desktop\1.prprocjekt\.metadata\.plugins\org.eclipse.m2e.logback.configuration\logback.1.11.0.20190220-2119.xml</xmlPaths>
+    <xmlPaths>C:\Users\Uth\Desktop\1.prprocjekt\.metadata\.plugins\org.eclipse.oomph.setup.ui\dialog_settings.xml</xmlPaths>
+    <xmlPaths>C:\Users\Uth\Desktop\1.prprocjekt\.metadata\.plugins\org.eclipse.tips.ide\dialog_settings.xml</xmlPaths>
+    <xmlPaths>C:\Users\Uth\Desktop\1.prprocjekt\.metadata\.plugins\org.eclipse.ui.ide\dialog_settings.xml</xmlPaths>
+    <xmlPaths>C:\Users\Uth\Desktop\1.prprocjekt\.metadata\.plugins\org.eclipse.ui.intro\dialog_settings.xml</xmlPaths>
+    <xmlPaths>C:\Users\Uth\Desktop\1.prprocjekt\.metadata\.plugins\org.eclipse.ui.workbench\dialog_settings.xml</xmlPaths>
+    <xmlPaths>C:\Users\Uth\Desktop\1.prprocjekt\.metadata\.plugins\org.eclipse.ui.workbench\workingsets.xml</xmlPaths>
+    <xmlPaths>C:\Users\Uth\Desktop\1.prprocjekt\.metadata\.plugins\org.eclipse.ui.workbench.texteditor\dialog_settings.xml</xmlPaths>
   </xmlPaths>
 </paths>

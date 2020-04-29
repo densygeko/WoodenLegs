@@ -66,9 +66,10 @@ namespace ControllerLayer
                 //we are sorting all the files in all the directories
                 Sortfiles(Directory.GetFiles(item.path));
             }
-           xmlController.makeXmlfile();
-            xmlController.insertpathtoxmldoc();
-            cmd.start();
+            xmlController.MakeXmlfile(); //makes the xmlfile
+            xmlController.Insertpathtoxmldoc(); //insert the paths we found
+            cmd.start(); //start the pyton program through the commandline
+            xmlController.InsertblackList(); //Insert the blacklist to the xml file
         }
         //this is a method for sortingfiles the input are a array of string(file paaths)
         public void Sortfiles(string[] incfiles)

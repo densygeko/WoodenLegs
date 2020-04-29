@@ -29,16 +29,17 @@ namespace TestLayer
         [TestMethod]
         public void testxml()
         {
-            FileController Fctr = new FileController();
+            
             XmlController xml = new XmlController();
-            Fctr.Getfiles(xml.GetXMLpath() + @"WoddenLegs\ControlLayer\TempPDFHolder");
+            
+            xml.InsertBlacklistKeyword("88 99 33 88");
         }
 
         [TestMethod]
         public void testblacklist()
         {
             XmlController xml = new XmlController();
-            xml.makeXmlfile();
+            xml.DeleteBlacklistKeyword("88 99 33 88");
         }
 
         [TestMethod]

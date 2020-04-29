@@ -30,8 +30,13 @@ namespace GUI
         public MainWindow()
         {
             InitializeComponent();
+            loadIdentifiers();
+           // this.DisplayIdentifierDataGrid.ItemsSource = XmlController.ReadIdentifierFromXml();
+        }
+
+        public void loadIdentifiers()
+        {
             this.DisplayIdentifierDataGrid.ItemsSource = XmlController.ReadIdentifierFromXml();
-            
         }
 
         // Asks the user if they are sure that they want to close the application
@@ -54,7 +59,7 @@ namespace GUI
             InsertFiles insertFilesWindow = new InsertFiles();
             insertFilesWindow.Topmost = true;
             insertFilesWindow.Show();
-
+            Close();
         }
 
         private void ButtonCloseMenu_Click(object sender, RoutedEventArgs e)
@@ -82,12 +87,10 @@ namespace GUI
                 BlackListData.Visibility = Visibility.Hidden;
                 BlackListTextBox.Text = "Vis blacklist";
                 BlackListIcon.Foreground = Brushes.White;
-
             }
         }
 
         
-
         private void DisplayIdentifierDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Identifier identifier = (Identifier)this.DisplayIdentifierDataGrid.CurrentItem;
@@ -95,15 +98,28 @@ namespace GUI
             {
                 _selectedIdentifier = identifier;
                 nofiChanged(_selectedIdentifier);
-
             }
-            
-            
         }
 
         public void nofiChanged(Identifier identifier1)
         {
             this.DataGridDisplayPaths.ItemsSource = _selectedIdentifier.Paths;
+        }
+
+        private void blackListRight_Click(object sender, RoutedEventArgs e)
+        {
+            XmlController.InsertBlacklistKeyword(_selectedIdentifier.identifier);
+            BlackListData.ItemsSource = XmlController.GetBlacklistkeywords();
+        }
+        
+        private void Email_bottomClick(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void CheckforBlacklist(string keyword)
+        {
+
         }
     }
 }
