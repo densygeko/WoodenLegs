@@ -23,6 +23,15 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="ControlLayer\CsvReader.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ControlLayer\DocReader.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ControlLayer\ImgReader.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="ControlLayer\Main2.py" />
     <Compile Include="ControlLayer\PCAPReader.py" />
     <Compile Include="ControlLayer\PDFReader.py" />
@@ -48,6 +57,9 @@
     <Compile Include="DatabaseLayer\DB_Connection.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="PythonTest\CsvTest.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="PythonTest\ExeTest.py">
       <SubType>Code</SubType>
     </Compile>
@@ -68,6 +80,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="PythonTest\Email_Update_on_id.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="PythonTest\ImgReadTest.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="PythonTest\Ip_FindAll.py">
