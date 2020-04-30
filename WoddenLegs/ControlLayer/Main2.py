@@ -2,6 +2,7 @@ from ControlLayer.PDFReader import *
 from ControlLayer.RegexChecker import *
 from ControlLayer.PCAPReader import *
 from ControlLayer.TxtReader import *
+from ControlLayer.CsvReader import *
 from ModelLayer.Identifier import *
 from ModelLayer.MatchedIdentifier import *
 from xml.dom import minidom
@@ -119,9 +120,50 @@ class Main2():
         except:
             print("No .txt files in directory or error related to .txt")
 
+        #.csv files
+        try:
+            csvPaths = XMLDoc.getElementsByTagName("csvpath")
+            csvFiles = []
+            for path in csvPaths:
+                csvFiles.append(path.firstChild.data)
+
+            identifiers.extend(self.ParseCsv(csvFiles))
+        except:
+            print("No .csv files in directory or error related to .csv")
+
+        #When list is finished, match identifiers and create XML file with data.
         matchedIdentifiers = self.MatchIdentifiers(identifiers)
         self.CreateXMLDoc(matchedIdentifiers)
 
+    def ParseCsv(self, paths):
+        id = 0
+        identifiers = []
+        csvReader = CsvReader()
+        regex = RegexChecker()
+        for path in paths:
+            csvRows = csvReader.ReadFile(path)
+            for row in csvRows:
+                #Search for email
+                emails = regex.checkMail(str(row))
+                for email in emails:
+                    ident = Identifier(email, "Email", path, 0, id)
+                    identifiers.append(ident)
+                    id+=1
+                #Search for phone numbers
+                phoneNumbers = regex.checkPhone(str(row))
+                for number in phoneNumbers:
+                    ident = Identifier(number, "Telefon Nr.", path, 0, id)
+                    identifiers.append(ident)
+                    id+=1
+                #Search for IP addresses
+                ips = regex.findIP(str(row))
+                for ip in ips:
+                    ident = Identifier(ip, "IP-adresse", path, 0, id)
+                    identifiers.append(ident)
+                    ip+=1
+        return identifiers
+
+        
     def ParseTxt(self, paths):
         id = 0
         identifiers = []
