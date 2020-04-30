@@ -19,6 +19,7 @@
 <span class="moduletype">Script</span>  <div class="import">
 imports:
     <a href="#ControlLayer.CsvReader">ControlLayer.CsvReader</a>
+ &#8226;   <a href="#ControlLayer.ImgReader">ControlLayer.ImgReader</a>
  &#8226;   <a href="#ControlLayer.PCAPReader">ControlLayer.PCAPReader</a>
  &#8226;   <a href="#ControlLayer.PDFReader">ControlLayer.PDFReader</a>
  &#8226;   <a href="#ControlLayer.RegexChecker">ControlLayer.RegexChecker</a>
@@ -177,7 +178,6 @@ imports:
  &#8226;   <a href="#sre_constants">sre_constants</a>
  &#8226;   <a href="#sre_parse">sre_parse</a>
  &#8226;   <a href="#sys">sys</a>
- &#8226;   <a href="#threading">threading</a>
  &#8226;   <a href="#traceback">traceback</a>
  &#8226;   <a href="#types">types</a>
  &#8226;   <a href="#warnings">warnings</a>
@@ -764,6 +764,7 @@ imported by:
 <span class="moduletype">NamespacePackage</span>  <div class="import">
 imported by:
     <a href="#ControlLayer.CsvReader">ControlLayer.CsvReader</a>
+ &#8226;   <a href="#ControlLayer.ImgReader">ControlLayer.ImgReader</a>
  &#8226;   <a href="#ControlLayer.PCAPReader">ControlLayer.PCAPReader</a>
  &#8226;   <a href="#ControlLayer.PDFReader">ControlLayer.PDFReader</a>
  &#8226;   <a href="#ControlLayer.RegexChecker">ControlLayer.RegexChecker</a>
@@ -780,6 +781,26 @@ imported by:
 imports:
     <a href="#ControlLayer">ControlLayer</a>
  &#8226;   <a href="#csv">csv</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#Main2.py">Main2.py</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="ControlLayer.ImgReader"></a>
+  <a target="code" href="///C:/Users/PhilipBraarup/Desktop/4thSemProject/WoddenLegs/WoddenLegs/ControlLayer/ImgReader.py" type="text/plain"><tt>ControlLayer.ImgReader</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#ControlLayer">ControlLayer</a>
+ &#8226;   <a href="#PIL">PIL</a>
+ &#8226;   <a href="#PIL.Image">PIL.Image</a>
+ &#8226;   <a href="#cv2">cv2</a>
+ &#8226;   <a href="#pytesseract">pytesseract</a>
 
   </div>
   <div class="import">
@@ -4435,6 +4456,7 @@ imports:
  &#8226;   <a href="#PIL.ImageSequence">PIL.ImageSequence</a>
  &#8226;   <a href="#PIL.ImageShow">PIL.ImageShow</a>
  &#8226;   <a href="#PIL.ImageTk">PIL.ImageTk</a>
+ &#8226;   <a href="#PIL.Jpeg2KImagePlugin">PIL.Jpeg2KImagePlugin</a>
  &#8226;   <a href="#PIL.JpegImagePlugin">PIL.JpegImagePlugin</a>
  &#8226;   <a href="#PIL.PaletteFile">PIL.PaletteFile</a>
  &#8226;   <a href="#PIL.PdfParser">PIL.PdfParser</a>
@@ -4455,7 +4477,8 @@ imports:
   </div>
   <div class="import">
 imported by:
-    <a href="#ControlLayer.PDFReader">ControlLayer.PDFReader</a>
+    <a href="#ControlLayer.ImgReader">ControlLayer.ImgReader</a>
+ &#8226;   <a href="#ControlLayer.PDFReader">ControlLayer.PDFReader</a>
  &#8226;   <a href="#PIL">PIL</a>
  &#8226;   <a href="#PIL.BlpImagePlugin">PIL.BlpImagePlugin</a>
  &#8226;   <a href="#PIL.BmpImagePlugin">PIL.BmpImagePlugin</a>
@@ -5039,7 +5062,8 @@ imports:
   </div>
   <div class="import">
 imported by:
-    <a href="#ControlLayer.PDFReader">ControlLayer.PDFReader</a>
+    <a href="#ControlLayer.ImgReader">ControlLayer.ImgReader</a>
+ &#8226;   <a href="#ControlLayer.PDFReader">ControlLayer.PDFReader</a>
  &#8226;   <a href="#PIL">PIL</a>
  &#8226;   <a href="#PIL.BlpImagePlugin">PIL.BlpImagePlugin</a>
  &#8226;   <a href="#PIL.BmpImagePlugin">PIL.BmpImagePlugin</a>
@@ -5521,7 +5545,8 @@ imports:
   </div>
   <div class="import">
 imported by:
-    <a href="#PIL.IcnsImagePlugin">PIL.IcnsImagePlugin</a>
+    <a href="#PIL">PIL</a>
+ &#8226;   <a href="#PIL.IcnsImagePlugin">PIL.IcnsImagePlugin</a>
  &#8226;   <a href="#PIL.Image">PIL.Image</a>
 
   </div>
@@ -13669,7 +13694,8 @@ imports:
   </div>
   <div class="import">
 imported by:
-    <a href="#ControlLayer.PDFReader">ControlLayer.PDFReader</a>
+    <a href="#ControlLayer.ImgReader">ControlLayer.ImgReader</a>
+ &#8226;   <a href="#ControlLayer.PDFReader">ControlLayer.PDFReader</a>
  &#8226;   <a href="#cv2.cv2">cv2.cv2</a>
  &#8226;   <a href="#cv2.data">cv2.data</a>
 
@@ -37183,8 +37209,6 @@ imports:
  &#8226;   <a href="#pygments.lexers.PythonLexer">pygments.lexers.PythonLexer</a>
  &#8226;   <a href="#pygments.lexers._mapping">pygments.lexers._mapping</a>
  &#8226;   <a href="#pygments.lexers._mql_builtins">pygments.lexers._mql_builtins</a>
- &#8226;   <a href="#pygments.lexers._scilab_builtins">pygments.lexers._scilab_builtins</a>
- &#8226;   <a href="#pygments.lexers._tsql_builtins">pygments.lexers._tsql_builtins</a>
  &#8226;   <a href="#pygments.lexers._vbscript_builtins">pygments.lexers._vbscript_builtins</a>
  &#8226;   <a href="#pygments.modeline">pygments.modeline</a>
  &#8226;   <a href="#pygments.plugin">pygments.plugin</a>
@@ -37606,7 +37630,6 @@ imports:
   <div class="import">
 imported by:
     <a href="#pygments">pygments</a>
- &#8226;   <a href="#pygments.lexers">pygments.lexers</a>
  &#8226;   <a href="#pygments.lexers.matlab">pygments.lexers.matlab</a>
 
   </div>
@@ -37681,7 +37704,6 @@ imports:
   <div class="import">
 imported by:
     <a href="#pygments">pygments</a>
- &#8226;   <a href="#pygments.lexers">pygments.lexers</a>
  &#8226;   <a href="#pygments.lexers.sql">pygments.lexers.sql</a>
 
   </div>
@@ -41820,7 +41842,8 @@ imports:
   </div>
   <div class="import">
 imported by:
-    <a href="#ControlLayer.PDFReader">ControlLayer.PDFReader</a>
+    <a href="#ControlLayer.ImgReader">ControlLayer.ImgReader</a>
+ &#8226;   <a href="#ControlLayer.PDFReader">ControlLayer.PDFReader</a>
  &#8226;   <a href="#pytesseract.pytesseract">pytesseract.pytesseract</a>
 
   </div>
@@ -50138,7 +50161,6 @@ imported by:
  &#8226;   <a href="#IPython.terminal.debugger">IPython.terminal.debugger</a>
  &#8226;   <a href="#IPython.testing.iptest">IPython.testing.iptest</a>
  &#8226;   <a href="#IPython.utils._process_win32">IPython.utils._process_win32</a>
- &#8226;   <a href="#Main2.py">Main2.py</a>
  &#8226;   <a href="#_threading_local">_threading_local</a>
  &#8226;   <a href="#asyncio.base_events">asyncio.base_events</a>
  &#8226;   <a href="#asyncio.events">asyncio.events</a>

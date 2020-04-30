@@ -3,14 +3,13 @@ from ControlLayer.RegexChecker import *
 from ControlLayer.PCAPReader import *
 from ControlLayer.TxtReader import *
 from ControlLayer.CsvReader import *
+from ControlLayer.ImgReader import *
 from ModelLayer.Identifier import *
 from ModelLayer.MatchedIdentifier import *
 from xml.dom import minidom
 import sys
 import os
 import ast
-import threading
-#import subprocess
 
 
 class Main2():
@@ -131,10 +130,47 @@ class Main2():
         except:
             print("No .csv files in directory or error related to .csv")
 
+        #Images
+        try:
+            imgPaths = XMLDoc.getElementsByTagName("imgpath")
+            imgFiles = []
+            for path in imgPaths:
+                imgFiles.append(path.firstChild.data)
+
+            identifiers.extend(self.ParseImg(imgFiles))
+        except:
+            print("No images found in directory or error related to images")
+
         #When list is finished, match identifiers and create XML file with data.
         matchedIdentifiers = self.MatchIdentifiers(identifiers)
         self.CreateXMLDoc(matchedIdentifiers)
 
+    def ParseImg(self, paths):
+        id = 0
+        identifiers = []
+        imRead = ImgReader()
+        regex = RegexChecker()
+        for path in paths:
+            img = imRead.ReadFile(path)
+            emails = regex.checkMail(img)
+            for email in emails:
+                ident = Identifier(email, "Email", path, 0, id)
+                identifiers.append(ident)
+                id+=1
+
+            phoneNumbers = regex.checkPhone(img)
+            for number in phoneNumbers:
+                ident = Identifier(number, "Telefon Nr.", path, 0, id)
+                identifiers.append(ident)
+                id+=1
+
+            ips = regex.findIP(img)
+            for ip in ips:
+                ident = Identifier(ip, "IP-adresse", path, 0, id)
+                identifiers.append(ident)
+                id+=1
+        return identifiers
+        
     def ParseCsv(self, paths):
         id = 0
         identifiers = []
