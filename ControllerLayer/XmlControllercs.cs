@@ -14,8 +14,8 @@ namespace ControllerLayer
     {
         public string GetXMLpath()
         {
-            string folderpath = Directory.GetCurrentDirectory();
-            string supsptring = folderpath.Substring(0, folderpath.IndexOf("WoddenLegs") - 1);
+            string folderpath = Directory.GetCurrentDirectory(); //gets the current directory, 
+            string supsptring = folderpath.Substring(0, folderpath.IndexOf("WoddenLegs") - 1); //cut the string down till we get the first woddenlegs
             string spriptpath = supsptring + @"\WoddenLegs\"; //edit to path where the xml is
             return spriptpath;
         }
@@ -23,21 +23,20 @@ namespace ControllerLayer
         {
             try //try cath for when the ui load and a xml file hasn't have created it till gets a still returns a list
             {
-                XmlDocument xdoc = new XmlDocument();
-                FileStream fileStream = new FileStream(GetXMLpath() + @"Main2\dist\MatchedIdentifiers.xml", FileMode.Open);
-                xdoc.Load(fileStream);
-                XmlNodeList list = xdoc.GetElementsByTagName("Identifier");
-                List<Identifier> Lidentifier = new List<Identifier>();
+                XmlDocument xdoc = new XmlDocument(); //makes xml class
+                FileStream fileStream = new FileStream(GetXMLpath() + @"Main2\dist\MatchedIdentifiers.xml", FileMode.Open); //start a bit steam of the given file
+                xdoc.Load(fileStream); // xml doc class use the data steam
+                XmlNodeList list = xdoc.GetElementsByTagName("Identifier"); // return Xmlnodelist within the tag Identifier
+                List<Identifier> Lidentifier = new List<Identifier>(); //  Instantiate a list with Indentifier
                 for (int i = 0; i < list.Count; i++)
                 {
-                    XmlElement cl = (XmlElement)xdoc.GetElementsByTagName("Identifier")[i];
+                    XmlElement cl = (XmlElement)xdoc.GetElementsByTagName("Identifier")[i]; //get xml element within the tag identifier
+                    XmlElement IDF = (XmlElement)xdoc.GetElementsByTagName("name")[i]; //get xml element within the tag name
+                    XmlNodeList paths = (XmlNodeList)xdoc.GetElementsByTagName("path"); //get xml element within the tag path
+                    XmlElement type = (XmlElement)xdoc.GetElementsByTagName("type")[i]; //get xml element within the tag type
+                    XmlElement occurences = (XmlElement)xdoc.GetElementsByTagName("occurences")[i]; //get xml element within the tag occurences
 
-                    XmlElement IDF = (XmlElement)xdoc.GetElementsByTagName("name")[i];
-                    XmlNodeList paths = (XmlNodeList)xdoc.GetElementsByTagName("path");
-                    XmlElement type = (XmlElement)xdoc.GetElementsByTagName("type")[i];
-                    XmlElement occurences = (XmlElement)xdoc.GetElementsByTagName("occurences")[i];
-
-                    if ((cl.GetAttribute("id")) != null)
+                    if ((cl.GetAttribute("id")) != null) // if there are not any id it is assume that there are no identifers in the xml doc
                     {
                         //map into class
 
@@ -54,11 +53,11 @@ namespace ControllerLayer
                         Lidentifier.Add(idf); //add class to a list
                     }
                 }
-                fileStream.Close();
-                return Lidentifier;
-                // return list of map objects
+                fileStream.Close(); //closes the data steam
+                return Lidentifier; 
+                // return list of map identifiers
             } 
-            catch (System.IO.FileNotFoundException e) // retruns a empty list for the ui to show
+            catch (System.IO.FileNotFoundException e) // retruns a empty list for the ui to show if the xml doc not exsited jet
             {
                  List < Identifier > nulllist = new List<Identifier>();
                 return nulllist;
@@ -70,8 +69,8 @@ namespace ControllerLayer
         public void InsertblackList()
         {
             XmlDocument xd = new XmlDocument();
-            FileStream lfile = new FileStream(GetXMLpath() + @"Main2\dist\MatchedIdentifiers.xml", FileMode.Open);
-            xd.Load(lfile);
+            FileStream lfile = new FileStream(GetXMLpath() + @"Main2\dist\MatchedIdentifiers.xml", FileMode.Open); //start a bit steam of the given file
+            xd.Load(lfile); // xml doc class use the data steam
             XmlElement cl = xd.CreateElement("blacklistType");
             XmlElement blkw = xd.CreateElement("blacklistKeyword");
             //make one for each Attribute from the class
@@ -128,7 +127,7 @@ namespace ControllerLayer
         {
             XmlDocument xd = new XmlDocument(); //Makes an instance of a Xmldocclass 
             FileStream lfile = new FileStream(GetXMLpath() + @"Main2\dist\MatchedIdentifiers.xml", FileMode.Open); //open steam of data out of an exsiting xml doc
-            xd.Load(lfile);
+            xd.Load(lfile); // xml doc class use the data steam
             XmlElement cl = (XmlElement)xd.GetElementsByTagName("blacklistKeyword")[0]; //findes the note BlacklistKeyword in the xml doc
             XmlElement keyword = xd.CreateElement("keyword"); //makes an new element named keyword
             XmlText keywordtext = xd.CreateTextNode(insertKeyword); // put the string into the insertkeyword
@@ -187,11 +186,11 @@ namespace ControllerLayer
         public void Insertpathtoxmldoc()
         {
             FilesContainer files = FilesContainer.getInstance();
-            XmlDocument xd = new XmlDocument();
-            string path = @"C:\Users\Uth\Desktop\WoddenLegs\filepaths.xml";
-            FileStream lfile = new FileStream(path, FileMode.Open);
-            xd.Load(lfile);
-            
+            XmlDocument xd = new XmlDocument(); 
+            string path = @"C:\Users\Uth\Desktop\WoddenLegs\filepaths.xml"; 
+            FileStream lfile = new FileStream(path, FileMode.Open); //start a bit steam of the given file
+            xd.Load(lfile);  // xml doc class use the data steam
+
             if (files.pcaps.Count > 0)
             {
                 XmlElement pcaps = xd.CreateElement("pcapPaths");
@@ -239,7 +238,30 @@ namespace ControllerLayer
                 }
                 xd.DocumentElement.AppendChild(xmlfiles);
             }
-            
+            if (files.Texts.Count > 0)
+            {
+                XmlElement txtfiles = xd.CreateElement("txtpaths");
+                foreach (var item in files.Texts)
+                {
+                    XmlElement txtpath = xd.CreateElement("txtpath");
+                    XmlText xmlText = xd.CreateTextNode(item);
+                    txtfiles.AppendChild(xmlText);
+                    txtfiles.AppendChild(txtpath);
+                }
+                xd.DocumentElement.AppendChild(txtfiles);
+            }
+            if (files.Csvs.Count > 0)
+            {
+                XmlElement csvfiles = xd.CreateElement("csvpaths");
+                foreach (var item in files.Csvs)
+                {
+                    XmlElement csvpath = xd.CreateElement("csvpath");
+                    XmlText xmlText = xd.CreateTextNode(item);
+                    csvfiles.AppendChild(xmlText);
+                    csvfiles.AppendChild(csvpath);
+                }
+                xd.DocumentElement.AppendChild(csvfiles);
+            }
             lfile.Close();
             xd.Save(path);
         }

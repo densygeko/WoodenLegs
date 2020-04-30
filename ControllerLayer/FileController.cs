@@ -12,7 +12,7 @@ namespace ControllerLayer
     {
         // makes a instance of the fileContainer, this is used to sort the files
         private FilesContainer files;
-        // need make a List of directories, to make sure we gotton all the files from all the folders
+        // need make a List of directories, to make sure we got all the files from all the folders
         private List<directory> directories;
 
         private XmlController xmlController = new XmlController();
@@ -22,16 +22,16 @@ namespace ControllerLayer
             files = FilesContainer.getInstance();
             directories = new List<directory>();
         }
+
         //this metod are getting the path of the root folder, from the root folder they get all the under directories 
-        // after all the under directories we are pulling out all the fíles and sorting them
+        // If there are files in the root directionary those files will be added to the list "directories"
         public void Getfiles(string path)
         {
-            //makeing the root path into aa directory class
-            //and adding it you the list of directory in case there are files in the root directory too 
+            //makeing the root path into a directory class
+            // and adding it to the list of directory in case there are files in the root directory too 
             directory maindir = new directory(path);
             directories.Add(maindir);
-            //this in is for the while loop it couts up in the end of the loop, every time the system look for under directories 
-            //in the directories  
+            //loops tropugh the list of directoies, it starts on 1 which is the root in the list of  directory ("dirctories")
             int trueres = 0;
             //this while loop stops then we have checked every directory in the list of directory for under directories
             while(directories.Count != trueres)
@@ -39,10 +39,10 @@ namespace ControllerLayer
                 //loop tho the list of directory it stats on 1 with the root directory
                 for (int i = 0; i < directories.Count; i++)
                 {
-                    //check if have had gotten read before
+                    //check if already read 
                     if (directories[i].read == false)
                     {
-                        //getting a list of all the under directories paths
+                        //create a list of all the under directories paths
                         string[] dir = Directory.GetDirectories(directories[i].path);
                         //loop tho the list of the under directories
                         foreach (var item1 in dir)
@@ -79,7 +79,7 @@ namespace ControllerLayer
             {
                 //makeing a supstring of the incomming path after the last dot, this is file type
                 string supstring = item.Substring(item.LastIndexOf(".") + 1);
-                //makeing it to upper because some filetype are anme "Pdf or Jpg"
+                //makeing it to upper case because some filetype are anme "Pdf or Jpg"
                 supstring = supstring.ToUpper();
                 //this string switch takes the supstring and adding file to the right list so we are ready to pull data from the files
                 switch (supstring)
@@ -101,6 +101,12 @@ namespace ControllerLayer
                         break;
                     case "JPG":
                         files.PictureFiles.Add(item);
+                        break;
+                    case "CSV":
+                        files.Csvs.Add(item);
+                        break;
+                    case "TXT":
+                        files.Texts.Add(item);
                         break;
                     default:
                         break;

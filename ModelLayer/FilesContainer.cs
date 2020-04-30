@@ -26,6 +26,10 @@ namespace ModelLayer
         public List<string> PictureFiles { get; }
         //list of the filetype xml
         public List<string> xmls { get; }
+        //list of the filetype texts
+        public List<string> Texts { get; }
+        //list of csv files 
+        public List<string> Csvs { get;  }
         //the list of list of string has all the list of above 
         public List<List<string>> fileTypes { get; }
 

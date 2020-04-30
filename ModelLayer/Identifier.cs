@@ -8,11 +8,13 @@ namespace ModelLayer
 {
     public class Identifier
     {
+        
         public int Id { set; get; }
-        public string Type { set; get; }
-        public List<string> Paths { set; get; }
-        public int Occurences { set; get; }
-        public string identifier { set; get; }
+        
+        public string Type { set; get; } //Witch type of Identifier it is (email, phoneNo or ip)
+        public List<string> Paths { set; get; } //list of paths since Indentifier does Occure on less it found in two diffent files
+        public int Occurences { set; get; } //how meny different
+        public string identifier { set; get; } //what Identifer is
        
         public Identifier()
         {
