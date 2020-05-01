@@ -15,7 +15,7 @@ namespace ModelLayer
         public List<string> Paths { set; get; } //list of paths since Indentifier does Occure on less it found in two diffent files
         public int Occurences { set; get; } //how meny different
         public string identifier { set; get; } //what Identifer is
-       
+        public bool isBlacklisted { get; set; } //show if the identifier is blacklisted or not.
         public Identifier()
         {
             this.Paths = new List<string>();

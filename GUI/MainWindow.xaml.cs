@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -31,6 +32,7 @@ namespace GUI
         {
             InitializeComponent();
             loadIdentifiers();
+         //   CheckforBlacklist();
            // this.DisplayIdentifierDataGrid.ItemsSource = XmlController.ReadIdentifierFromXml();
         }
 
@@ -112,14 +114,80 @@ namespace GUI
             BlackListData.ItemsSource = XmlController.GetBlacklistkeywords();
         }
         
-        private void Email_bottomClick(object sender, MouseButtonEventArgs e)
+        private void Email_buttonClick(object sender, MouseButtonEventArgs e)
         {
-
+            bool email = XmlController.GetBlacklistType()[0];
+            if (email == true)
+            {
+                email = false;
+                XmlController.UpdateBlacklistTypeEmail(email);
+            } 
+            else
+            {
+                email = true;
+                XmlController.UpdateBlacklistTypeEmail(email);
+            }
+            CheckforBlacklist();
         }
 
-        private void CheckforBlacklist(string keyword)
+        private void CheckforBlacklist()
         {
+            List<bool> blacklistTypes = XmlController.GetBlacklistType();
+            if (blacklistTypes[0] == true)
+            {
+                EmailIcon.Foreground = Brushes.Black;
+            }
+            else
+            {
+                EmailIcon.Foreground = Brushes.White;
+            }
 
+            if (blacklistTypes[1] == true)
+            {
+                NumberIcon.Foreground = Brushes.Black;
+            }
+            else
+            {
+                NumberIcon.Foreground = Brushes.White;
+            }
+            if (blacklistTypes[2] == true)
+            {
+                IpIcon.Foreground = Brushes.Black;
+            }
+            else
+            {
+                IpIcon.Foreground = Brushes.White;
+            }
+        }
+
+        private void Ip_buttonClick(object sender, MouseButtonEventArgs e)
+        {
+            bool Ip = XmlController.GetBlacklistType()[1];
+            if (Ip == true)
+            {
+                Ip = false;
+            }
+            else
+            {
+                Ip = true;
+            }
+            XmlController.UpdateBlacklistTypeIP(Ip);
+            CheckforBlacklist();
+        }
+
+        private void Number_buttonClick(object sender, MouseButtonEventArgs e)
+        {
+            bool Number = XmlController.GetBlacklistType()[2];
+            if (Number == true)
+            {
+                Number = false;
+            }
+            else
+            {
+                Number = true;
+            }
+            XmlController.UpdateBlacklistTypeNumber(Number);
+            CheckforBlacklist();
         }
     }
 }

@@ -43,6 +43,8 @@ namespace ModelLayer
             PictureFiles = new List<string>();
             xmls = new List<string>();
             fileTypes = new List<List< string >>();
+            Texts = new List<string>();
+            Csvs = new List<string>();
             fileTypes.Add(pdfs);
             fileTypes.Add(pcaps);
             fileTypes.Add(PictureFiles);

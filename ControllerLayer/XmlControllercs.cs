@@ -32,11 +32,13 @@ namespace ControllerLayer
                 {
                     XmlElement cl = (XmlElement)xdoc.GetElementsByTagName("Identifier")[i]; //get xml element within the tag identifier
                     XmlElement IDF = (XmlElement)xdoc.GetElementsByTagName("name")[i]; //get xml element within the tag name
-                    XmlNodeList paths = (XmlNodeList)xdoc.GetElementsByTagName("path"); //get xml element within the tag path
+                    XmlNodeList paths = cl.GetElementsByTagName("path"); //get xml element within the tag path
                     XmlElement type = (XmlElement)xdoc.GetElementsByTagName("type")[i]; //get xml element within the tag type
                     XmlElement occurences = (XmlElement)xdoc.GetElementsByTagName("occurences")[i]; //get xml element within the tag occurences
-
-                    if ((cl.GetAttribute("id")) != null) // if there are not any id it is assume that there are no identifers in the xml doc
+    //                XmlElement isBlacklisted = (XmlElement)xdoc.GetElementsByTagName("isBlacklisted")[i];
+     //               bool Blacklisted;
+     //               Boolean.TryParse(isBlacklisted.innerText, out Blacklisted);
+                    if ((cl.GetAttribute("id")) != null /*&& Blacklisted == false*/ ) // if there are not any id it is assume that there are no identifers in the xml doc
                     {
                         //map into class
 
@@ -50,7 +52,10 @@ namespace ControllerLayer
                         idf.Occurences = int.Parse(occurences.InnerText);
                         idf.Type = type.InnerText;
                         idf.identifier = IDF.InnerText;
-                        Lidentifier.Add(idf); //add class to a list
+                        Lidentifier.Add(idf);
+ 
+                       
+                        
                     }
                 }
                 fileStream.Close(); //closes the data steam
@@ -94,35 +99,107 @@ namespace ControllerLayer
             xd.Save(GetXMLpath() + @"Main2\dist\MatchedIdentifiers.xml"); //saves the work
         }
 
-        public void UpdataBlaclistType(bool email, bool number, bool ip)
+        public void UpdateBlacklistTypeEmail(bool email)
         {
             XmlDocument xdoc = new XmlDocument(); //makes a XmlDocument class
-            FileStream up = new FileStream(GetXMLpath() + @"Main2\dist\Matchedldentifiers.xml", FileMode.Open); //makes to steam of data out of an exsiting xml doc
+            FileStream up = new FileStream(GetXMLpath() + @"Main2\dist\MatchedIdentifiers.xml", FileMode.Open); //makes to steam of data out of an exsiting xml doc
             xdoc.Load(up); // uses the class to load the data steam
             XmlElement bemail = (XmlElement)xdoc.GetElementsByTagName("email")[0]; //finds email node takes the first 
-            XmlElement bNumber = (XmlElement)xdoc.GetElementsByTagName("number")[0];//findes number node takes the first
-            XmlElement bip = (XmlElement)xdoc.GetElementsByTagName("ip")[0]; //findes ip node takes the first
-
+           
             if (bemail.InnerText != email.ToString()) //checks if it allrady stands what there supose to
             {
                 bemail.InnerText = email.ToString(); //edit the text in the xml doc
             }
+            
+
+            up.Close(); // closes the data steam
+            xdoc.Save(GetXMLpath() + @"Main2\dist\MatchedIdentifiers.xml"); // save the chenges
+        }
+
+        public void UpdateBlacklistTypeNumber(bool number)
+        {
+            XmlDocument xdoc = new XmlDocument(); //makes a XmlDocument class
+            FileStream up = new FileStream(GetXMLpath() + @"Main2\dist\MatchedIdentifiers.xml", FileMode.Open); //makes to steam of data out of an exsiting xml doc
+            xdoc.Load(up); // uses the class to load the data steam
+           
+            XmlElement bNumber = (XmlElement)xdoc.GetElementsByTagName("number")[0];//findes number node takes the first
+           
 
             if (bNumber.InnerText != number.ToString()) //checks if it allrady stands what there supose to
             {
                 bNumber.InnerText = number.ToString(); //edit the text in the xml doc
             }
+            up.Close(); // closes the data steam
+            xdoc.Save(GetXMLpath() + @"Main2\dist\MatchedIdentifiers.xml"); // save the chenges
+        }
+
+        public void UpdateBlacklistTypeIP(bool ip)
+        {
+            XmlDocument xdoc = new XmlDocument(); //makes a XmlDocument class
+            FileStream up = new FileStream(GetXMLpath() + @"Main2\dist\MatchedIdentifiers.xml", FileMode.Open); //makes to steam of data out of an exsiting xml doc
+            xdoc.Load(up); // uses the class to load the data steam
+            
+            XmlElement bip = (XmlElement)xdoc.GetElementsByTagName("ip")[0]; //findes ip node takes the first
+
 
             if (bip.InnerText != ip.ToString()) //checks if it allrady stands what there supose to
             {
                 bip.InnerText = ip.ToString(); //edit the text in the xml doc
             }
 
+
+
             up.Close(); // closes the data steam
-            xdoc.Save(GetXMLpath() + @"Main2\dist\Matchedldentifiers.xml"); // save the chenges
+            xdoc.Save(GetXMLpath() + @"Main2\dist\MatchedIdentifiers.xml"); // save the chenges
         }
 
-         
+        public List<bool> GetBlacklistType()
+        {
+            try
+            {
+               XmlDocument xdoc = new XmlDocument(); //makes a XmlDocument class
+                FileStream up = new FileStream(GetXMLpath() + @"Main2\dist\MatchedIdentifiers.xml", FileMode.Open); //makes to steam of data out of an exsiting xml doc
+
+                xdoc.Load(up); // uses the class to load the data steam
+                    XmlElement bemail = (XmlElement)xdoc.GetElementsByTagName("email")[0]; //finds email node takes the first 
+                    XmlElement bNumber = (XmlElement)xdoc.GetElementsByTagName("number")[0];//findes number node takes the first
+                    XmlElement bip = (XmlElement)xdoc.GetElementsByTagName("ip")[0]; //findes ip node takes the first
+
+                    List<bool> blacklisttypes = new List<bool>();
+                    bool email;
+                    bool ip;
+                    bool nummer;
+
+                    Boolean.TryParse(bemail.InnerText, out email); //edit the text in the xml doc
+                    Boolean.TryParse(bNumber.InnerText, out nummer); //edit the text in the xml doc
+                    Boolean.TryParse(bip.InnerText, out ip); //edit the text in the xml doc
+
+                    blacklisttypes.Add(email);
+                    blacklisttypes.Add(ip);
+                    blacklisttypes.Add(nummer);
+
+
+                    up.Close(); // closes the data steam
+                    xdoc.Save(GetXMLpath() + @"Main2\dist\MatchedIdentifiers.xml"); // save the chenges
+
+                    return blacklisttypes;
+                
+               
+            }
+            catch (System.NullReferenceException e)
+            {
+                
+                InsertblackList();
+                GetBlacklistType();
+                return null;
+            }
+            catch(System.IO.FileNotFoundException e)
+            {
+                return null;
+            }
+        }
+
+
         public void InsertBlacklistKeyword(string insertKeyword)
         {
             XmlDocument xd = new XmlDocument(); //Makes an instance of a Xmldocclass 
@@ -193,7 +270,7 @@ namespace ControllerLayer
 
             if (files.pcaps.Count > 0)
             {
-                XmlElement pcaps = xd.CreateElement("pcapPaths");
+                XmlElement pcaps = xd.CreateElement("pcapPaths"); 
                 foreach (var item in files.pcaps)
                 {
                     XmlElement pcap = xd.CreateElement("pcappath");
@@ -202,6 +279,7 @@ namespace ControllerLayer
                     pcaps.AppendChild(pcaps);
                 }
                 xd.DocumentElement.AppendChild(pcaps);
+                files.pcaps.Clear();
             }
             if (files.pdfs.Count > 0)
             {
@@ -214,6 +292,7 @@ namespace ControllerLayer
                     pdfpaths.AppendChild(pdfs);
                 }
                 xd.DocumentElement.AppendChild(pdfpaths);
+                files.pdfs.Clear();
             }
             if (files.PictureFiles.Count > 0)
             {
@@ -225,6 +304,7 @@ namespace ControllerLayer
                     picturepaths.AppendChild(picturepath);
                 }
                 xd.DocumentElement.AppendChild(piturefiles);
+                files.PictureFiles.Clear();
             }
             if (files.xmls.Count > 0)
             {
@@ -237,6 +317,7 @@ namespace ControllerLayer
                     xmlfiles.AppendChild(xmlpath);
                 }
                 xd.DocumentElement.AppendChild(xmlfiles);
+                files.xmls.Clear();
             }
             if (files.Texts.Count > 0)
             {
@@ -249,6 +330,7 @@ namespace ControllerLayer
                     txtfiles.AppendChild(txtpath);
                 }
                 xd.DocumentElement.AppendChild(txtfiles);
+                files.Texts.Clear();
             }
             if (files.Csvs.Count > 0)
             {
@@ -261,6 +343,7 @@ namespace ControllerLayer
                     csvfiles.AppendChild(csvpath);
                 }
                 xd.DocumentElement.AppendChild(csvfiles);
+                files.Csvs.Clear();
             }
             lfile.Close();
             xd.Save(path);

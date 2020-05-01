@@ -29,12 +29,9 @@
     <type>PhoneNumber</type>
   </Identifier>
   <blacklistType>
-    <email>false</email>
-    <number>false</number>
-    <ip>false</ip>
+    <email>False</email>
+    <number>False</number>
+    <ip>False</ip>
   </blacklistType>
-  <blacklistKeyword>
-    <keyword>
-45 99 48 23</keyword>
-  </blacklistKeyword>
+  <blacklistKeyword />
 </root>

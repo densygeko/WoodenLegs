@@ -68,21 +68,21 @@
                         </StackPanel>
                         
                     </ListViewItem>
-                    <ListViewItem Height="60" PreviewMouseLeftButtonUp="Email_bottomClick">
+                    <ListViewItem Height="60" PreviewMouseLeftButtonUp="Email_buttonClick">
                         <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon Kind="EmailMinusOutline" Margin="10" Width="25" Height="25" VerticalAlignment="Center" Foreground="#FFB1C8CF"/>
+                            <materialDesign:PackIcon Name="EmailIcon" Kind="EmailMinusOutline" Margin="10" Width="25" Height="25" VerticalAlignment="Center" Foreground="#FFB1C8CF" />
                             <TextBlock Text="Email-addresser" VerticalAlignment="Center" Margin="20 10" Foreground="#FFB1C8CF"/>
                         </StackPanel>
                     </ListViewItem>
-                    <ListViewItem Height="60">
+                    <ListViewItem Height="60"  PreviewMouseLeftButtonUp="Number_buttonClick">
                         <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon Kind="Web" Width="25" Margin="10" Height="25" VerticalAlignment="Center" Foreground="#FFB1C8CF"/>
+                            <materialDesign:PackIcon Name="IpIcon" Kind="Web" Width="25" Margin="10" Height="25" VerticalAlignment="Center" Foreground="#FFB1C8CF"/>
                             <TextBlock Text="IP-addresser" VerticalAlignment="Center" Margin="20 10" Foreground="#FFB1C8CF"/>
                         </StackPanel>
                     </ListViewItem>
-                    <ListViewItem Height="60">
+                    <ListViewItem Height="60" PreviewMouseLeftButtonUp="Ip_buttonClick">
                         <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon Kind="Telephone" Width="25" Margin="10" Height="25" VerticalAlignment="Center" Foreground="#FFB1C8CF"/>
+                            <materialDesign:PackIcon Name="NumberIcon" Kind="Telephone" Width="25" Margin="10" Height="25" VerticalAlignment="Center" Foreground="#FFB1C8CF"/>
                             <TextBlock Text="Telefonnummre" VerticalAlignment="Center" Margin="20 10" Foreground="#FFB1C8CF"/>
                         </StackPanel>
                     </ListViewItem>
@@ -99,6 +99,7 @@
             </Grid>
             <Grid x:Name="DisplayIdentifierGrid" HorizontalAlignment="Left" Height="530" Margin="435,10,0,0" VerticalAlignment="Top" Width="495">
                 <DataGrid x:Name="DisplayIdentifierDataGrid" HorizontalAlignment="Left" Height="530" Margin="10,0,0,0" VerticalAlignment="Top" Width="485" AutoGenerateColumns="False" IsReadOnly="True" CanUserResizeColumns="False" ItemsSource="{Binding}" SelectionUnit="FullRow" SelectionMode="Extended" SelectedItem="{Binding Path=SelectedIdetifier, Mode=OneWay}" SelectionChanged="DisplayIdentifierDataGrid_SelectionChanged" >
+                    
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Type" Binding="{Binding Type}" Width="145" />
                         <DataGridTextColumn Header="Identifier" Binding="{Binding identifier}" Width="215"/>
