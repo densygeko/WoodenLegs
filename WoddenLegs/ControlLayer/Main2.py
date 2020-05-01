@@ -1,18 +1,23 @@
-from ControlLayer.PDFReader import *
-from ControlLayer.RegexChecker import *
-from ControlLayer.PCAPReader import *
-from ControlLayer.TxtReader import *
-from ControlLayer.CsvReader import *
-from ControlLayer.ImgReader import *
 from ModelLayer.Identifier import *
 from ModelLayer.MatchedIdentifier import *
+from ControlLayer.FileParser import *
+from ControlLayer.XMLCreator import *
 from xml.dom import minidom
 import sys
 import os
 import ast
 
-
 class Main2():
+
+    def main(self): #Needs to be updated to take a list of lists of paths
+        if len(sys.argv) <= 1: #Must have at least one argument when executing this class in command line
+            print("Please enter the path to the filepaths.xml document")
+            return
+        
+        xmlCreator = XMLCreator()
+        identifiers = self.SortFiles(sys.argv[1]) #Extract identifiers from text
+        matchedIdentifiers = self.MatchIdentifiers(identifiers) #Match duplicate identifiers
+        xmlCreator.CreateXMLDoc(matchedIdentifiers) #Create XML doc with matched identifiers data
 
     def MatchIdentifiers(self, identifiers):
         print("Beginning identifier matching")
@@ -36,54 +41,13 @@ class Main2():
                     matchedIdentifiers.append(match)
 
         return matchedIdentifiers
-    
-    def CreateXMLDoc(self, identifiers):
-        print("Creating XML DOC")
-        print("Number of matched identifiers: " + str(len(identifiers)))
-        root = minidom.Document() #Create XML Document
-        xml = root.createElement('root')
-        root.appendChild(xml)
-        
-        for identifier in identifiers:
-            identifierChild = root.createElement('Identifier') #Append identifier as an element
-            identifierChild.setAttribute('id', str(identifier.id))
-            xml.appendChild(identifierChild)
 
-            childOfIdentifier = root.createElement('name') #Create element 'name'
-            childOfIdentifier.appendChild(root.createTextNode(identifier.name)) #Set content to identifier attribute
-            identifierChild.appendChild(childOfIdentifier) #Attach element 'name' to 'Identifier'
-
-            childOfIdentifier = root.createElement('paths')
-            identifierChild.appendChild(childOfIdentifier)
-
-            for path in identifier.paths:
-                childOfPath = root.createElement('path')
-                childOfPath.appendChild(root.createTextNode(path))
-                childOfIdentifier.appendChild(childOfPath)
-
-            childOfIdentifier = root.createElement('occurences')
-            childOfIdentifier.appendChild(root.createTextNode(str(identifier.occurences)))
-            identifierChild.appendChild(childOfIdentifier)
-
-            childOfIdentifier = root.createElement('type')
-            childOfIdentifier.appendChild(root.createTextNode(identifier.type))
-            identifierChild.appendChild(childOfIdentifier)
-
-        xml_str = root.toprettyxml(indent="\t") #Format XML
-
-        currentDir = os.getcwd()
-        save_path_file = currentDir + '\MatchedIdentifiers.xml' #Set document title + path
-        with open(save_path_file, "w") as f: #Save XML doc
-            f.write(xml_str)
-
-    def main(self): #Needs to be updated to take a list of lists of paths
-
-        if len(sys.argv) <= 1: #Must have at least one argument when executing this class in command line
-            print("Please enter the path to the filepaths.xml document")
-            return
-
+    #Sort files into the right Parsers.
+    def SortFiles(self, xmlPath):
         identifiers = []
-        XMLDoc = minidom.parse(str(sys.argv[1])) #Get XML doc from system argument provided from UI
+        print(str(xmlPath))
+        XMLDoc = minidom.parse(str(xmlPath)) #Get XML doc from system argument provided from UI
+        fileParser = FileParser()
 
         #.pdf files
         try: 
@@ -92,7 +56,7 @@ class Main2():
             for path in pdfPaths:
                 pdfFiles.append(path.firstChild.data) #Extract data from pdfpath element
         
-            identifiers.extend(self.ParsePDF(pdfFiles))
+            identifiers.extend(fileParser.ParsePDF(pdfFiles))
         
         except:
             print("No .pdf files in directory or error related to .pdf")
@@ -104,7 +68,7 @@ class Main2():
             for path in pcapPaths:
                 pcapFiles.append(path.firstChild.data)
 
-            identifiers.extend(self.ParsePcap(pcapFiles))
+            identifiers.extend(fileParser.ParsePcap(pcapFiles))
         except:
             print("No .pcap files in directory or error related to .pcap")
 
@@ -115,7 +79,7 @@ class Main2():
             for path in txtPaths:
                 txtFiles.append(path.firstChild.data)
 
-            identifiers.extend(self.ParseTxt(txtFiles))
+            identifiers.extend(fileParser.ParseTxt(txtFiles))
         except:
             print("No .txt files in directory or error related to .txt")
 
@@ -126,7 +90,7 @@ class Main2():
             for path in csvPaths:
                 csvFiles.append(path.firstChild.data)
 
-            identifiers.extend(self.ParseCsv(csvFiles))
+            identifiers.extend(fileParser.ParseCsv(csvFiles))
         except:
             print("No .csv files in directory or error related to .csv")
 
@@ -137,135 +101,9 @@ class Main2():
             for path in imgPaths:
                 imgFiles.append(path.firstChild.data)
 
-            identifiers.extend(self.ParseImg(imgFiles))
+            identifiers.extend(fileParser.ParseImg(imgFiles))
         except:
             print("No images found in directory or error related to images")
-
-        #When list is finished, match identifiers and create XML file with data.
-        matchedIdentifiers = self.MatchIdentifiers(identifiers)
-        self.CreateXMLDoc(matchedIdentifiers)
-
-    def ParseImg(self, paths):
-        id = 0
-        identifiers = []
-        imRead = ImgReader()
-        regex = RegexChecker()
-        for path in paths:
-            img = imRead.ReadFile(path)
-            emails = regex.checkMail(img)
-            for email in emails:
-                ident = Identifier(email, "Email", path, 0, id)
-                identifiers.append(ident)
-                id+=1
-
-            phoneNumbers = regex.checkPhone(img)
-            for number in phoneNumbers:
-                ident = Identifier(number, "Telefon Nr.", path, 0, id)
-                identifiers.append(ident)
-                id+=1
-
-            ips = regex.findIP(img)
-            for ip in ips:
-                ident = Identifier(ip, "IP-adresse", path, 0, id)
-                identifiers.append(ident)
-                id+=1
-        return identifiers
-        
-    def ParseCsv(self, paths):
-        id = 0
-        identifiers = []
-        csvReader = CsvReader()
-        regex = RegexChecker()
-        for path in paths:
-            csvRows = csvReader.ReadFile(path)
-            for row in csvRows:
-                #Search for email
-                emails = regex.checkMail(str(row))
-                for email in emails:
-                    ident = Identifier(email, "Email", path, 0, id)
-                    identifiers.append(ident)
-                    id+=1
-                #Search for phone numbers
-                phoneNumbers = regex.checkPhone(str(row))
-                for number in phoneNumbers:
-                    ident = Identifier(number, "Telefon Nr.", path, 0, id)
-                    identifiers.append(ident)
-                    id+=1
-                #Search for IP addresses
-                ips = regex.findIP(str(row))
-                for ip in ips:
-                    ident = Identifier(ip, "IP-adresse", path, 0, id)
-                    identifiers.append(ident)
-                    ip+=1
-        return identifiers
-
-        
-    def ParseTxt(self, paths):
-        id = 0
-        identifiers = []
-        txtReader = TxtReader()
-        regex = RegexChecker()
-        for path in paths:
-            data = txtReader.ReadFile(path)
-            emails = regex.checkMail(data)
-            for email in emails:
-                ident = Identifier(email, "Email", path, 0, id)
-                identifiers.append(ident)
-                id+=1
-
-            phoneNumbers = regex.checkPhone(data)
-            for number in phoneNumbers:
-                ident = Identifier(number, "Telefon Nr.", path, 0, id)
-                identifiers.append(ident)
-                id+=1
-
-            ips = regex.findIP(data)
-            for ip in ips:
-                ident = Identifier(ip, "IP-adresse", path, 0, id)
-                identifiers.append(ident)
-                id+=1
-
-        return identifiers
-        
-    def ParsePcap(self, paths):
-        id = 0
-        identifiers = []
-        pcapReader = PCAPReader()
-        for path in paths:
-            ips = pcapReader.ReadFile(path)
-            for ip in ips:
-                ident = Identifier(ip, "IP", path, 0, id)
-                identifiers.append(ident)
-                id+=1
-        
-        return identifiers
-
-    def ParsePDF(self, paths):
-        id = 0 #Id gets incremented when searching for identifiers and attached to them
-        identifiers = []
-        pdfReader = PdfReader()
-        regex = RegexChecker()
-        for path in paths:
-            textDict = pdfReader.readImages(path) #Gets all normal text and text on images from PDF
-            for page in textDict:
-                
-                emails = regex.checkMail(textDict[page]) #Find all emails using RegEx
-                for email in emails:
-                    ident = Identifier(email, "Email", path, page, id)
-                    identifiers.append(ident) #Add email identifiers to list
-                    id +=1
-                
-                phoneNumbers = regex.checkPhone(textDict[page])  #Find all danish phone numbers using RegEx
-                for number in phoneNumbers:
-                    ident = Identifier(number, "PhoneNumber", path, page, id)
-                    identifiers.append(ident) #Add phone number identifiers to list
-                    id +=1
-
-                ips = regex.findIP(textDict[page]) #Find all IPv4 and IPv6 addresses using RegEx
-                for ip in ips:
-                    ident = Identifier(number, "IP", path, page, id)
-                    identifiers.append(ident) #Add IP address identifiers to list
-                    id +=1
 
         return identifiers
 
