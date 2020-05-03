@@ -8,6 +8,7 @@
     </paths>
     <occurences>2</occurences>
     <type>Email</type>
+    <isBlacklisted>false</isBlacklisted>
   </Identifier>
   <Identifier id="2013">
     <name>olsen@hotmail.com</name>
@@ -17,6 +18,7 @@
     </paths>
     <occurences>2</occurences>
     <type>Email</type>
+    <isBlacklisted>false</isBlacklisted>
   </Identifier>
   <Identifier id="2014">
     <name>
@@ -27,6 +29,7 @@
     </paths>
     <occurences>2</occurences>
     <type>PhoneNumber</type>
+    <isBlacklisted>false</isBlacklisted>
   </Identifier>
   <blacklistType>
     <email>False</email>
