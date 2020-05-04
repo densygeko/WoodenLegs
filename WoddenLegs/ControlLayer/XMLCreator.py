@@ -22,26 +22,24 @@ class XMLCreator:
             childOfIdentifier = root.createElement('paths')
             identifierChild.appendChild(childOfIdentifier)
 
-            for path in identifier.paths:
+            for path in identifier.paths: #Add list of paths the identifier is found in as child elements to the paths element.
                 childOfPath = root.createElement('path')
                 childOfPath.appendChild(root.createTextNode(path))
                 childOfIdentifier.appendChild(childOfPath)
 
-            childOfIdentifier = root.createElement('occurences')
+            childOfIdentifier = root.createElement('occurences') #Number of files the identifier was found in
             childOfIdentifier.appendChild(root.createTextNode(str(identifier.occurences)))
             identifierChild.appendChild(childOfIdentifier)
 
-            childOfIdentifier = root.createElement('type')
+            childOfIdentifier = root.createElement('type') #Type of identifier
             childOfIdentifier.appendChild(root.createTextNode(identifier.type))
             identifierChild.appendChild(childOfIdentifier)
 
-            childOfIdentifier = root.createElement('isBlacklisted')
+            childOfIdentifier = root.createElement('isBlacklisted') #This element is used by the UI to blacklist identifiers.
             childOfIdentifier.appendChild(root.createTextNode('false'))
             identifierChild.appendChild(childOfIdentifier)
 
         xml_str = root.toprettyxml(indent="\t") #Format XML
-        print("Pretty XMl string " + xml_str)
-        print("Normal XML string " + root.toxml())
 
         currentDir = os.getcwd()
         save_path_file = currentDir + '\MatchedIdentifiers.xml' #Set document title + path

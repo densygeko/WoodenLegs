@@ -6,8 +6,37 @@ from ControlLayer.CsvReader import *
 from ControlLayer.ImgReader import *
 from ModelLayer.Identifier import *
 
-class FileParser:
+class FileParser: #Might want to refactor this class, as there is a lot of repeated code.
 
+    def ParsePDF(self, paths):
+        id = 0 #Id gets incremented when searching for identifiers and attached to them
+        identifiers = []
+        pdfReader = PdfReader()
+        regex = RegexChecker()
+        for path in paths:
+            textDict = pdfReader.readImages(path) #Gets all normal text and text on images from PDF
+            for page in textDict:
+                
+                emails = regex.checkMail(textDict[page]) #Find all emails using RegEx
+                for email in emails:
+                    ident = Identifier(email, "Email", path, page, id)
+                    identifiers.append(ident) #Add email identifiers to list
+                    id +=1
+                
+                phoneNumbers = regex.checkPhone(textDict[page])  #Find all danish phone numbers using RegEx
+                for number in phoneNumbers:
+                    ident = Identifier(number, "PhoneNumber", path, page, id)
+                    identifiers.append(ident) #Add phone number identifiers to list
+                    id +=1
+
+                ips = regex.findIP(textDict[page]) #Find all IPv4 and IPv6 addresses using RegEx
+                for ip in ips:
+                    ident = Identifier(number, "IP", path, page, id)
+                    identifiers.append(ident) #Add IP address identifiers to list
+                    id +=1
+
+        return identifiers
+    
     def ParseImg(self, paths):
         id = 0
         identifiers = []
@@ -103,31 +132,4 @@ class FileParser:
         
         return identifiers
 
-    def ParsePDF(self, paths):
-        id = 0 #Id gets incremented when searching for identifiers and attached to them
-        identifiers = []
-        pdfReader = PdfReader()
-        regex = RegexChecker()
-        for path in paths:
-            textDict = pdfReader.readImages(path) #Gets all normal text and text on images from PDF
-            for page in textDict:
-                
-                emails = regex.checkMail(textDict[page]) #Find all emails using RegEx
-                for email in emails:
-                    ident = Identifier(email, "Email", path, page, id)
-                    identifiers.append(ident) #Add email identifiers to list
-                    id +=1
-                
-                phoneNumbers = regex.checkPhone(textDict[page])  #Find all danish phone numbers using RegEx
-                for number in phoneNumbers:
-                    ident = Identifier(number, "PhoneNumber", path, page, id)
-                    identifiers.append(ident) #Add phone number identifiers to list
-                    id +=1
-
-                ips = regex.findIP(textDict[page]) #Find all IPv4 and IPv6 addresses using RegEx
-                for ip in ips:
-                    ident = Identifier(number, "IP", path, page, id)
-                    identifiers.append(ident) #Add IP address identifiers to list
-                    id +=1
-
-        return identifiers
+    
