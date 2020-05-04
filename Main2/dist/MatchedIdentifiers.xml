@@ -1,40 +1,41 @@
-<?xml version="1.0"?>
+<?xml version="1.0" ?>
 <root>
-  <Identifier id="2012">
-    <name>androgyne.kim@gmail.com</name>
-    <paths>
-      <path>C:\Users\Uth\Desktop\1.prprocjekt\WoddenLegs\ControlLayer\TempPDFHolder\TestPDF3.pdf</path>
-      <path>C:\Users\Uth\Desktop\1.prprocjekt\WoddenLegs\ControlLayer\TempPDFHolder\TestPDF4.pdf</path>
-    </paths>
-    <occurences>2</occurences>
-    <type>Email</type>
-    <isBlacklisted>false</isBlacklisted>
-  </Identifier>
-  <Identifier id="2013">
-    <name>olsen@hotmail.com</name>
-    <paths>
-      <path>C:\Users\Uth\Desktop\1.prprocjekt\WoddenLegs\ControlLayer\TempPDFHolder\TestPDF3.pdf</path>
-      <path>C:\Users\Uth\Desktop\1.prprocjekt\WoddenLegs\ControlLayer\TempPDFHolder\TestPDF4.pdf</path>
-    </paths>
-    <occurences>2</occurences>
-    <type>Email</type>
-    <isBlacklisted>false</isBlacklisted>
-  </Identifier>
-  <Identifier id="2014">
-    <name>
-45 99 48 23</name>
-    <paths>
-      <path>C:\Users\Uth\Desktop\1.prprocjekt\WoddenLegs\ControlLayer\TempPDFHolder\TestPDF3.pdf</path>
-      <path>C:\Users\Uth\Desktop\1.prprocjekt\WoddenLegs\ControlLayer\TempPDFHolder\TestPDF4.pdf</path>
-    </paths>
-    <occurences>2</occurences>
-    <type>PhoneNumber</type>
-    <isBlacklisted>false</isBlacklisted>
-  </Identifier>
-  <blacklistType>
-    <email>False</email>
-    <number>False</number>
-    <ip>False</ip>
-  </blacklistType>
-  <blacklistKeyword />
+	<Identifier id="0">
+		<name>michael.anker@gmail.com</name>
+		<paths>
+			<path>C:\Users\PhilipBraarup\Desktop\PlasticLegsData\PDF1.pdf</path>
+			<path>C:\Users\PhilipBraarup\Desktop\PlasticLegsData\PDF2.pdf</path>
+		</paths>
+		<occurences>2</occurences>
+		<type>Email</type>
+	</Identifier>
+	<Identifier id="1">
+		<name>pelle@hotmail.com</name>
+		<paths>
+			<path>C:\Users\PhilipBraarup\Desktop\PlasticLegsData\PDF1.pdf</path>
+			<path>C:\Users\PhilipBraarup\Desktop\PlasticLegsData\PDF2.pdf</path>
+		</paths>
+		<occurences>2</occurences>
+		<type>Email</type>
+	</Identifier>
+	<Identifier id="2">
+		<name>
+8494 4748</name>
+		<paths>
+			<path>C:\Users\PhilipBraarup\Desktop\PlasticLegsData\PDF1.pdf</path>
+			<path>C:\Users\PhilipBraarup\Desktop\PlasticLegsData\PDF2.pdf</path>
+		</paths>
+		<occurences>2</occurences>
+		<type>PhoneNumber</type>
+	</Identifier>
+	<Identifier id="3">
+		<name>
+88 99 33 88</name>
+		<paths>
+			<path>C:\Users\PhilipBraarup\Desktop\PlasticLegsData\PDF1.pdf</path>
+			<path>C:\Users\PhilipBraarup\Desktop\PlasticLegsData\PDF2.pdf</path>
+		</paths>
+		<occurences>2</occurences>
+		<type>PhoneNumber</type>
+	</Identifier>
 </root>
