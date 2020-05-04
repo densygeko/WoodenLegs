@@ -29,6 +29,9 @@
     <Compile Include="ControlLayer\DocReader.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="ControlLayer\FileParser.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="ControlLayer\ImgReader.py">
       <SubType>Code</SubType>
     </Compile>
@@ -38,6 +41,9 @@
     <Compile Include="ControlLayer\RegexChecker.py" />
     <Compile Include="ControlLayer\RegexTest.py" />
     <Compile Include="ControlLayer\TxtReader.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ControlLayer\XMLCreator.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="DatabaseLayer\DB_BlacklistKeyword.py" />

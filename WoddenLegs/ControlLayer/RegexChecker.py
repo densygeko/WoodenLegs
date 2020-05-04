@@ -3,7 +3,7 @@ import re
 class RegexChecker:
     
     def checkMail(self, text):
-        emails = re.findall('\S+@\S+\.[a-zA-Z]{2,4}', text)
+        emails = re.findall('[a-zA-Z0-9_.-]+@\S+\.[a-zA-Z]{2,4}', text)
         return emails
 
     def checkPhone(self, text):

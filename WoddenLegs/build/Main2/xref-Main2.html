@@ -18,12 +18,8 @@
   <a target="code" href="///C:/Users/PhilipBraarup/Desktop/4thSemProject/WoddenLegs/WoddenLegs/ControlLayer/Main2.py" type="text/plain"><tt>Main2.py</tt></a>
 <span class="moduletype">Script</span>  <div class="import">
 imports:
-    <a href="#ControlLayer.CsvReader">ControlLayer.CsvReader</a>
- &#8226;   <a href="#ControlLayer.ImgReader">ControlLayer.ImgReader</a>
- &#8226;   <a href="#ControlLayer.PCAPReader">ControlLayer.PCAPReader</a>
- &#8226;   <a href="#ControlLayer.PDFReader">ControlLayer.PDFReader</a>
- &#8226;   <a href="#ControlLayer.RegexChecker">ControlLayer.RegexChecker</a>
- &#8226;   <a href="#ControlLayer.TxtReader">ControlLayer.TxtReader</a>
+    <a href="#ControlLayer.FileParser">ControlLayer.FileParser</a>
+ &#8226;   <a href="#ControlLayer.XMLCreator">ControlLayer.XMLCreator</a>
  &#8226;   <a href="#ModelLayer.Identifier">ModelLayer.Identifier</a>
  &#8226;   <a href="#ModelLayer.MatchedIdentifier">ModelLayer.MatchedIdentifier</a>
  &#8226;   <a href="#_bootlocale">_bootlocale</a>
@@ -559,7 +555,7 @@ imported by:
   <a target="code" href="" type="text/plain"><tt>'org.python'</tt></a>
 <span class="moduletype">MissingModule</span>  <div class="import">
 imported by:
-    <a href="#pickle">pickle</a>
+    <a href="#copy">copy</a>
  &#8226;   <a href="#setuptools.sandbox">setuptools.sandbox</a>
  &#8226;   <a href="#xml.sax">xml.sax</a>
 
@@ -764,11 +760,13 @@ imported by:
 <span class="moduletype">NamespacePackage</span>  <div class="import">
 imported by:
     <a href="#ControlLayer.CsvReader">ControlLayer.CsvReader</a>
+ &#8226;   <a href="#ControlLayer.FileParser">ControlLayer.FileParser</a>
  &#8226;   <a href="#ControlLayer.ImgReader">ControlLayer.ImgReader</a>
  &#8226;   <a href="#ControlLayer.PCAPReader">ControlLayer.PCAPReader</a>
  &#8226;   <a href="#ControlLayer.PDFReader">ControlLayer.PDFReader</a>
  &#8226;   <a href="#ControlLayer.RegexChecker">ControlLayer.RegexChecker</a>
  &#8226;   <a href="#ControlLayer.TxtReader">ControlLayer.TxtReader</a>
+ &#8226;   <a href="#ControlLayer.XMLCreator">ControlLayer.XMLCreator</a>
 
   </div>
 
@@ -781,6 +779,29 @@ imported by:
 imports:
     <a href="#ControlLayer">ControlLayer</a>
  &#8226;   <a href="#csv">csv</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#ControlLayer.FileParser">ControlLayer.FileParser</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="ControlLayer.FileParser"></a>
+  <a target="code" href="///C:/Users/PhilipBraarup/Desktop/4thSemProject/WoddenLegs/WoddenLegs/ControlLayer/FileParser.py" type="text/plain"><tt>ControlLayer.FileParser</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#ControlLayer">ControlLayer</a>
+ &#8226;   <a href="#ControlLayer.CsvReader">ControlLayer.CsvReader</a>
+ &#8226;   <a href="#ControlLayer.ImgReader">ControlLayer.ImgReader</a>
+ &#8226;   <a href="#ControlLayer.PCAPReader">ControlLayer.PCAPReader</a>
+ &#8226;   <a href="#ControlLayer.PDFReader">ControlLayer.PDFReader</a>
+ &#8226;   <a href="#ControlLayer.RegexChecker">ControlLayer.RegexChecker</a>
+ &#8226;   <a href="#ControlLayer.TxtReader">ControlLayer.TxtReader</a>
+ &#8226;   <a href="#ModelLayer.Identifier">ModelLayer.Identifier</a>
 
   </div>
   <div class="import">
@@ -805,7 +826,7 @@ imports:
   </div>
   <div class="import">
 imported by:
-    <a href="#Main2.py">Main2.py</a>
+    <a href="#ControlLayer.FileParser">ControlLayer.FileParser</a>
 
   </div>
 
@@ -822,7 +843,7 @@ imports:
   </div>
   <div class="import">
 imported by:
-    <a href="#Main2.py">Main2.py</a>
+    <a href="#ControlLayer.FileParser">ControlLayer.FileParser</a>
 
   </div>
 
@@ -844,7 +865,7 @@ imports:
   </div>
   <div class="import">
 imported by:
-    <a href="#Main2.py">Main2.py</a>
+    <a href="#ControlLayer.FileParser">ControlLayer.FileParser</a>
 
   </div>
 
@@ -861,7 +882,7 @@ imports:
   </div>
   <div class="import">
 imported by:
-    <a href="#Main2.py">Main2.py</a>
+    <a href="#ControlLayer.FileParser">ControlLayer.FileParser</a>
 
   </div>
 
@@ -873,6 +894,25 @@ imported by:
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
     <a href="#ControlLayer">ControlLayer</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#ControlLayer.FileParser">ControlLayer.FileParser</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="ControlLayer.XMLCreator"></a>
+  <a target="code" href="///C:/Users/PhilipBraarup/Desktop/4thSemProject/WoddenLegs/WoddenLegs/ControlLayer/XMLCreator.py" type="text/plain"><tt>ControlLayer.XMLCreator</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#ControlLayer">ControlLayer</a>
+ &#8226;   <a href="#os">os</a>
+ &#8226;   <a href="#xml.dom">xml.dom</a>
+ &#8226;   <a href="#xml.dom.minidom">xml.dom.minidom</a>
 
   </div>
   <div class="import">
@@ -4398,7 +4438,8 @@ imports:
   </div>
   <div class="import">
 imported by:
-    <a href="#Main2.py">Main2.py</a>
+    <a href="#ControlLayer.FileParser">ControlLayer.FileParser</a>
+ &#8226;   <a href="#Main2.py">Main2.py</a>
 
   </div>
 
@@ -4456,7 +4497,6 @@ imports:
  &#8226;   <a href="#PIL.ImageSequence">PIL.ImageSequence</a>
  &#8226;   <a href="#PIL.ImageShow">PIL.ImageShow</a>
  &#8226;   <a href="#PIL.ImageTk">PIL.ImageTk</a>
- &#8226;   <a href="#PIL.Jpeg2KImagePlugin">PIL.Jpeg2KImagePlugin</a>
  &#8226;   <a href="#PIL.JpegImagePlugin">PIL.JpegImagePlugin</a>
  &#8226;   <a href="#PIL.PaletteFile">PIL.PaletteFile</a>
  &#8226;   <a href="#PIL.PdfParser">PIL.PdfParser</a>
@@ -5545,8 +5585,7 @@ imports:
   </div>
   <div class="import">
 imported by:
-    <a href="#PIL">PIL</a>
- &#8226;   <a href="#PIL.IcnsImagePlugin">PIL.IcnsImagePlugin</a>
+    <a href="#PIL.IcnsImagePlugin">PIL.IcnsImagePlugin</a>
  &#8226;   <a href="#PIL.Image">PIL.Image</a>
 
   </div>
@@ -13255,8 +13294,8 @@ imported by:
   <a target="code" href="///C:/users/philipbraarup/appdata/local/programs/python/python37/lib/copy.py" type="text/plain"><tt>copy</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
-    <a href="#copyreg">copyreg</a>
- &#8226;   <a href="#org">org</a>
+    <a href="#'org.python'">'org.python'</a>
+ &#8226;   <a href="#copyreg">copyreg</a>
  &#8226;   <a href="#types">types</a>
  &#8226;   <a href="#weakref">weakref</a>
 
@@ -29659,7 +29698,7 @@ imported by:
   <a target="code" href="" type="text/plain"><tt>org</tt></a>
 <span class="moduletype">MissingModule</span>  <div class="import">
 imported by:
-    <a href="#copy">copy</a>
+    <a href="#pickle">pickle</a>
 
   </div>
 
@@ -29686,7 +29725,8 @@ imports:
   </div>
   <div class="import">
 imported by:
-    <a href="#IPython">IPython</a>
+    <a href="#ControlLayer.XMLCreator">ControlLayer.XMLCreator</a>
+ &#8226;   <a href="#IPython">IPython</a>
  &#8226;   <a href="#IPython.core.alias">IPython.core.alias</a>
  &#8226;   <a href="#IPython.core.application">IPython.core.application</a>
  &#8226;   <a href="#IPython.core.completer">IPython.core.completer</a>
@@ -30879,8 +30919,7 @@ imported by:
   <a target="code" href="///C:/users/philipbraarup/appdata/local/programs/python/python37/lib/pickle.py" type="text/plain"><tt>pickle</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
-    <a href="#'org.python'">'org.python'</a>
- &#8226;   <a href="#_compat_pickle">_compat_pickle</a>
+    <a href="#_compat_pickle">_compat_pickle</a>
  &#8226;   <a href="#_pickle">_pickle</a>
  &#8226;   <a href="#argparse">argparse</a>
  &#8226;   <a href="#codecs">codecs</a>
@@ -30889,6 +30928,7 @@ imports:
  &#8226;   <a href="#functools">functools</a>
  &#8226;   <a href="#io">io</a>
  &#8226;   <a href="#itertools">itertools</a>
+ &#8226;   <a href="#org">org</a>
  &#8226;   <a href="#pprint">pprint</a>
  &#8226;   <a href="#re">re</a>
  &#8226;   <a href="#struct">struct</a>
@@ -37209,7 +37249,7 @@ imports:
  &#8226;   <a href="#pygments.lexers.PythonLexer">pygments.lexers.PythonLexer</a>
  &#8226;   <a href="#pygments.lexers._mapping">pygments.lexers._mapping</a>
  &#8226;   <a href="#pygments.lexers._mql_builtins">pygments.lexers._mql_builtins</a>
- &#8226;   <a href="#pygments.lexers._vbscript_builtins">pygments.lexers._vbscript_builtins</a>
+ &#8226;   <a href="#pygments.lexers._stan_builtins">pygments.lexers._stan_builtins</a>
  &#8226;   <a href="#pygments.modeline">pygments.modeline</a>
  &#8226;   <a href="#pygments.plugin">pygments.plugin</a>
  &#8226;   <a href="#pygments.util">pygments.util</a>
@@ -37670,6 +37710,7 @@ imports:
   <div class="import">
 imported by:
     <a href="#pygments">pygments</a>
+ &#8226;   <a href="#pygments.lexers">pygments.lexers</a>
  &#8226;   <a href="#pygments.lexers.modeling">pygments.lexers.modeling</a>
 
   </div>
@@ -37738,7 +37779,6 @@ imports:
   <div class="import">
 imported by:
     <a href="#pygments">pygments</a>
- &#8226;   <a href="#pygments.lexers">pygments.lexers</a>
  &#8226;   <a href="#pygments.lexers.basic">pygments.lexers.basic</a>
 
   </div>
@@ -52336,7 +52376,8 @@ imports:
   </div>
   <div class="import">
 imported by:
-    <a href="#IPython.core.display">IPython.core.display</a>
+    <a href="#ControlLayer.XMLCreator">ControlLayer.XMLCreator</a>
+ &#8226;   <a href="#IPython.core.display">IPython.core.display</a>
  &#8226;   <a href="#Main2.py">Main2.py</a>
  &#8226;   <a href="#PyInstaller.utils.win32.winmanifest">PyInstaller.utils.win32.winmanifest</a>
  &#8226;   <a href="#PyPDF4.xmp">PyPDF4.xmp</a>
@@ -52445,7 +52486,8 @@ imports:
   </div>
   <div class="import">
 imported by:
-    <a href="#IPython.core.display">IPython.core.display</a>
+    <a href="#ControlLayer.XMLCreator">ControlLayer.XMLCreator</a>
+ &#8226;   <a href="#IPython.core.display">IPython.core.display</a>
  &#8226;   <a href="#Main2.py">Main2.py</a>
  &#8226;   <a href="#PyInstaller.utils.win32.winmanifest">PyInstaller.utils.win32.winmanifest</a>
  &#8226;   <a href="#PyPDF4.xmp">PyPDF4.xmp</a>
