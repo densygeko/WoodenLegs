@@ -27,7 +27,7 @@ namespace ControllerLayer
                 FileStream fileStream = new FileStream(GetXMLpath() + @"Main2\dist\MatchedIdentifiers.xml", FileMode.Open); //start a bit steam of the given file
                 xdoc.Load(fileStream); // xml doc class use the data steam
                 XmlNodeList list = xdoc.GetElementsByTagName("Identifier"); // return Xmlnodelist within the tag Identifier
-                List<Identifier> Lidentifier = new List<Identifier>(); //  Instantiate a list with Indentifier
+                List<Identifier> Lidentifier = new List<Identifier>(); //  Instanti ate a list with Indentifier
                 for (int i = 0; i < list.Count; i++)
                 {
                     XmlElement cl = (XmlElement)xdoc.GetElementsByTagName("Identifier")[i]; //get xml element within the tag identifier
@@ -264,7 +264,7 @@ namespace ControllerLayer
         {
             FilesContainer files = FilesContainer.getInstance();
             XmlDocument xd = new XmlDocument(); 
-            string path = @"C:\Users\Uth\Desktop\WoddenLegs\filepaths.xml"; 
+            string path = GetXMLpath() + "filepaths.xml"; 
             FileStream lfile = new FileStream(path, FileMode.Open); //start a bit steam of the given file
             xd.Load(lfile);  // xml doc class use the data steam
 

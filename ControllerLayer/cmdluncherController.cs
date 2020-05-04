@@ -23,7 +23,7 @@ namespace ControllerLayer
             ProcessStartInfo startInfo = new ProcessStartInfo(); //makes a class there Specifies a set of values that are used when you start a process.
             startInfo.CreateNoWindow = true; //makes sure if the exe has a ui it will not pop up.
             startInfo.FileName = exestirng; //use the path string made above.
-            startInfo.WindowStyle = ProcessWindowStyle.Hidden; //hide cmd if that in use in the exe file.
+            startInfo.WindowStyle = ProcessWindowStyle.Maximized; //hide cmd if that in use in the exe file.
             startInfo.Arguments = xmlstring; //putting the argurments with exe file
             startInfo.WorkingDirectory = xml.GetXMLpath()+ @"Main2\dist"; //the output from the exe file, will be in the working directory because of the way the exe file is coded
             try
