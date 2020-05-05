@@ -12,6 +12,7 @@ class Main2():
 
     def __init__(self):
         self.identifiers = []
+        self.matchedIdentifiers = []
 
     def main(self): #Needs to be updated to take a list of lists of paths
         if len(sys.argv) <= 1: #Must have at least one argument when executing this class in command line
@@ -42,10 +43,36 @@ class Main2():
         imgThread.join()
         txtThread.join()
 
+        #Seperate identifiers into lists by type
+        emailIdentifiers = []
+        phoneIdentifiers = []
+        ipIdentifiers = []
+        print(str(len(self.identifiers)))
+        for i in self.identifiers:
+            if i.type == "Email":
+                emailIdentifiers.append(i)
+            elif i.type == "Telefon Nr.":
+                phoneIdentifiers.append(i)
+            elif i.type == "IP-adresse":
+                ipIdentifiers.append(i)
+
+        #Create threads to match identifiers
+        emailThread = Thread(target=self.MatchIdentifiers, args=(emailIdentifiers,))
+        phoneThread = Thread(target=self.MatchIdentifiers, args=(phoneIdentifiers,))
+        ipThread = Thread(target=self.MatchIdentifiers, args=(ipIdentifiers,))
+
+        #Start threads
+        emailThread.start()
+        phoneThread.start()
+        ipThread.start()
+
+        #Wait for threads to finish
+        emailThread.join()
+        phoneThread.join()
+        ipThread.join()
+
         xmlCreator = XMLCreator()
-        matchedIdentifiers = []
-        matchedIdentifiers.extend(self.MatchIdentifiers(self.identifiers)) #Match duplicate identifiers
-        xmlCreator.CreateXMLDoc(matchedIdentifiers) #Create XML doc with matched identifiers data
+        xmlCreator.CreateXMLDoc(self.matchedIdentifiers) #Create XML doc with matched identifiers data
 
     def MatchIdentifiers(self, identifiers):
         print("Beginning identifier matching")
@@ -68,7 +95,7 @@ class Main2():
                 if match != None: #Only add match object to list if it has been instantiated
                     matchedIdentifiers.append(match)
 
-        return matchedIdentifiers
+        self.matchedIdentifiers.extend(matchedIdentifiers)
             
     def PdfThread(self, pdfPaths):
         #.pdf files
