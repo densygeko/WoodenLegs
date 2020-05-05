@@ -45,7 +45,7 @@ namespace TestLayer
         [TestMethod]
         public void testrun()
         {
-            cmdluncherController cmdluncher = new cmdluncherController();
+            cmdlauncherController cmdluncher = new cmdlauncherController();
             cmdluncher.start();
         }
     }
