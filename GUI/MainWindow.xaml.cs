@@ -28,6 +28,7 @@ namespace GUI
     {
         private Identifier _selectedIdentifier;
         private XmlController XmlController = new XmlController();
+        private string _sleectedBlacklistKeyword;
         public MainWindow()
         {
             InitializeComponent();
@@ -78,6 +79,7 @@ namespace GUI
 
         private void blacklist_Click(object sender, RoutedEventArgs e)
         {
+            BlackListData.ItemsSource = XmlController.GetBlacklistkeywords();
             if (BlackListData.Visibility == Visibility.Hidden)
             {
                 BlackListData.Visibility = Visibility.Visible;
@@ -108,10 +110,12 @@ namespace GUI
             this.DataGridDisplayPaths.ItemsSource = _selectedIdentifier.Paths;
         }
 
-        private void blackListRight_Click(object sender, RoutedEventArgs e)
+        private void IdentifireListRight_Click(object sender, RoutedEventArgs e)
         {
             XmlController.InsertBlacklistKeyword(_selectedIdentifier.identifier);
+            XmlController.TrunIsblacklisted(_selectedIdentifier.identifier);
             BlackListData.ItemsSource = XmlController.GetBlacklistkeywords();
+            loadIdentifiers();
         }
         
         private void Email_buttonClick(object sender, MouseButtonEventArgs e)
@@ -128,6 +132,7 @@ namespace GUI
                 XmlController.UpdateBlacklistTypeEmail(email);
             }
             CheckforBlacklist();
+            loadIdentifiers();
         }
 
         private void CheckforBlacklist()
@@ -142,7 +147,7 @@ namespace GUI
                 EmailIcon.Foreground = Brushes.White;
             }
 
-            if (blacklistTypes[1] == true)
+            if (blacklistTypes[2] == true)
             {
                 NumberIcon.Foreground = Brushes.Black;
             }
@@ -150,7 +155,7 @@ namespace GUI
             {
                 NumberIcon.Foreground = Brushes.White;
             }
-            if (blacklistTypes[2] == true)
+            if (blacklistTypes[1] == true)
             {
                 IpIcon.Foreground = Brushes.Black;
             }
@@ -173,6 +178,7 @@ namespace GUI
             }
             XmlController.UpdateBlacklistTypeIP(Ip);
             CheckforBlacklist();
+            loadIdentifiers();
         }
 
         private void Number_buttonClick(object sender, MouseButtonEventArgs e)
@@ -188,6 +194,24 @@ namespace GUI
             }
             XmlController.UpdateBlacklistTypeNumber(Number);
             CheckforBlacklist();
+            loadIdentifiers();
+        }
+
+        private void blacklist_Rightclick(object sender, RoutedEventArgs e)
+        {
+            XmlController.DeleteBlacklistKeyword(_sleectedBlacklistKeyword);
+            XmlController.TrunIsblacklisted(_sleectedBlacklistKeyword);
+            BlackListData.ItemsSource = XmlController.GetBlacklistkeywords();
+            loadIdentifiers();
+        }
+
+        private void BlackListData_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            string chagedstring = (string)this.BlackListData.CurrentItem;
+            if(_sleectedBlacklistKeyword != chagedstring)
+            {
+                _sleectedBlacklistKeyword = chagedstring;
+            }
         }
     }
 }

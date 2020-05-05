@@ -73,14 +73,14 @@
                             <materialDesign:PackIcon Name="EmailIcon" Kind="EmailMinusOutline" Margin="10" Width="25" Height="25" VerticalAlignment="Center" Foreground="#FFB1C8CF" />
                             <TextBlock Text="Email-addresser" VerticalAlignment="Center" Margin="20 10" Foreground="#FFB1C8CF"/>
                         </StackPanel>
-                    </ListViewItem>
-                    <ListViewItem Height="60"  PreviewMouseLeftButtonUp="Number_buttonClick">
+                    </ListViewItem> 
+                    <ListViewItem Height="60"  PreviewMouseLeftButtonUp="Ip_buttonClick">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Name="IpIcon" Kind="Web" Width="25" Margin="10" Height="25" VerticalAlignment="Center" Foreground="#FFB1C8CF"/>
                             <TextBlock Text="IP-addresser" VerticalAlignment="Center" Margin="20 10" Foreground="#FFB1C8CF"/>
                         </StackPanel>
                     </ListViewItem>
-                    <ListViewItem Height="60" PreviewMouseLeftButtonUp="Ip_buttonClick">
+                    <ListViewItem Height="60" PreviewMouseLeftButtonUp="Number_buttonClick">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Name="NumberIcon" Kind="Telephone" Width="25" Margin="10" Height="25" VerticalAlignment="Center" Foreground="#FFB1C8CF"/>
                             <TextBlock Text="Telefonnummre" VerticalAlignment="Center" Margin="20 10" Foreground="#FFB1C8CF"/>
@@ -91,7 +91,12 @@
         </Grid>
         <Grid x:Name="GridWithData" HorizontalAlignment="Left" Height="694" Margin="65,75,0,0" VerticalAlignment="Top" Width="1427">
             <Grid x:Name="BlackListGrid" HorizontalAlignment="Left" Height="530" Margin="10,10,0,0" VerticalAlignment="Top" Width="420">
-                <DataGrid x:Name="BlackListData" HorizontalAlignment="Left" Height="530" VerticalAlignment="Top" Width="420" Visibility="Hidden" AutoGenerateColumns="False">
+                <DataGrid x:Name="BlackListData" HorizontalAlignment="Left" Height="530" VerticalAlignment="Top" Width="420" Visibility="Hidden" AutoGenerateColumns="False" SelectionChanged="BlackListData_SelectionChanged">
+                    <DataGrid.ContextMenu>
+                        <ContextMenu>
+                            <MenuItem Header="Unblacklist word" Click="blacklist_Rightclick"></MenuItem>
+                        </ContextMenu>
+                    </DataGrid.ContextMenu>
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Keyword" Binding="{Binding }"></DataGridTextColumn>
                     </DataGrid.Columns>
@@ -107,7 +112,7 @@
                     </DataGrid.Columns>
                     <DataGrid.ContextMenu>
                         <ContextMenu>
-                            <MenuItem Header="Blacklist word" Click="blackListRight_Click"></MenuItem>
+                            <MenuItem Header="Blacklist word" Click="IdentifireListRight_Click"></MenuItem>
                         </ContextMenu>
                     </DataGrid.ContextMenu>
                 </DataGrid>

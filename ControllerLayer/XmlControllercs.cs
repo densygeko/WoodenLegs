@@ -35,11 +35,41 @@ namespace ControllerLayer
                     XmlNodeList paths = cl.GetElementsByTagName("path"); //get xml element within the tag path
                     XmlElement type = (XmlElement)xdoc.GetElementsByTagName("type")[i]; //get xml element within the tag type
                     XmlElement occurences = (XmlElement)xdoc.GetElementsByTagName("occurences")[i]; //get xml element within the tag occurences
-    //                XmlElement isBlacklisted = (XmlElement)xdoc.GetElementsByTagName("isBlacklisted")[i];
-     //               bool Blacklisted;
-     //               Boolean.TryParse(isBlacklisted.innerText, out Blacklisted);
-                    if ((cl.GetAttribute("id")) != null /*&& Blacklisted == false*/ ) // if there are not any id it is assume that there are no identifers in the xml doc
+
+                    XmlElement bemail = (XmlElement)xdoc.GetElementsByTagName("email")[0]; //finds email node takes the first 
+                    XmlElement bNumber = (XmlElement)xdoc.GetElementsByTagName("number")[0];//findes number node takes the first
+                    XmlElement bip = (XmlElement)xdoc.GetElementsByTagName("ip")[0]; //findes ip node takes the first
+
+                    XmlElement isBlacklisted = (XmlElement)xdoc.GetElementsByTagName("isBlacklisted")[i];
+                    bool Blacklisted;
+                    bool dontaddtoviwe = false;
+                    Boolean.TryParse(isBlacklisted.InnerText, out Blacklisted);
+                    if ((cl.GetAttribute("id")) != null && Blacklisted == false ) // if there are not any id it is assume that there are no identifers in the xml doc
                     {
+                        switch (type.InnerText)
+                        {
+                            case "Email":
+                                if(bemail.InnerText == true.ToString())
+                                {
+                                    dontaddtoviwe = true;
+                                }
+                                break;
+                            case "Ip":
+                                if( bip.InnerText == true.ToString())
+                                {
+                                    dontaddtoviwe = true;
+                                }
+                                dontaddtoviwe = true;
+                                break;
+                            case "PhoneNumber":
+                                if(bNumber.InnerText == true.ToString())
+                                {
+                                    dontaddtoviwe = true;
+                                }
+                                break;
+                            default:
+                                break;
+                        }
                         //map into class
 
                         Identifier idf = new Identifier();
@@ -52,9 +82,10 @@ namespace ControllerLayer
                         idf.Occurences = int.Parse(occurences.InnerText);
                         idf.Type = type.InnerText;
                         idf.identifier = IDF.InnerText;
-                        Lidentifier.Add(idf);
- 
-                       
+                        if (dontaddtoviwe == false)
+                        {
+                            Lidentifier.Add(idf);
+                        }
                         
                     }
                 }
@@ -67,8 +98,37 @@ namespace ControllerLayer
                  List < Identifier > nulllist = new List<Identifier>();
                 return nulllist;
             }
+        }
 
-
+        public bool TrunIsblacklisted(string identifier)
+        {
+            XmlDocument xdoc = new XmlDocument(); //makes xml class
+            FileStream fileStream = new FileStream(GetXMLpath() + @"Main2\dist\MatchedIdentifiers.xml", FileMode.Open); //start a bit steam of the given file
+            xdoc.Load(fileStream); // xml doc class use the data steam
+            XmlNodeList list = xdoc.GetElementsByTagName("Identifier"); // return Xmlnodelist within the tag Identifier
+            bool found = false;
+           
+            for (int i = 0; i < list.Count; i++)
+            {
+                XmlElement IDF = (XmlElement)xdoc.GetElementsByTagName("name")[i]; //get xml element within the tag name
+                XmlElement isBlacklisted = (XmlElement)xdoc.GetElementsByTagName("isBlacklisted")[i];
+                if (IDF.InnerText == identifier ) // if there are not any id it is assume that there are no identifers in the xml doc
+                {
+                    found = true; 
+                    if(isBlacklisted.InnerText == false.ToString())
+                    {
+                        isBlacklisted.InnerText = true.ToString();
+                    } 
+                    else
+                    {
+                        isBlacklisted.InnerText = false.ToString();
+                    }
+                }
+            }
+            
+            fileStream.Close(); //closes the data steam
+            xdoc.Save(GetXMLpath() + @"Main2\dist\MatchedIdentifiers.xml");
+            return found;
         }
 
         public void InsertblackList()
@@ -246,6 +306,7 @@ namespace ControllerLayer
                 string s = words.InnerText;
                 keywords.Add(s);
             }
+            rfile.Close();
             return keywords;
         }
 
@@ -264,7 +325,7 @@ namespace ControllerLayer
         {
             FilesContainer files = FilesContainer.getInstance();
             XmlDocument xd = new XmlDocument(); 
-            string path = GetXMLpath() + "filepaths.xml"; 
+            string path = GetXMLpath() + "/filepaths.xml"; 
             FileStream lfile = new FileStream(path, FileMode.Open); //start a bit steam of the given file
             xd.Load(lfile);  // xml doc class use the data steam
 
