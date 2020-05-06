@@ -8,7 +8,7 @@ class RegexChecker:
 
     def checkPhone(self, text):
 
-        phoneNumbers = re.findall('(?:\+?(?:45){1})?(?:[-.\s]?\d{1}){8}', text)
+        phoneNumbers = re.findall('(?:\+?(?:45){1})?(?:[-\s]?\d{1}){8}', text)
         return phoneNumbers
 
     def findIP(self, text):

@@ -88,12 +88,15 @@ class Main2():
                             paths.append(j.path)
                             if match == None: #Create MatchedIdentifier at first occurence of a matching identifier
                                 match = MatchedIdentifier(i.name, i.type, paths, i.id, 1)
+                            else:
+                                match.paths = paths
                             
                             match.occurences +=1 #At all following occurences of the same identifier, increment occurences
                             j.isMatched = True #The method won't loop through objects that have already been matched
 
                 if match != None: #Only add match object to list if it has been instantiated
                     matchedIdentifiers.append(match)
+                    i.isMatched = True
 
         self.matchedIdentifiers.extend(matchedIdentifiers)
             
@@ -137,14 +140,14 @@ class Main2():
     def CsvThread(self, csvPaths):
         #.csv files
         fileParser = FileParser()
-        try:
-            csvFiles = []
-            for path in csvPaths:
-                csvFiles.append(path.firstChild.data)
+        
+        csvFiles = []
+        for path in csvPaths:
+            csvFiles.append(path.firstChild.data)
 
-            self.identifiers.extend(fileParser.ParseCsv(csvFiles))
-        except:
-            print("No .csv files in directory or error related to .csv")
+        self.identifiers.extend(fileParser.ParseCsv(csvFiles))
+        #except:
+        #    print("No .csv files in directory or error related to .csv")
 
     def ImgThread(self, imgPaths):
         #Images
