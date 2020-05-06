@@ -36,7 +36,7 @@ class XMLCreator:
             identifierChild.appendChild(childOfIdentifier)
 
             childOfIdentifier = root.createElement('isBlacklisted') #This element is used by the UI to blacklist identifiers.
-            childOfIdentifier.appendChild(root.createTextNode('false'))
+            childOfIdentifier.appendChild(root.createTextNode('False'))
             identifierChild.appendChild(childOfIdentifier)
 
         xml_str = root.toprettyxml(indent="\t") #Format XML
