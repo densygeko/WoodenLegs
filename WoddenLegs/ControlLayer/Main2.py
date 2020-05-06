@@ -85,11 +85,14 @@ class Main2():
                 for j in identifiers: #Compare the identifier to every other identifier
                     if i.name == j.name and i.path != j.path: # Check if the same identifier is found in a different file
                         if j.path not in paths: #This avoids counting the same identifier multiple times from one document
+                            print(i.name + " and " + j.name + " have been matched \n")
                             paths.append(j.path)
                             if match == None: #Create MatchedIdentifier at first occurence of a matching identifier
                                 match = MatchedIdentifier(i.name, i.type, paths, i.id, 1)
+                                print("A new MatchedIdentifier object was created for " + i.name + "\n")
                             else:
                                 match.paths = paths
+                                print("A MatchedIdentifier object already exists for " + j.name + " Adding path to list of paths. \n")
                             
                             match.occurences +=1 #At all following occurences of the same identifier, increment occurences
                             j.isMatched = True #The method won't loop through objects that have already been matched

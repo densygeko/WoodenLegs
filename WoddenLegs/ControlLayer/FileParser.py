@@ -88,7 +88,7 @@ class FileParser: #Might want to refactor this class, as there is a lot of repea
                 for ip in ips:
                     ident = Identifier(ip, "IP-adresse", path, 0, id)
                     identifiers.append(ident)
-                    ip+=1
+                    id+=1
         return identifiers
 
         
