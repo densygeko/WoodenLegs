@@ -1,5 +1,16 @@
 <?xml version="1.0"?>
 <root>
+  <Identifier id="2014">
+    <name>
+45 99 48 23</name>
+    <paths>
+      <path>C:\Users\Uth\Desktop\1.prprocjekt\WoddenLegs\ControlLayer\TempPDFHolder\TestPDF3.pdf</path>
+      <path>C:\Users\Uth\Desktop\1.prprocjekt\WoddenLegs\ControlLayer\TempPDFHolder\TestPDF4.pdf</path>
+    </paths>
+    <occurences>2</occurences>
+    <type>Telefon Nr.</type>
+    <isBlacklisted>false</isBlacklisted>
+  </Identifier>
   <Identifier id="2012">
     <name>androgyne.kim@gmail.com</name>
     <paths>
@@ -8,7 +19,7 @@
     </paths>
     <occurences>2</occurences>
     <type>Email</type>
-    <isBlacklisted>False</isBlacklisted>
+    <isBlacklisted>false</isBlacklisted>
   </Identifier>
   <Identifier id="2013">
     <name>olsen@hotmail.com</name>
@@ -20,22 +31,12 @@
     <type>Email</type>
     <isBlacklisted>False</isBlacklisted>
   </Identifier>
-  <Identifier id="2014">
-    <name>
-45 99 48 23</name>
-    <paths>
-      <path>C:\Users\Uth\Desktop\1.prprocjekt\WoddenLegs\ControlLayer\TempPDFHolder\TestPDF3.pdf</path>
-      <path>C:\Users\Uth\Desktop\1.prprocjekt\WoddenLegs\ControlLayer\TempPDFHolder\TestPDF4.pdf</path>
-    </paths>
-    <occurences>2</occurences>
-    <type>PhoneNumber</type>
-    <isBlacklisted>False</isBlacklisted>
-  </Identifier>
   <blacklistType>
-    <email>False</email>
-    <number>False</number>
-    <ip>False</ip>
+    <email>false</email>
+    <number>false</number>
+    <ip>false</ip>
   </blacklistType>
   <blacklistKeyword>
+    <keyword>olsen@hotmail.com</keyword>
   </blacklistKeyword>
 </root>

@@ -16,7 +16,7 @@ namespace ControllerLayer
         private List<directory> directories;
 
         private XmlController xmlController = new XmlController();
-        private cmdluncherController cmd = new cmdluncherController();
+        private cmdlauncherController cmd = new cmdlauncherController();
         public FileController()
         {
             files = FilesContainer.getInstance();

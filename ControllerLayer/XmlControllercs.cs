@@ -98,6 +98,11 @@ namespace ControllerLayer
                  List < Identifier > nulllist = new List<Identifier>();
                 return nulllist;
             }
+            catch (System.NullReferenceException e)
+            {
+                List<Identifier> nulllist = new List<Identifier>();
+                return nulllist;
+            }
         }
 
         public bool TrunIsblacklisted(string identifier)
