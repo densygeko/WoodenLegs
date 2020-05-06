@@ -54,14 +54,13 @@ namespace ControllerLayer
                                     dontaddtoviwe = true;
                                 }
                                 break;
-                            case "Ip":
+                            case "IP-adresse":
                                 if( bip.InnerText == true.ToString())
                                 {
                                     dontaddtoviwe = true;
                                 }
-                                dontaddtoviwe = true;
                                 break;
-                            case "PhoneNumber":
+                            case "Telefon Nr.":
                                 if(bNumber.InnerText == true.ToString())
                                 {
                                     dontaddtoviwe = true;
@@ -392,7 +391,7 @@ namespace ControllerLayer
                 {
                     XmlElement txtpath = xd.CreateElement("txtpath");
                     XmlText xmlText = xd.CreateTextNode(item);
-                    txtfiles.AppendChild(xmlText);
+                    txtpath.AppendChild(xmlText);
                     txtfiles.AppendChild(txtpath);
                 }
                 xd.DocumentElement.AppendChild(txtfiles);
@@ -405,7 +404,7 @@ namespace ControllerLayer
                 {
                     XmlElement csvpath = xd.CreateElement("csvpath");
                     XmlText xmlText = xd.CreateTextNode(item);
-                    csvfiles.AppendChild(xmlText);
+                    csvpath.AppendChild(xmlText);
                     csvfiles.AppendChild(csvpath);
                 }
                 xd.DocumentElement.AppendChild(csvfiles);

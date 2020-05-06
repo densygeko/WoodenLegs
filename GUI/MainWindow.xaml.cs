@@ -107,7 +107,14 @@ namespace GUI
 
         public void nofiChanged(Identifier identifier1)
         {
-            this.DataGridDisplayPaths.ItemsSource = _selectedIdentifier.Paths;
+            try
+            {
+                this.DataGridDisplayPaths.ItemsSource = _selectedIdentifier.Paths;
+            }
+            catch
+           {
+                this.DataGridDisplayPaths.ItemsSource = null;
+            }
         }
 
         private void IdentifireListRight_Click(object sender, RoutedEventArgs e)
