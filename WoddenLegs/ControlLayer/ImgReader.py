@@ -1,7 +1,7 @@
 import cv2
 import pytesseract
 import os
-pytesseract.pytesseract.tesseract_cmd = os.getcwd() + r'\\ControlLayer\\Tesseract-OCR\\tesseract.exe'
+pytesseract.pytesseract.tesseract_cmd = os.getcwd() + r'\\Tesseract-OCR\\tesseract.exe'
 from PIL import Image
 
 #This class reads text on images.
