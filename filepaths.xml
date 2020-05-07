@@ -1,31 +1,19 @@
 <paths>
   <pdfPaths>
-    <pdfpath>C:\Users\Uth\Desktop\temp\2800-03835-08311-20\consequatur.pdf</pdfpath>
-    <pdfpath>C:\Users\Uth\Desktop\temp\2800-03835-08311-20\2800-45518-06318-20\ut.pdf</pdfpath>
-    <pdfpath>C:\Users\Uth\Desktop\temp\2800-03835-08311-20\2800-05254-05645-20\libero voluptatem\voluptas.pdf</pdfpath>
-    <pdfpath>C:\Users\Uth\Desktop\temp\2800-03835-08311-20\2800-45518-06318-20\est et\iusto.pdf</pdfpath>
-    <pdfpath>C:\Users\Uth\Desktop\temp\2800-03835-08311-20\2800-45642-07567-20\ipsam ipsam\et.pdf</pdfpath>
-    <pdfpath>C:\Users\Uth\Desktop\temp\2800-03835-08311-20\eveniet et\eius perferendis\culpa.pdf</pdfpath>
-    <pdfpath>C:\Users\Uth\Desktop\temp\2800-03835-08311-20\2800-18165-09377-20\enim sapiente\quasi dolorem\sit.pdf</pdfpath>
-    <pdfpath>C:\Users\Uth\Desktop\temp\2800-03835-08311-20\2800-45642-07567-20\ipsam ipsam\ipsam distinctio\qui.pdf</pdfpath>
-    <pdfpath>C:\Users\Uth\Desktop\temp\2800-03835-08311-20\eveniet et\eius perferendis\unde quia\dolore.pdf</pdfpath>
-    <pdfpath>C:\Users\Uth\Desktop\temp\2800-03835-08311-20\2800-18165-09377-20\enim sapiente\quasi dolorem\dolorum dolorem\maiores.pdf</pdfpath>
+    <pdfpath>C:\Users\Uth\Desktop\PlasticLegsData\Ny mappe\thingy\PDF2.pdf</pdfpath>
+    <pdfpath>C:\Users\Uth\Desktop\PlasticLegsData\Ny mappe (2)\sutff\PDF1.pdf</pdfpath>
   </pdfPaths>
+  <xmlPaths>
+    <xmlPaths>C:\Users\Uth\Desktop\PlasticLegsData\filepaths.xml</xmlPaths>
+  </xmlPaths>
   <txtpaths>
-    <txtpath>C:\Users\Uth\Desktop\temp\2800-03835-08311-20\2800-18165-09377-20\pariatur.txt</txtpath>
-    <txtpath>C:\Users\Uth\Desktop\temp\2800-03835-08311-20\2800-45642-07567-20\et.txt</txtpath>
-    <txtpath>C:\Users\Uth\Desktop\temp\2800-03835-08311-20\2800-18165-09377-20\enim sapiente\quod.txt</txtpath>
-    <txtpath>C:\Users\Uth\Desktop\temp\2800-03835-08311-20\2800-45518-06318-20\est et\in consectetur\ipsum.txt</txtpath>
-    <txtpath>C:\Users\Uth\Desktop\temp\2800-03835-08311-20\2800-05254-05645-20\libero voluptatem\dicta reiciendis\assumenda ea\nobis.txt</txtpath>
-    <txtpath>C:\Users\Uth\Desktop\temp\2800-03835-08311-20\2800-45642-07567-20\ipsam ipsam\ipsam distinctio\et doloremque\atque.txt</txtpath>
-    <txtpath>C:\Users\Uth\Desktop\temp\2800-03835-08311-20\eveniet et\eius perferendis\unde quia\et nostrum\ab.txt</txtpath>
-    <txtpath>C:\Users\Uth\Desktop\temp\2800-03835-08311-20\2800-05254-05645-20\libero voluptatem\dicta reiciendis\assumenda ea\omnis autem\non.txt</txtpath>
-    <txtpath>C:\Users\Uth\Desktop\temp\2800-03835-08311-20\2800-18165-09377-20\enim sapiente\quasi dolorem\dolorum dolorem\et sit\necessitatibus.txt</txtpath>
+    <txtpath>C:\Users\Uth\Desktop\PlasticLegsData\mashse\test2.txt</txtpath>
+    <txtpath>C:\Users\Uth\Desktop\PlasticLegsData\mashse\secret\test3.txt</txtpath>
+    <txtpath>C:\Users\Uth\Desktop\PlasticLegsData\mashse\secret\test4.txt</txtpath>
+    <txtpath>C:\Users\Uth\Desktop\PlasticLegsData\Ny mappe\thingy\test1.txt</txtpath>
   </txtpaths>
   <csvpaths>
-    <csvpath>C:\Users\Uth\Desktop\temp\2800-03835-08311-20\2800-05254-05645-20\quos.csv</csvpath>
-    <csvpath>C:\Users\Uth\Desktop\temp\2800-03835-08311-20\2800-05254-05645-20\libero voluptatem\dicta reiciendis\iusto.csv</csvpath>
-    <csvpath>C:\Users\Uth\Desktop\temp\2800-03835-08311-20\2800-45518-06318-20\est et\in consectetur\ut voluptatem\accusantium voluptatibus\ut.csv</csvpath>
-    <csvpath>C:\Users\Uth\Desktop\temp\2800-03835-08311-20\2800-45642-07567-20\ipsam ipsam\ipsam distinctio\et doloremque\impedit inventore\et.csv</csvpath>
+    <csvpath>C:\Users\Uth\Desktop\PlasticLegsData\Ny mappe\csv1.csv</csvpath>
+    <csvpath>C:\Users\Uth\Desktop\PlasticLegsData\Ny mappe (2)\csv2.csv</csvpath>
   </csvpaths>
 </paths>
