@@ -31,7 +31,7 @@ class FileParser: #Might want to refactor this class, as there is a lot of repea
 
                 ips = regex.findIP(textDict[page]) #Find all IPv4 and IPv6 addresses using RegEx
                 for ip in ips:
-                    ident = Identifier(number, "IP-adresse", path, page, id)
+                    ident = Identifier(str(ip), "IP-adresse", path, page, id)
                     identifiers.append(ident) #Add IP address identifiers to list
                     id +=1
 
@@ -58,7 +58,7 @@ class FileParser: #Might want to refactor this class, as there is a lot of repea
 
             ips = regex.findIP(img)
             for ip in ips:
-                ident = Identifier(ip, "IP-adresse", path, 0, id)
+                ident = Identifier(str(ip), "IP-adresse", path, 0, id)
                 identifiers.append(ident)
                 id+=1
         return identifiers
@@ -86,7 +86,7 @@ class FileParser: #Might want to refactor this class, as there is a lot of repea
                 #Search for IP addresses
                 ips = regex.findIP(str(row))
                 for ip in ips:
-                    ident = Identifier(ip, "IP-adresse", path, 0, id)
+                    ident = Identifier(str(ip), "IP-adresse", path, 0, id)
                     identifiers.append(ident)
                     id+=1
         return identifiers
@@ -113,7 +113,7 @@ class FileParser: #Might want to refactor this class, as there is a lot of repea
 
             ips = regex.findIP(data)
             for ip in ips:
-                ident = Identifier(ip, "IP-adresse", path, 0, id)
+                ident = Identifier(str(ip), "IP-adresse", path, 0, id)
                 identifiers.append(ident)
                 id+=1
 
@@ -126,7 +126,7 @@ class FileParser: #Might want to refactor this class, as there is a lot of repea
         for path in paths:
             ips = pcapReader.ReadFile(path)
             for ip in ips:
-                ident = Identifier(ip, "IP-adresse", path, 0, id)
+                ident = Identifier(str(ip), "IP-adresse", path, 0, id)
                 identifiers.append(ident)
                 id+=1
         

@@ -43,6 +43,9 @@ class Main2():
         imgThread.join()
         txtThread.join()
 
+        #sort
+        self.SortIdentifiers()
+
         #Seperate identifiers into lists by type
         emailIdentifiers = []
         phoneIdentifiers = []
@@ -63,13 +66,16 @@ class Main2():
 
         #Start threads
         emailThread.start()
+        emailThread.join()
         phoneThread.start()
+        phoneThread.join()
         ipThread.start()
+        ipThread.join()
 
         #Wait for threads to finish
-        emailThread.join()
-        phoneThread.join()
-        ipThread.join()
+        
+        
+        
 
         xmlCreator = XMLCreator()
         xmlCreator.CreateXMLDoc(self.matchedIdentifiers) #Create XML doc with matched identifiers data
@@ -78,31 +84,45 @@ class Main2():
         print("Beginning identifier matching")
         matchedIdentifiers = []
         print("Identifiers found: " + str(len(identifiers)))
-        for i in identifiers: #Loop through each identifier.
-            if i.isMatched == False: #Don't match the identifier if it has already been matched. This is to avoid creating duplicate matches
+        for i in identifiers:
+            print(i.name + " " + i.path)
+
+        for i in range(len(identifiers)): #Loop through each identifier.
+            if identifiers[i].isMatched == False: #Don't match the identifier if it has already been matched. This is to avoid creating duplicate matches
                 match = None
-                paths = [i.path] #List of paths the identifier is found in
-                for j in identifiers: #Compare the identifier to every other identifier
-                    if i.name == j.name and i.path != j.path: # Check if the same identifier is found in a different file
-                        if j.path not in paths: #This avoids counting the same identifier multiple times from one document
-                            print(i.name + " and " + j.name + " have been matched \n")
-                            paths.append(j.path)
-                            if match == None: #Create MatchedIdentifier at first occurence of a matching identifier
-                                match = MatchedIdentifier(i.name, i.type, paths, i.id, 1)
-                                print("A new MatchedIdentifier object was created for " + i.name + "\n")
+                paths = [identifiers[i].path] #List of paths the identifier is found in
+                for j in range(len(identifiers)):
+                    try: 
+                        print("Comparing " + str(i) + " to " + str(i+j+1))
+                        if (i+j+1) < len(identifiers) and identifiers[i].name == identifiers[i+1+j].name and identifiers[i].path != identifiers[i+1+j].path:
+                            print("It's a match")
+                            paths.append(identifiers[i+1+j].path)
+                            if match == None:
+                                match = MatchedIdentifier(identifiers[i].name, identifiers[i].type, paths, identifiers[i].id, 1)
                             else:
                                 match.paths = paths
-                                print("A MatchedIdentifier object already exists for " + j.name + " Adding path to list of paths. \n")
-                            
-                            match.occurences +=1 #At all following occurences of the same identifier, increment occurences
-                            j.isMatched = True #The method won't loop through objects that have already been matched
+
+                            match.occurences += 1
+                            identifiers[i+j+1].isMatched = True
+                        else:
+                            print("Not a match. Going to next iteration of outer loop")
+                            break
+                    except:
+                        print("error")
+                    
 
                 if match != None: #Only add match object to list if it has been instantiated
                     matchedIdentifiers.append(match)
-                    i.isMatched = True
+                    identifiers[i].isMatched = True
 
         self.matchedIdentifiers.extend(matchedIdentifiers)
             
+    def SortIdentifiers(self):
+        print("Sorting identifiers")
+        self.identifiers.sort(key=lambda x: x.name)
+        for i in self.identifiers:
+            print(i.name)
+        
     def PdfThread(self, pdfPaths):
         #.pdf files
         fileParser = FileParser()
