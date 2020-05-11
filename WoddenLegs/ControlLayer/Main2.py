@@ -43,7 +43,7 @@ class Main2():
         imgThread.join()
         txtThread.join()
 
-        #sort
+        #Sort identifiers alphabetically
         self.SortIdentifiers()
 
         #Seperate identifiers into lists by type
@@ -66,26 +66,25 @@ class Main2():
 
         #Start threads
         emailThread.start()
-        emailThread.join()
         phoneThread.start()
-        phoneThread.join()
         ipThread.start()
-        ipThread.join()
 
         #Wait for threads to finish
-        
-        
-        
+        emailThread.join()
+        phoneThread.join()
+        ipThread.join()
 
         xmlCreator = XMLCreator()
         xmlCreator.CreateXMLDoc(self.matchedIdentifiers) #Create XML doc with matched identifiers data
 
+    #This method requires the identifiers list to be sorted alphabetically.
+    #Identifiers are compared to the item directly below it in the list.
+    #If they match, the loop continues and checks for additional matches.
+    #If not, the loop breaks out and starts trying to find matches for the next identifier.
     def MatchIdentifiers(self, identifiers):
         print("Beginning identifier matching")
         matchedIdentifiers = []
         print("Identifiers found: " + str(len(identifiers)))
-        for i in identifiers:
-            print(i.name + " " + i.path)
 
         for i in range(len(identifiers)): #Loop through each identifier.
             if identifiers[i].isMatched == False: #Don't match the identifier if it has already been matched. This is to avoid creating duplicate matches
@@ -93,22 +92,19 @@ class Main2():
                 paths = [identifiers[i].path] #List of paths the identifier is found in
                 for j in range(len(identifiers)):
                     try: 
-                        print("Comparing " + str(i) + " to " + str(i+j+1))
+                        #Match objects if names are equal, paths are different, and we haven't reached the end of the list.
                         if (i+j+1) < len(identifiers) and identifiers[i].name == identifiers[i+1+j].name and identifiers[i].path != identifiers[i+1+j].path:
-                            print("It's a match")
-                            paths.append(identifiers[i+1+j].path)
-                            if match == None:
+                            if match == None: #Create new match object if there isn't already one.
                                 match = MatchedIdentifier(identifiers[i].name, identifiers[i].type, paths, identifiers[i].id, 1)
-                            else:
-                                match.paths = paths
+                            else: #If the match object already exists, we just add the path.
+                                match.paths.append(identifiers[i+1+j].path)
 
                             match.occurences += 1
-                            identifiers[i+j+1].isMatched = True
+                            identifiers[i+j+1].isMatched = True #Identifiers marked as matched will be skipped when iterating through the list.
                         else:
-                            print("Not a match. Going to next iteration of outer loop")
-                            break
+                            break #Break out of inner loop if identifiers were not a match.
                     except:
-                        print("error")
+                        print("Error while matching identifiers")
                     
 
                 if match != None: #Only add match object to list if it has been instantiated
