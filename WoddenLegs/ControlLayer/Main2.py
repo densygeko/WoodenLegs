@@ -94,10 +94,11 @@ class Main2():
                     try: 
                         #Match objects if names are equal, paths are different, and we haven't reached the end of the list.
                         if (i+j+1) < len(identifiers) and identifiers[i].name == identifiers[i+1+j].name and identifiers[i].path != identifiers[i+1+j].path:
+                            paths.append(identifiers[i+1+j].path)
                             if match == None: #Create new match object if there isn't already one.
                                 match = MatchedIdentifier(identifiers[i].name, identifiers[i].type, paths, identifiers[i].id, 1)
                             else: #If the match object already exists, we just add the path.
-                                match.paths.append(identifiers[i+1+j].path)
+                                match.paths = paths
 
                             match.occurences += 1
                             identifiers[i+j+1].isMatched = True #Identifiers marked as matched will be skipped when iterating through the list.
