@@ -10,26 +10,12 @@ namespace TestLayer
     public class UnitTest1
     {
         [TestMethod]
-        public void testgetallpdf()
-        {
-            //Arange
-            //need to make an instance of the classe in testing
-            FileController Fctr = new FileController();
-           
-            //act
-            //using the testfolder the in the TestLayer + bin + debug+test \\ 
-            Fctr.Getfiles(@"C: \Users\Uth\Desktop\temp");
-            //Asert
-            //checks that the amount of pdfs are 5 would mean that method have found all the pdfs in the testing folder
-        }
-
-        [TestMethod]
         public void testxml()
         {
             
             XmlController xml = new XmlController();
-            
-            xml.InsertBlacklistKeyword("88 99 33 88");
+
+            xml.InsertblackList();
         }
 
         [TestMethod]

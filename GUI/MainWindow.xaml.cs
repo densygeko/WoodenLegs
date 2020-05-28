@@ -33,7 +33,7 @@ namespace GUI
         {
             InitializeComponent();
             loadIdentifiers();
-         //   CheckforBlacklist();
+            CheckforBlacklist();
            // this.DisplayIdentifierDataGrid.ItemsSource = XmlController.ReadIdentifierFromXml();
         }
 
@@ -144,32 +144,41 @@ namespace GUI
 
         private void CheckforBlacklist()
         {
-            List<bool> blacklistTypes = XmlController.GetBlacklistType();
-            if (blacklistTypes[0] == true)
+            try
             {
-                EmailIcon.Foreground = Brushes.Black;
-            }
-            else
-            {
-                EmailIcon.Foreground = Brushes.White;
-            }
+                List<bool> blacklistTypes = XmlController.GetBlacklistType();
+                if (blacklistTypes[0] == true)
+                {
+                    EmailIcon.Foreground = Brushes.Black;
+                }
+                else
+                {
+                    EmailIcon.Foreground = Brushes.White;
+                }
 
-            if (blacklistTypes[2] == true)
-            {
-                NumberIcon.Foreground = Brushes.Black;
+                if (blacklistTypes[2] == true)
+                {
+                    NumberIcon.Foreground = Brushes.Black;
+                }
+                else
+                {
+                    NumberIcon.Foreground = Brushes.White;
+                }
+                if (blacklistTypes[1] == true)
+                {
+                    IpIcon.Foreground = Brushes.Black;
+                }
+                else
+                {
+                    IpIcon.Foreground = Brushes.White;
+                }
             }
-            else
+            catch
             {
-                NumberIcon.Foreground = Brushes.White;
+                
             }
-            if (blacklistTypes[1] == true)
-            {
-                IpIcon.Foreground = Brushes.Black;
-            }
-            else
-            {
-                IpIcon.Foreground = Brushes.White;
-            }
+            
+            
         }
 
         private void Ip_buttonClick(object sender, MouseButtonEventArgs e)

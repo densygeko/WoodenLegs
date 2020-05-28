@@ -54,7 +54,7 @@ namespace ControllerLayer
                         }
                         //swich boolean variable in the directory class to read so not gonna be read again this while loop
                         directories[i].read = true;
-                        //cout up the number of read files
+                        //cout up the number of read directorys
                         trueres++;
                     }
                 }
