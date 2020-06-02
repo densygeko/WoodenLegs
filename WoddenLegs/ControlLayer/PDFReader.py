@@ -1,7 +1,8 @@
 import PyPDF4
 import cv2
+import os
 import pytesseract
-pytesseract.pytesseract.tesseract_cmd = r'C:\\Program Files\\Tesseract-OCR\\tesseract.exe'
+pytesseract.pytesseract.tesseract_cmd = os.getcwd() + r'\\Tesseract-OCR\\tesseract.exe'
 import numpy as np
 from PIL import Image
 

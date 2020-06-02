@@ -3,13 +3,12 @@ import re
 class RegexChecker:
     
     def checkMail(self, text):
-        emails = re.findall('[a-zA-Z0-9_.-]+@\S+\.[a-zA-Z]{2,4}', text)
+        emails = re.findall(r'[a-zA-Z0-9_.-]+@\S+\.[a-zA-Z]{2,4}', text)
         return emails
 
     def checkPhone(self, text):
-
-        phoneNumbers = re.findall('(?:\+?(?:45){1})?(?:[-.\s]?\d{1}){8}', text)
-        return phoneNumbers
+        phoneNumbers = re.findall(r'(?:\+?(?:45){1})?(?:[-\s]?\d{1}){8}', text) #Checks for area code +45, then checks for 8 instances of digits
+        return phoneNumbers                                                     #that may or may not be preceeded by a whitespace or dash.
 
     def findIP(self, text):
         IPV4SEG  = r'(?:25[0-5]|(?:2[0-4]|1{0,1}[0-9]){0,1}[0-9])'
