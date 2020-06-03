@@ -1,0 +1,104 @@
+<?xml version="1.0" ?>
+<root>
+	<Identifier id="0">
+		<name>michael.anker@gmail.com</name>
+		<paths>
+			<path>C:\Users\PhilipBraarup\Desktop\PlasticLegsData\PDF1.pdf</path>
+			<path>C:\Users\PhilipBraarup\Desktop\PlasticLegsData\PDF2.pdf</path>
+			<path>C:\Users\PhilipBraarup\Desktop\4thSemProject\WoddenLegs\WoddenLegs\Image10.png</path>
+		</paths>
+		<occurences>3</occurences>
+		<type>Email</type>
+		<isBlacklisted>False</isBlacklisted>
+	</Identifier>
+	<Identifier id="0">
+		<name>ole.hansen@mail.dk</name>
+		<paths>
+			<path>C:\Users\PhilipBraarup\Desktop\PlasticLegsData\csv1.csv</path>
+			<path>C:\Users\PhilipBraarup\Desktop\PlasticLegsData\csv2.csv</path>
+		</paths>
+		<occurences>2</occurences>
+		<type>Email</type>
+		<isBlacklisted>False</isBlacklisted>
+	</Identifier>
+	<Identifier id="1">
+		<name>pelle@hotmail.com</name>
+		<paths>
+			<path>C:\Users\PhilipBraarup\Desktop\PlasticLegsData\PDF1.pdf</path>
+			<path>C:\Users\PhilipBraarup\Desktop\PlasticLegsData\PDF2.pdf</path>
+		</paths>
+		<occurences>2</occurences>
+		<type>Email</type>
+		<isBlacklisted>False</isBlacklisted>
+	</Identifier>
+	<Identifier id="0">
+		<name>sen@yahoo.dk</name>
+		<paths>
+			<path>C:\Users\PhilipBraarup\Desktop\PlasticLegsData\test1.txt</path>
+			<path>C:\Users\PhilipBraarup\Desktop\PlasticLegsData\test2.txt</path>
+			<path>C:\Users\PhilipBraarup\Desktop\PlasticLegsData\test3.txt</path>
+			<path>C:\Users\PhilipBraarup\Desktop\PlasticLegsData\test4.txt</path>
+		</paths>
+		<occurences>4</occurences>
+		<type>Email</type>
+		<isBlacklisted>False</isBlacklisted>
+	</Identifier>
+	<Identifier id="2">
+		<name>
+8494 4748</name>
+		<paths>
+			<path>C:\Users\PhilipBraarup\Desktop\PlasticLegsData\PDF1.pdf</path>
+			<path>C:\Users\PhilipBraarup\Desktop\PlasticLegsData\PDF2.pdf</path>
+			<path>C:\Users\PhilipBraarup\Desktop\4thSemProject\WoddenLegs\WoddenLegs\Image10.png</path>
+		</paths>
+		<occurences>3</occurences>
+		<type>Telefon Nr.</type>
+		<isBlacklisted>False</isBlacklisted>
+	</Identifier>
+	<Identifier id="3">
+		<name>
+88 99 33 88</name>
+		<paths>
+			<path>C:\Users\PhilipBraarup\Desktop\PlasticLegsData\PDF1.pdf</path>
+			<path>C:\Users\PhilipBraarup\Desktop\PlasticLegsData\PDF2.pdf</path>
+		</paths>
+		<occurences>2</occurences>
+		<type>Telefon Nr.</type>
+		<isBlacklisted>False</isBlacklisted>
+	</Identifier>
+	<Identifier id="1">
+		<name>27 27 84 84</name>
+		<paths>
+			<path>C:\Users\PhilipBraarup\Desktop\PlasticLegsData\csv1.csv</path>
+			<path>C:\Users\PhilipBraarup\Desktop\PlasticLegsData\csv2.csv</path>
+		</paths>
+		<occurences>2</occurences>
+		<type>Telefon Nr.</type>
+		<isBlacklisted>False</isBlacklisted>
+	</Identifier>
+	<Identifier id="1">
+		<name>55 82 99 48</name>
+		<paths>
+			<path>C:\Users\PhilipBraarup\Desktop\PlasticLegsData\test1.txt</path>
+			<path>C:\Users\PhilipBraarup\Desktop\PlasticLegsData\test2.txt</path>
+			<path>C:\Users\PhilipBraarup\Desktop\PlasticLegsData\test3.txt</path>
+			<path>C:\Users\PhilipBraarup\Desktop\PlasticLegsData\test4.txt</path>
+		</paths>
+		<occurences>4</occurences>
+		<type>Telefon Nr.</type>
+		<isBlacklisted>False</isBlacklisted>
+	</Identifier>
+	<Identifier id="2">
+		<name>192.168.1.1</name>
+		<paths>
+			<path>C:\Users\PhilipBraarup\Desktop\PlasticLegsData\test1.txt</path>
+			<path>C:\Users\PhilipBraarup\Desktop\PlasticLegsData\test2.txt</path>
+			<path>C:\Users\PhilipBraarup\Desktop\PlasticLegsData\test3.txt</path>
+			<path>C:\Users\PhilipBraarup\Desktop\PlasticLegsData\test4.txt</path>
+			<path>C:\Users\PhilipBraarup\Desktop\PlasticLegsData\PDF2.pdf</path>
+		</paths>
+		<occurences>5</occurences>
+		<type>IP-adresse</type>
+		<isBlacklisted>False</isBlacklisted>
+	</Identifier>
+</root>
