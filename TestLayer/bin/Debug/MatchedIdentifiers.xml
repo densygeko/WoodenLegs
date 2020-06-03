@@ -1,0 +1,31 @@
+<?xml version="1.0" ?>
+<root>
+	<Identifier id="2012">
+		<name>androgyne.kim@gmail.com</name>
+		<paths>
+			<path>C:\Users\Uth\Desktop\WoddenLegs\WoddenLegs\ControlLayer\TempPDFHolder\TestPDF3.pdf</path>
+			<path>C:\Users\Uth\Desktop\WoddenLegs\WoddenLegs\ControlLayer\TempPDFHolder\TestPDF4.pdf</path>
+		</paths>
+		<occurences>2</occurences>
+		<type>Email</type>
+	</Identifier>
+	<Identifier id="2013">
+		<name>olsen@hotmail.com</name>
+		<paths>
+			<path>C:\Users\Uth\Desktop\WoddenLegs\WoddenLegs\ControlLayer\TempPDFHolder\TestPDF3.pdf</path>
+			<path>C:\Users\Uth\Desktop\WoddenLegs\WoddenLegs\ControlLayer\TempPDFHolder\TestPDF4.pdf</path>
+		</paths>
+		<occurences>2</occurences>
+		<type>Email</type>
+	</Identifier>
+	<Identifier id="2014">
+		<name>
+45 99 48 23</name>
+		<paths>
+			<path>C:\Users\Uth\Desktop\WoddenLegs\WoddenLegs\ControlLayer\TempPDFHolder\TestPDF3.pdf</path>
+			<path>C:\Users\Uth\Desktop\WoddenLegs\WoddenLegs\ControlLayer\TempPDFHolder\TestPDF4.pdf</path>
+		</paths>
+		<occurences>2</occurences>
+		<type>PhoneNumber</type>
+	</Identifier>
+</root>

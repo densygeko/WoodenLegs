@@ -1,0 +1,130 @@
+﻿<Window x:Class="GUI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GUI"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d" ResizeMode="CanResizeWithGrip" WindowStartupLocation="CenterScreen" Foreground="White" WindowStyle="SingleBorderWindow" Height="800" Width="1500" HorizontalAlignment="Left" WindowState="Normal">
+
+    <Window.Resources>
+        <Storyboard x:Key="MenuOpen">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="GridMenu">
+                <EasingDoubleKeyFrame KeyTime="0" Value="60"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="200"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="MenuClose">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="GridMenu">
+                <EasingDoubleKeyFrame KeyTime="0" Value="200"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="60"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </Window.Resources>
+
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="ButtonOpenMenu">
+            <BeginStoryboard Storyboard="{StaticResource MenuOpen}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="ButtonCloseMenu">
+            <BeginStoryboard Storyboard="{StaticResource MenuClose}"/>
+        </EventTrigger>
+    </Window.Triggers>
+
+    <Grid Background="LightGray">
+        <Grid Height="70" VerticalAlignment="Top" Background="#FF90A7AE">
+            <TextBlock Text="Dokument Scanner" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="22"/>
+
+            <StackPanel VerticalAlignment="Center" Orientation="Horizontal" HorizontalAlignment="Right">
+                <materialDesign:PopupBox Margin="20" PlacementMode="BottomAndAlignRightEdges" StaysOpen="False" Foreground="White">
+                    <StackPanel Width="150">
+                        <Button Content="Indsæt dokument" Click="ButtonInsertDoc_Click"/>
+                        <Button Content="Sprog"/>
+                        <Separator/>
+                        <Button Content="Luk applikation" Click="ButtonCloseApplication_Click"/>
+                    </StackPanel>
+                </materialDesign:PopupBox>
+            </StackPanel>
+        </Grid>
+
+        <Grid x:Name="GridMenu"  Width="60" HorizontalAlignment="Left" Background="#FF5B8693" Panel.ZIndex="2">
+            <StackPanel>
+                <Grid Height="70" Background="White">
+                    <Button x:Name="ButtonCloseMenu" Width="60" Height="60" Background="{x:Null}" BorderBrush="{x:Null}" VerticalAlignment="Top" HorizontalAlignment="Right" Visibility="Collapsed" Click="ButtonCloseMenu_Click">
+                        <materialDesign:PackIcon Foreground="#FF5B8693" Kind="ArrowLeft" Width="25" Height="25"/>
+                    </Button>
+                    <Button x:Name="ButtonOpenMenu" Width="60" Height="60" Background="{x:Null}" BorderBrush="{x:Null}" VerticalAlignment="Top" HorizontalAlignment="Right" Click="ButtonOpenMenu_Click">
+                        <materialDesign:PackIcon Foreground="#FF272727" Kind="FileCancelOutline" Width="25" Height="25"/>
+                    </Button>
+                    
+
+                </Grid>
+                <ListView ScrollViewer.HorizontalScrollBarVisibility="Disabled" Foreground="#FF5B8693" Name="ListViweElements">
+                    <ListViewItem Height="60" PreviewMouseLeftButtonUp="blacklist_Click">
+                        <StackPanel Orientation="Horizontal" >
+                            <materialDesign:PackIcon x:Name="BlackListIcon" Kind="UndoVariant" Width="25" Height="25" Margin="10" VerticalAlignment="Center" Foreground="#FFB1C8CF"/>
+                            <TextBlock x:Name="BlackListTextBox" Text="Vis blacklist" VerticalAlignment="Center" Margin="20 10" Foreground="#FFB1C8CF"/>
+                          
+                        </StackPanel>
+                        
+                    </ListViewItem>
+                    <ListViewItem Height="60" PreviewMouseLeftButtonUp="Email_buttonClick">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Name="EmailIcon" Kind="EmailMinusOutline" Margin="10" Width="25" Height="25" VerticalAlignment="Center" Foreground="#FFB1C8CF" />
+                            <TextBlock Text="Email-addresser" VerticalAlignment="Center" Margin="20 10" Foreground="#FFB1C8CF"/>
+                        </StackPanel>
+                    </ListViewItem> 
+                    <ListViewItem Height="60"  PreviewMouseLeftButtonUp="Ip_buttonClick">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Name="IpIcon" Kind="Web" Width="25" Margin="10" Height="25" VerticalAlignment="Center" Foreground="#FFB1C8CF"/>
+                            <TextBlock Text="IP-addresser" VerticalAlignment="Center" Margin="20 10" Foreground="#FFB1C8CF"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem Height="60" PreviewMouseLeftButtonUp="Number_buttonClick">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Name="NumberIcon" Kind="Telephone" Width="25" Margin="10" Height="25" VerticalAlignment="Center" Foreground="#FFB1C8CF"/>
+                            <TextBlock Text="Telefonnummre" VerticalAlignment="Center" Margin="20 10" Foreground="#FFB1C8CF"/>
+                        </StackPanel>
+                    </ListViewItem>
+                </ListView>
+            </StackPanel>
+        </Grid>
+        <Grid x:Name="GridWithData" HorizontalAlignment="Left" Height="694" Margin="65,75,0,0" VerticalAlignment="Top" Width="1427">
+            <Grid x:Name="BlackListGrid" HorizontalAlignment="Left" Height="530" Margin="10,10,0,0" VerticalAlignment="Top" Width="420">
+                <DataGrid x:Name="BlackListData" HorizontalAlignment="Left" Height="530" VerticalAlignment="Top" Width="420" Visibility="Hidden" AutoGenerateColumns="False" SelectionChanged="BlackListData_SelectionChanged">
+                    <DataGrid.ContextMenu>
+                        <ContextMenu>
+                            <MenuItem Header="Unblacklist word" Click="blacklist_Rightclick"></MenuItem>
+                        </ContextMenu>
+                    </DataGrid.ContextMenu>
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Keyword" Binding="{Binding }"></DataGridTextColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+            <Grid x:Name="DisplayIdentifierGrid" HorizontalAlignment="Left" Height="530" Margin="435,10,0,0" VerticalAlignment="Top" Width="495">
+                <DataGrid x:Name="DisplayIdentifierDataGrid" HorizontalAlignment="Left" Height="530" Margin="10,0,0,0" VerticalAlignment="Top" Width="485" AutoGenerateColumns="False" IsReadOnly="True" CanUserResizeColumns="False" ItemsSource="{Binding}" SelectionUnit="FullRow" SelectionMode="Extended" SelectedItem="{Binding Path=SelectedIdetifier, Mode=OneWay}" SelectionChanged="DisplayIdentifierDataGrid_SelectionChanged" >
+                    
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Type" Binding="{Binding Type}" Width="145" />
+                        <DataGridTextColumn Header="Identifier" Binding="{Binding identifier}" Width="215"/>
+                        <DataGridTextColumn Header="Occurences" Binding="{Binding Occurences}" Width="125"/>
+                    </DataGrid.Columns>
+                    <DataGrid.ContextMenu>
+                        <ContextMenu>
+                            <MenuItem Header="Blacklist word" Click="IdentifireListRight_Click"></MenuItem>
+                        </ContextMenu>
+                    </DataGrid.ContextMenu>
+                </DataGrid>
+            </Grid>
+                
+            <Grid x:Name="DataDisplayPathGrid" HorizontalAlignment="Left" Height="530" Margin="935,10,0,0" VerticalAlignment="Top" Width="492" RenderTransformOrigin="0.52,0.485">
+                <DataGrid HorizontalAlignment="Left" Height="530" Margin="10,0,0,0" VerticalAlignment="Top" Width="472" Name="DataGridDisplayPaths" ItemsSource="{Binding}" AutoGenerateColumns="False" IsReadOnly="True" CanUserResizeColumns="False">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Paths" Binding="{Binding}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>

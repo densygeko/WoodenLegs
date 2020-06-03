@@ -1,0 +1,19 @@
+<paths>
+  <pdfPaths>
+    <pdfpath>C:\Users\Uth\Desktop\aaPlasticLegsData\Ny mappe\thingy\PDF2.pdf</pdfpath>
+    <pdfpath>C:\Users\Uth\Desktop\aaPlasticLegsData\Ny mappe (2)\sutff\PDF1.pdf</pdfpath>
+  </pdfPaths>
+  <xmlPaths>
+    <xmlPaths>C:\Users\Uth\Desktop\aaPlasticLegsData\filepaths.xml</xmlPaths>
+  </xmlPaths>
+  <txtpaths>
+    <txtpath>C:\Users\Uth\Desktop\aaPlasticLegsData\mashse\test2.txt</txtpath>
+    <txtpath>C:\Users\Uth\Desktop\aaPlasticLegsData\mashse\secret\test3.txt</txtpath>
+    <txtpath>C:\Users\Uth\Desktop\aaPlasticLegsData\mashse\secret\test4.txt</txtpath>
+    <txtpath>C:\Users\Uth\Desktop\aaPlasticLegsData\Ny mappe\thingy\test1.txt</txtpath>
+  </txtpaths>
+  <csvpaths>
+    <csvpath>C:\Users\Uth\Desktop\aaPlasticLegsData\Ny mappe\csv1.csv</csvpath>
+    <csvpath>C:\Users\Uth\Desktop\aaPlasticLegsData\Ny mappe (2)\csv2.csv</csvpath>
+  </csvpaths>
+</paths>
